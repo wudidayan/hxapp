@@ -142,32 +142,29 @@
     timeView = [[UIView alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height)];
     timeView.backgroundColor = [UIColor whiteColor];
     
-    labelTitle = [[UILabel alloc]initWithFrame:CGRectMake(100, 0, 200, 30)];
-    labelTitle.text = @"选择查询的起始时间";
-    
-    labelStartTime = [[UILabel alloc]initWithFrame:CGRectMake(10, 40, 200, 30)];
-    labelStartTime.text = @"开始时间";
-    
-    labelEndTime = [[UILabel alloc]initWithFrame:CGRectMake(10, 80, 200, 30)];
-    labelEndTime.text = @"结束时间";
-    
-    startBtn = [[UIButton alloc]initWithFrame:CGRectMake(200, 40, 120, 30)];
-    startBtn.backgroundColor = [UIColor redColor];
-    [startBtn setTitle:@"选择开始时间" forState:UIControlStateNormal];
+    startBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 20, 140, 30)];
+    startBtn.backgroundColor = [UIColor darkGrayColor];
+    [startBtn setTitle:@"请选择开始时间" forState:UIControlStateNormal];
     [startBtn addTarget:self action:@selector(startBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    endBtn = [[UIButton alloc]initWithFrame:CGRectMake(200, 80, 120, 30)];
-    endBtn.backgroundColor = [UIColor redColor];
-    [endBtn setTitle:@"选择结束时间" forState:UIControlStateNormal];
+    labelStartTime = [[UILabel alloc]initWithFrame:CGRectMake(170, 20, 140, 30)];
+    labelStartTime.text = @"开始时间";
+    
+    endBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 70, 140, 30)];
+    endBtn.backgroundColor = [UIColor darkGrayColor];
+    [endBtn setTitle:@"请选择结束时间" forState:UIControlStateNormal];
     [endBtn addTarget:self action:@selector(endBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    sure = [[UIButton alloc]initWithFrame:CGRectMake(10, 150, 100, 30)];
-    sure.backgroundColor = [UIColor redColor];
+    labelEndTime = [[UILabel alloc]initWithFrame:CGRectMake(170, 70, 140, 30)];
+    labelEndTime.text = @"结束时间";
+    
+    sure = [[UIButton alloc]initWithFrame:CGRectMake(10, 120, 140, 30)];
+    sure.backgroundColor = [UIColor darkGrayColor];
     [sure setTitle:@"确认" forState:UIControlStateNormal];
     [sure addTarget:self action:@selector(sure:) forControlEvents:UIControlEventTouchUpInside];
     
-    exit = [[UIButton alloc]initWithFrame:CGRectMake(150, 150, 100, 30)];
-    exit.backgroundColor = [UIColor redColor];
+    exit = [[UIButton alloc]initWithFrame:CGRectMake(170, 120, 140, 30)];
+    exit.backgroundColor = [UIColor darkGrayColor];
     [exit setTitle:@"取消" forState:UIControlStateNormal];
     [exit addTarget:self action:@selector(exit:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -175,7 +172,6 @@
     [timeView addSubview:endBtn];
     [timeView addSubview:sure];
     [timeView addSubview:exit];
-    [timeView addSubview:labelTitle];
     [timeView addSubview:labelStartTime];
     [timeView addSubview:labelEndTime];
     [self.view addSubview:timeView];
