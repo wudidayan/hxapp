@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TDAPPCenterViewController">
+            <connections>
+                <outlet property="contentScroll" destination="jgD-IU-IH2" id="TeT-CC-pFm"/>
+                <outlet property="tittleScroll" destination="amn-jv-jcY" id="g8p-PZ-Vx7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="tapArray" destination="vSD-6c-z50" id="TRE-BX-Mcs"/>
+                <outletCollection property="tapArray" destination="npZ-Kk-ewl" id="O00-If-TgP"/>
+                <outletCollection property="tapArray" destination="BpE-5L-J01" id="pSH-tD-WSL"/>
+                <outletCollection property="tapArray" destination="SYo-Yo-4mD" id="555-GP-uFj"/>
+                <outletCollection property="tapArray" destination="HMS-n1-Fc3" id="pPc-qk-kIA"/>
+                <outletCollection property="tapArray" destination="NT9-x1-jDy" id="fQ6-qx-CpD"/>
+                <outletCollection property="tapArray" destination="3Cu-Yk-T6r" id="YVN-oH-j9C"/>
+                <outletCollection property="tapArray" destination="OIA-es-I7M" id="blk-vc-FpJ"/>
+                <outletCollection property="tapArray" destination="G9m-mW-6ms" id="ON7-E4-sn8"/>
+                <outletCollection property="tapArray" destination="Qbu-Ib-dND" id="8vg-ip-lFX"/>
+                <outletCollection property="tapArray" destination="sX0-VG-2J3" id="m6u-WP-MFp"/>
+                <outletCollection property="tapArray" destination="b15-XR-yiC" id="mOm-QL-yxG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="amn-jv-jcY">
+                    <rect key="frame" x="0.0" y="64" width="320" height="180"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </scrollView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jgD-IU-IH2">
+                    <rect key="frame" x="0.0" y="244" width="320" height="281"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="15N-qp-0G0">
+                            <rect key="frame" x="4" y="9" width="104" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="手机收款">
+                                <color key="titleColor" red="0.49803921580314636" green="0.49803921580314636" blue="0.49803921580314636" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="Stp-L3-rAj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5qw-Rc-dnW">
+                            <rect key="frame" x="107" y="9" width="106" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="提现">
+                                <color key="titleColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="1f6-hp-Bvn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G2F-U6-IPD">
+                            <rect key="frame" x="212" y="8" width="106" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="手机充值">
+                                <color key="titleColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="DYu-sU-Hyy"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZoL-2s-y3g">
+                            <rect key="frame" x="4" y="97" width="104" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="信用卡还款">
+                                <color key="titleColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="kK0-rH-jSC"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NYe-LT-j4U">
+                            <rect key="frame" x="109" y="97" width="103" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="余额查询">
+                                <color key="titleColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="N4D-5q-lvn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9mN-FH-8yu">
+                            <rect key="frame" x="213" y="97" width="104" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="生活缴费">
+                                <color key="titleColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="hGF-Mk-e5x"/>
+                            </connections>
+                        </button>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="service_jiudian" id="bmN-38-tfd">
+                            <rect key="frame" x="240" y="102" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="NT9-x1-jDy" appends="YES" id="ZcC-Uk-k1b"/>
+                            </connections>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="service_zhuanzhang-1" id="hEx-1s-Hsu">
+                            <rect key="frame" x="135" y="20" width="50" height="39"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="npZ-Kk-ewl" appends="YES" id="EF9-K1-ibg"/>
+                            </connections>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="service_tuanduiyou" id="7dQ-gO-k17">
+                            <rect key="frame" x="136" y="101" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="HMS-n1-Fc3" appends="YES" id="78h-nE-Gr9"/>
+                            </connections>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="service_tuan" id="ozc-CX-GS9">
+                            <rect key="frame" x="32" y="102" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="SYo-Yo-4mD" appends="YES" id="ZWX-C5-wab"/>
+                            </connections>
+                        </imageView>
+                        <view alpha="0.20000000000000001" contentMode="scaleToFill" id="lu8-Nt-slH">
+                            <rect key="frame" x="3" y="184" width="315" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconfont_shoukuan" id="Ktk-cc-v5A">
+                            <rect key="frame" x="25" y="9" width="64" height="52"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="vSD-6c-z50" appends="YES" id="ehn-2R-D2c"/>
+                            </connections>
+                        </imageView>
+                        <view alpha="0.20000000000000001" contentMode="scaleToFill" id="qu7-GV-gPc">
+                            <rect key="frame" x="3" y="96" width="315" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view alpha="0.20000000000000001" contentMode="scaleToFill" id="FM7-37-N5I">
+                            <rect key="frame" x="3" y="8" width="315" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view alpha="0.20000000000000001" contentMode="scaleToFill" id="O6a-JV-95h">
+                            <rect key="frame" x="317" y="7" width="1" height="266"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view alpha="0.20000000000000001" contentMode="scaleToFill" id="oNV-xa-cwL">
+                            <rect key="frame" x="212" y="8" width="1" height="265"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view alpha="0.20000000000000001" contentMode="scaleToFill" id="1Ia-Ur-8aM">
+                            <rect key="frame" x="3" y="8" width="1" height="265"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view alpha="0.20000000298023224" contentMode="scaleToFill" id="t8n-ty-JBu">
+                            <rect key="frame" x="3" y="272" width="315" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view alpha="0.20000000000000001" contentMode="scaleToFill" id="s54-Kx-YLR">
+                            <rect key="frame" x="108" y="9" width="1" height="263"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xqv-c1-EQu">
+                            <rect key="frame" x="4" y="185" width="104" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="商城">
+                                <color key="titleColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="Eej-0X-Jd7"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6SE-PQ-JbB">
+                            <rect key="frame" x="109" y="185" width="103" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="未开启">
+                                <color key="titleColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="U5I-Zg-gqD"/>
+                            </connections>
+                        </button>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="service_space" id="f8K-0m-ZRJ">
+                            <rect key="frame" x="135" y="193" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                        </imageView>
+                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="akS-6N-MdH">
+                            <rect key="frame" x="213" y="185" width="104" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="未开启">
+                                <color key="titleColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="UCr-Lh-nJQ"/>
+                            </connections>
+                        </button>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="service_space" id="JoY-rM-qHb">
+                            <rect key="frame" x="240" y="192" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="service_menpiao" id="DUI-m2-cOq">
+                            <rect key="frame" x="32" y="192" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="3Cu-Yk-T6r" appends="YES" id="IUL-2h-uxq"/>
+                            </connections>
+                        </imageView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="service_shouji" id="Ofi-Lm-Mu5">
+                            <rect key="frame" x="240" y="15" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="BpE-5L-J01" appends="YES" id="gcj-os-jg3"/>
+                            </connections>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="243" y="191"/>
+        </view>
+        <tapGestureRecognizer id="vSD-6c-z50">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="pfB-GV-ld5"/>
+                <outlet property="delegate" destination="-1" id="dr6-Jh-dIA"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="npZ-Kk-ewl">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="Vsf-FG-0bB"/>
+                <outlet property="delegate" destination="-1" id="Vz5-TC-CrO"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="BpE-5L-J01">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="bps-XC-Rpe"/>
+                <outlet property="delegate" destination="-1" id="xub-HY-Kut"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="SYo-Yo-4mD">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="0Qy-Zu-M9d"/>
+                <outlet property="delegate" destination="-1" id="Cyt-Ih-lui"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="HMS-n1-Fc3">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="3c9-de-tgD"/>
+                <outlet property="delegate" destination="-1" id="QNw-eS-Sda"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="NT9-x1-jDy">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="pC6-8Z-FbN"/>
+                <outlet property="delegate" destination="-1" id="zzJ-eI-XK9"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="3Cu-Yk-T6r">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="cba-Ur-dfj"/>
+                <outlet property="delegate" destination="-1" id="B81-U4-bXF"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="OIA-es-I7M">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="nE9-jd-Wi2"/>
+                <outlet property="delegate" destination="-1" id="XNZ-S2-f9G"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="G9m-mW-6ms">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="Ega-0q-NSw"/>
+                <outlet property="delegate" destination="-1" id="SnT-yJ-03K"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="Qbu-Ib-dND">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="BG1-tA-kCr"/>
+                <outlet property="delegate" destination="-1" id="FS4-aM-gVE"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="sX0-VG-2J3">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="4pM-Mq-eeC"/>
+                <outlet property="delegate" destination="-1" id="qbp-Yl-5TA"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="b15-XR-yiC">
+            <connections>
+                <action selector="clickTap:" destination="-1" id="ybb-xl-Ktt"/>
+                <outlet property="delegate" destination="-1" id="cCP-nF-QBb"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="iconfont_shoukuan" width="42" height="42"/>
+        <image name="service_jiudian" width="42" height="42"/>
+        <image name="service_menpiao" width="42" height="42"/>
+        <image name="service_shouji" width="42" height="42"/>
+        <image name="service_space" width="42" height="42"/>
+        <image name="service_tuan" width="42" height="42"/>
+        <image name="service_tuanduiyou" width="42" height="42"/>
+        <image name="service_zhuanzhang-1" width="42" height="42"/>
+    </resources>
+</document>

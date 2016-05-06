@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C7E32AE8-391C-4AD0-8738-E4638AAA1107</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0657876a-dca0-b345-8e60-d9f43b4ebf49++3093</key>
+		<string>https://192.168.0.250/svn/products/PJ-260/src/trunk/CubeNewsIphone/CubeNewsIphone/SDWebImage</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0657876a-dca0-b345-8e60-d9f43b4ebf49++3093</key>
+		<string>SDWebImage/</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>0657876a-dca0-b345-8e60-d9f43b4ebf49++3093</key>
+		<string>https://192.168.0.250/svn/products</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://192.168.0.250/svn/products/PJ-260/src/trunk/CubeNewsIphone/CubeNewsIphone/SDWebImage</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0657876a-dca0-b345-8e60-d9f43b4ebf49++3093</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0657876a-dca0-b345-8e60-d9f43b4ebf49++3093</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SDWebImage</string>
+		</dict>
+	</array>
+</dict>
+</plist>

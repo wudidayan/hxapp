@@ -1,0 +1,38 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#import "MBProgressHUD.h"
+#import "TDHttpEngine.h"
+#import "Toast+UIView.h"
+#import "NSString+Validate.h"
+#import "NSString+Regex.h"
+
+#import "TDHeader.h"
+#import "TDParameterHeader.h"
+#import "TDControllerManager.h"
+
+#define SVFS self.view.frame.size
+#define SVFO self.view.frame.origin
+
+#define CUST_MOBILE         @"custMobile"
+
+#define CITIYLIST           @"CITIYLIST"  //保存城市数组的key
+#define PASSWORD_KEY        @"(?!^(\\d+|[a-zA-Z]+|[~!@#$%^&*?`()_=+|\\[\\]{}/\\;’:”.<>-]+)$)^[\\w~!@#\\$%\\^\\&\\*\\?`\\(\\)_=\\+\\|\\[\\]\\{}/\\\\;’:”.<>-]+$"   
+
+#endif
+
+
+
+
