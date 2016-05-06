@@ -32,8 +32,8 @@
     [super viewDidLoad];
 //    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:31/255.0f green:121/255.0f blue:132/255.0f alpha:1.0f];
     
-    _cellTextArray = @[@"联系客服", @"版本更新", @"关于我们"];
-    _cellImageArray = @[@"shanghu_kefu", @"shanghu_renew", @"shanghu_shiming"];
+    _cellTextArray = @[@"联系客服", @"当前版本", @"关于我们"];
+    _cellImageArray = @[@"shanghu_kefu", @"shanghu_renew", @"shanghu_aboutmine"];
     self.tableView.tableFooterView = [[UIView alloc] init];
     
 }

@@ -1,5 +1,5 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "449aa43c-242c-4c8c-b799-b46af14551a4++7827+++C767843",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "06D260DD8B2E9EED94393A3E11AD7FAE7C6A79A5+++FDDC0A6",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++8422685" : {
 
@@ -10,19 +10,19 @@
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++04572BE" : {
 
     },
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++CE08360" : {
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++C680068" : {
 
     },
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++6727AF9" : {
 
     },
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++C680068" : {
+    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++49403B3" : {
 
     },
     "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++4F76FB1" : {
 
     },
-    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++49403B3" : {
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++CE08360" : {
 
     },
     "449aa43c-242c-4c8c-b799-b46af14551a4++7827+++C767843" : {
@@ -52,22 +52,25 @@
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++64F769D" : {
 
     },
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++6F31A17" : {
+    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++9517CA0" : {
 
     },
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++4E4B188" : {
 
     },
-    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++3A6FB30" : {
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++6F31A17" : {
 
     },
-    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++9517CA0" : {
+    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++3A6FB30" : {
 
     },
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++1F37857" : {
 
     },
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++30F6130" : {
+
+    },
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++AC5DA44" : {
 
     },
     "449aa43c-242c-4c8c-b799-b46af14551a4++7827+++DA4512F" : {
@@ -78,20 +81,18 @@
     },
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++0C0F92B" : {
 
-    },
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++AC5DA44" : {
-
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++8422685" : 0,
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++C4184AA" : 0,
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++04572BE" : 0,
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++CE08360" : 0,
-    "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++6727AF9" : 0,
     "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++C680068" : 0,
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++4F76FB1" : 0,
+    "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++6727AF9" : 0,
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++49403B3" : 0,
+    "06D260DD8B2E9EED94393A3E11AD7FAE7C6A79A5+++FDDC0A6" : 0,
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++4F76FB1" : 0,
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++CE08360" : 0,
     "449aa43c-242c-4c8c-b799-b46af14551a4++7827+++C767843" : 0,
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++70B1E3F" : 0,
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++40E4114" : 0,
@@ -101,27 +102,28 @@
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++AC51327" : 0,
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++DDDE053" : 0,
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++64F769D" : 0,
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++6F31A17" : 0,
-    "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++4E4B188" : 0,
-    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++3A6FB30" : 0,
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++9517CA0" : 0,
+    "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++4E4B188" : 0,
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++6F31A17" : 0,
+    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++3A6FB30" : 0,
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++1F37857" : 0,
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++30F6130" : 0,
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++AC5DA44" : 0,
     "449aa43c-242c-4c8c-b799-b46af14551a4++7827+++DA4512F" : 0,
     "449aa43c-242c-4c8c-b799-b46af14551a4++7827+++DBFF852" : 0,
-    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++0C0F92B" : 0,
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++AC5DA44" : 0
+    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++0C0F92B" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C7E32AE8-391C-4AD0-8738-E4638AAA1107",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++8422685" : "%E6%BB%A1e%E5%88%B7%E6%BA%90%E7%A0%81\/TFB\/tools\/SDWebImage\/",
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++C4184AA" : "%E6%B1%87%E9%91%ABFinal%20\/TFB\/tools\/SDWebImage\/",
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++04572BE" : "%E6%BB%A1e%E5%88%B7%E6%BA%90%E7%A0%81\/TFB\/tools\/Encrypt\/MD5\/",
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++CE08360" : "%E6%B1%87%E9%91%AB%202\/TFB\/tools\/MBProgressHUD\/",
-    "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++6727AF9" : "%E6%B1%87%E9%91%ABwithoutTDK%20\/TFB\/tools\/SDWebImage\/",
     "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++C680068" : "%E6%B1%87%E9%91%AB%20\/TFB\/tools\/MBProgressHUD\/",
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++4F76FB1" : "%E6%B1%87%E9%91%AB\/TFB\/tools\/Toast\/",
+    "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++6727AF9" : "%E6%B1%87%E9%91%ABwithoutTDK%20\/TFB\/tools\/SDWebImage\/",
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++49403B3" : "%E6%BB%A1e%E5%88%B7%E6%BA%90%E7%A0%81\/TFB\/tools\/MKNetworkKitL\/",
+    "06D260DD8B2E9EED94393A3E11AD7FAE7C6A79A5+++FDDC0A6" : "hxapp\/",
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++4F76FB1" : "%E6%B1%87%E9%91%AB\/TFB\/tools\/Toast\/",
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++CE08360" : "%E6%B1%87%E9%91%AB%202\/TFB\/tools\/MBProgressHUD\/",
     "449aa43c-242c-4c8c-b799-b46af14551a4++7827+++C767843" : "%E6%B1%87%E9%91%ABFinal%20\/",
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++70B1E3F" : "%E6%B1%87%E9%91%AB%20\/TFB\/tools\/MKNetworkKitL\/",
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++40E4114" : "%E6%BB%A1e%E5%88%B7%E6%BA%90%E7%A0%81%203\/TFB\/tools\/SDWebImage\/",
@@ -131,16 +133,16 @@
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++AC51327" : "%E6%B1%87%E9%91%ABwithoutTDKV2%20\/",
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++DDDE053" : "%E6%B1%87%E9%91%AB%20\/TFB\/tools\/SDWebImage\/",
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++64F769D" : "%E6%B1%87%E9%91%AB\/TFB\/tools\/SDWebImage\/",
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++6F31A17" : "%E6%B1%87%E9%91%AB%202\/TFB\/tools\/JSONKit\/",
-    "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++4E4B188" : "%E6%B1%87%E9%91%ABwithoutTDKV2%20\/TFB\/tools\/SDWebImage\/",
-    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++3A6FB30" : "%E6%B1%87%E9%91%ABwithoutTDK%20\/TFB\/tools\/MKNetworkKitL\/",
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++9517CA0" : "%E6%B1%87%E9%91%AB%202\/TFB\/tools\/Toast\/",
+    "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++4E4B188" : "%E6%B1%87%E9%91%ABwithoutTDKV2%20\/TFB\/tools\/SDWebImage\/",
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++6F31A17" : "%E6%B1%87%E9%91%AB%202\/TFB\/tools\/JSONKit\/",
+    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++3A6FB30" : "%E6%B1%87%E9%91%ABwithoutTDK%20\/TFB\/tools\/MKNetworkKitL\/",
     "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++1F37857" : "%E6%B1%87%E9%91%AB%202\/TFB\/tools\/SDWebImage\/",
     "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++30F6130" : "%E6%B1%87%E9%91%AB%20\/TFB\/tools\/JSONKit\/",
+    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++AC5DA44" : "%E6%B1%87%E9%91%AB%20\/TFB\/tools\/Toast\/",
     "449aa43c-242c-4c8c-b799-b46af14551a4++7827+++DA4512F" : "%E6%BB%A1e%E5%88%B7%E6%BA%90%E7%A0%81\/",
     "449aa43c-242c-4c8c-b799-b46af14551a4++7827+++DBFF852" : "%E6%B1%87%E9%91%AB%202\/",
-    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++0C0F92B" : "%E6%BB%A1e%E5%88%B7%E6%BA%90%E7%A0%81%203\/TFB\/tools\/Toast\/",
-    "449aa43c-242c-4c8c-b799-b46af14551a4++3893+++AC5DA44" : "%E6%B1%87%E9%91%AB%20\/TFB\/tools\/Toast\/"
+    "449aa43c-242c-4c8c-b799-b46af14551a4++6452+++0C0F92B" : "%E6%BB%A1e%E5%88%B7%E6%BA%90%E7%A0%81%203\/TFB\/tools\/Toast\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "TFB",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -185,6 +187,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.0.250\/svn\/products",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0657876a-dca0-b345-8e60-d9f43b4ebf49++3093+++DDDE053"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/wudidayan\/hxapp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "06D260DD8B2E9EED94393A3E11AD7FAE7C6A79A5+++FDDC0A6"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.0.232:3691\/tdshome",

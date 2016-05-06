@@ -1754,8 +1754,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1780,7 +1780,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huiXinkeji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d03effdf-960f-4cc9-acb1-528aae7d6b46";
+				PROVISIONING_PROFILE = "2cad2f4f-0be8-4792-b182-b69b1d2e991f";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1791,8 +1791,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1817,7 +1817,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huiXinkeji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d03effdf-960f-4cc9-acb1-528aae7d6b46";
+				PROVISIONING_PROFILE = "2cad2f4f-0be8-4792-b182-b69b1d2e991f";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

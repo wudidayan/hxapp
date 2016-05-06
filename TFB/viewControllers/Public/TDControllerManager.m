@@ -68,7 +68,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TDControllerManager)
     convenientVC.title = @"首页";
     convenientVC.tabBarItem.image = [UIImage imageNamed:@"app"];
     convenientVC.tabBarItem.selectedImage = [UIImage imageNamed:@"app_blue"];
-    convenientVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    convenientVC.tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0);
     UINavigationController *convenientNav = [[UINavigationController alloc] initWithRootViewController:convenientVC];
     
     [convenientNav.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
@@ -77,7 +77,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TDControllerManager)
     finaceVC.title = @"更多";
     finaceVC.tabBarItem.image = [UIImage imageNamed:@"more"];
     finaceVC.tabBarItem.selectedImage = [UIImage imageNamed:@"more_blue"];
-    finaceVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    finaceVC.tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0);
     UINavigationController *finaceNav = [[UINavigationController alloc] initWithRootViewController:finaceVC];
     [finaceNav.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     
@@ -85,7 +85,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TDControllerManager)
     businessVC.tabBarItem.image = [UIImage imageNamed:@"pe"];
     businessVC.title = @"我的";
     businessVC.tabBarItem.selectedImage = [UIImage imageNamed:@"pe_blue"];
-    businessVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    businessVC.tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0);
     UINavigationController *businessNav = [[UINavigationController alloc] initWithRootViewController:businessVC];
     [businessNav.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     

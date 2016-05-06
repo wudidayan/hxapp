@@ -29,9 +29,9 @@
     self.bgView.layer.cornerRadius = 5.0;
 
 //    self.tatolLabel.text = [NSString stringWithFormat:@"%.2f",[TDBalanceInfo balanceDefault].acBal.floatValue/100];
-    self.checkDone.text = [NSString stringWithFormat:@"已审核金额:%.2f",[TDBalanceInfo balanceDefault].acT1AP.floatValue/100];
-    self.notCheck.text = [NSString stringWithFormat:@"未审核金额:%.2f",[TDBalanceInfo balanceDefault].acT1UNA.floatValue/100];
-    self.checkFail.text = [NSString stringWithFormat:@"审核不通过金额:%.2f",[TDBalanceInfo balanceDefault].acT1AUNP.floatValue/100];
+    self.checkDone.text = [NSString stringWithFormat:@"%.2f 元",[TDBalanceInfo balanceDefault].acT1AP.floatValue/100];
+    self.notCheck.text = [NSString stringWithFormat:@"%.2f 元",[TDBalanceInfo balanceDefault].acT1UNA.floatValue/100];
+    self.checkFail.text = [NSString stringWithFormat:@"%.2f 元",[TDBalanceInfo balanceDefault].acT1AUNP.floatValue/100];
 //    self.AlreadyLabel.text = [NSString stringWithFormat:@"已结算金额:%.2f",[TDBalanceInfo balanceDefault].acT1Y.floatValue/100];
 //    self.notSetabel.text = [NSString stringWithFormat:@"未结算金额:%.2f",[TDBalanceInfo balanceDefault].acT0.floatValue/100];
 //    self.trialLabel.text = [NSString stringWithFormat:@"待审金额:%.2f",[TDBalanceInfo balanceDefault].acT0.floatValue/100];
