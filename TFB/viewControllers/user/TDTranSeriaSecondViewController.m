@@ -381,6 +381,7 @@
     cell.timeLabel.text = tranSerial.ordtime;
     cell.stateLabel.text = tranSerial.ordMessage ;
     cell.tranAmtLabel.text = [NSString stringWithFormat:@"%.2f",tranSerial.ordamt.floatValue/100];
+    cell.cardNoLabel.text = @"";
     
     return cell;
 }

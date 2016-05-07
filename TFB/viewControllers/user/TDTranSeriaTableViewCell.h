@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tranAmtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cardNoLabel;
 
 @end
