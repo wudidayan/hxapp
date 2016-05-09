@@ -9,22 +9,27 @@
 
 #ifndef TFB_TDParameterHeader_h
 #define TFB_TDParameterHeader_h
-
-//==================域名================//
-
-//#define HOST @"http://103.47.137.51:8098/mpcctp/"  //生产环境
-#define HOST @"http://103.47.137.53:8098/mpcctp/"  // 测试服务器
-//#define HOST @"http://192.168.0.232:8098/mpcctp/"      //标准版
-//#define HOST @"http://210.22.153.30:8098/mpcctp/"      //标准版外网
-
 #define ZMK @"11111111111111110123456789ABCDEF"
-//===================end================//
+
+#define DEBUG_VER     1
+#define APPSTORE_VER  1
+
+#if APPSTORE_VER
+#define SCAN_CARD_LIC @"129AE5220F8D531981E7" // AppStore版，对应文件名："129AE5220F8D531981E7.lic"
+#else
+#define SCAN_CARD_LIC @"6C9727E21359B65426F9" // 个人版，对应文件名："6C9727E21359B65426F9.lic"
+#endif
+
+#if DEBUG_VER
+#define HOST @"http://103.47.137.53:8098/mpcctp/"  // 测试服务器
+#else
+#define HOST @"http://103.47.137.51:8098/mpcctp/"  // 生产环境
+#endif
 
 //=================OEM_参数控制===========//
 #define APP_NAME            @"满e刷"            //应用名称
 #define APP_SERVICE_PHONE   @"021-65909780"     //客服电话
 #define APP_CALL_PHOME      @"021-65909780"
-//021-65909780
 
 #define YZM_NUM_CODE        6                   //验证码位数
 #define YZM_TIME_CODE       60                  //验证码时间

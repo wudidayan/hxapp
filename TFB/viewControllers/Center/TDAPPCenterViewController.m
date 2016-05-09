@@ -79,8 +79,11 @@
     _tittleScroll.clipsToBounds = YES;
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(createAnmationWithImageView:) userInfo:array repeats:YES];
     
-    
+#if APPSTORE_VER
+    // AppStore版本不检查更新
+#else
     [self upDataApp];
+#endif
     
     if ([[TDUser defaultUser].custStatus isEqualToString:@"0"] ||[[TDUser defaultUser].custStatus isEqualToString:@"3"]) {
         UIAlertView * AL = [[UIAlertView alloc]initWithTitle:nil message:@"尚未实名认证，请认证" delegate:self cancelButtonTitle:nil otherButtonTitles:@"去认证", nil];

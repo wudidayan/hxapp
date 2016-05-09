@@ -128,6 +128,9 @@
             break;
         case 1:
         {
+        #if APPSTORE_VER
+            // AppStore版本不检查更新
+        #else
             //版本更新
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             [TDHttpEngine requestForUpDataAppWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *dic) {
@@ -163,7 +166,7 @@
                     [self.view makeToast:msg duration:2.0f position:@"center"];
                 }
             }];
-
+        #endif // #if APPSTORE_VER
         }
             break;
         case 2:

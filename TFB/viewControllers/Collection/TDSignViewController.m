@@ -155,7 +155,7 @@
                     BankCardCameraViewController *cameraView = [[BankCardCameraViewController alloc]init];
                     cameraView.only = self.only;
                     cameraView.payInfo = _payInfo;
-                    cameraView.nsUserID = @"6C9727E21359B65426F9"; //授权码
+                    cameraView.nsUserID = SCAN_CARD_LIC; //授权码
                     [self presentViewController:cameraView animated:YES completion:nil];
                     
                 }else{
