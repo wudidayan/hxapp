@@ -10,6 +10,8 @@
 
 @interface TDAboutMineViewController : TDBaseViewController
 @property (weak, nonatomic) IBOutlet UILabel *verLabel;
+@property (weak, nonatomic) IBOutlet UILabel *appVerDesc;
+@property (weak, nonatomic) IBOutlet UILabel *servicePhone;
 - (IBAction)agreementBtnClick:(id)sender;
 
 @end

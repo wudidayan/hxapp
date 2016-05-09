@@ -20,7 +20,7 @@
 //    [self requestAgreement];
     [self backButton];
     UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    NSString *path = @"http://103.47.137.53:8899/pay/test/agreement.html";
+    NSString *path = AGREEMENT_URL;
     NSURL *url = [[NSURL alloc] initWithString:path];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
     [self.view addSubview:webView];

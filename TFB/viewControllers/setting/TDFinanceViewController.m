@@ -238,7 +238,7 @@
 
 - (void)share
 {
-    NSArray *activityItems = [[NSArray alloc]initWithObjects:@"满e刷", nil];
+    NSArray *activityItems = [[NSArray alloc]initWithObjects:APP_NAME, nil];
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:Nil];
     UIActivityViewControllerCompletionHandler myBlock = ^(NSString *activityType, BOOL completed) {

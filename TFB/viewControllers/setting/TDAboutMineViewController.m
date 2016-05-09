@@ -18,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"关于我们";
+    NSString *verStr = [NSString stringWithFormat:@"%@（V%@）",
+                        APP_NAME, [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
+    self.appVerDesc.text = verStr;
+    self.servicePhone.text = APP_SERVICE_PHONE;
     [self backButton];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }

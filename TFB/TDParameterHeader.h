@@ -12,7 +12,7 @@
 #define ZMK @"11111111111111110123456789ABCDEF"
 
 #define DEBUG_VER     1
-#define APPSTORE_VER  1
+#define APPSTORE_VER  0
 
 #if APPSTORE_VER
 #define SCAN_CARD_LIC @"129AE5220F8D531981E7" // AppStore版，对应文件名："129AE5220F8D531981E7.lic"
@@ -22,8 +22,10 @@
 
 #if DEBUG_VER
 #define HOST @"http://103.47.137.53:8098/mpcctp/"  // 测试服务器
+#define AGREEMENT_URL @"http://103.47.137.53:8899/pay/test/agreement.html" // 服务协议地址
 #else
 #define HOST @"http://103.47.137.51:8098/mpcctp/"  // 生产环境
+#define AGREEMENT_URL @"http://103.47.137.51:8899/pay/test/agreement.html" // 服务协议地址
 #endif
 
 //=================OEM_参数控制===========//

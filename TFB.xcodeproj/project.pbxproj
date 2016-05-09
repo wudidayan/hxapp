@@ -1380,7 +1380,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TD;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = TD;
 				TargetAttributes = {
 					18A1EED71AB28800005A3523 = {
@@ -1690,8 +1690,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1709,7 +1709,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "04810178-d7a2-4def-9094-880f69fd7a55";
+				PROVISIONING_PROFILE = "2cad2f4f-0be8-4792-b182-b69b1d2e991f";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1730,8 +1730,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1742,7 +1742,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PROVISIONING_PROFILE = "04810178-d7a2-4def-9094-880f69fd7a55";
+				PROVISIONING_PROFILE = "2cad2f4f-0be8-4792-b182-b69b1d2e991f";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
