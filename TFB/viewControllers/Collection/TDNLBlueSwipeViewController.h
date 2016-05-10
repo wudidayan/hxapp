@@ -13,6 +13,7 @@
 @interface TDNLBlueSwipeViewController : TDBaseViewController <NLDeviceEventListener,NLAudioPortListener,NLEmvControllerListener>
 
 @property (nonatomic, strong) NSString *payMoney;
+@property (nonatomic, assign) NSInteger NLDevWithPinKey;
 @property (nonatomic, strong) TDPayInfo * payInfo;
 @property (nonatomic, assign) HFBNewLanPayType hfbNewLandPayType;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;

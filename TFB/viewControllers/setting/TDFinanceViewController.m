@@ -101,7 +101,7 @@
     if (indexPath.row == 1) {
         UILabel *phoneNum = [[UILabel alloc] init];
         phoneNum.frame = CGRectMake(self.tableView.bounds.size.width / 2, 2, self.tableView.bounds.size.width / 2 - 10, 40);
-        phoneNum.text = [NSString stringWithFormat:@"V %@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
+        phoneNum.text = [NSString stringWithFormat:@"%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
         phoneNum.textAlignment = NSTextAlignmentRight;
         //154 170 170
         phoneNum.textColor = [UIColor colorWithRed:154/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];

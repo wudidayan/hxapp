@@ -19,7 +19,8 @@ typedef NS_ENUM(NSInteger, DeviceListPushVCType) {
 @interface TDSearchNewLandBlueTViewController : TDBaseViewController <UITableViewDataSource, UITableViewDelegate, NLDeviceEventListener>
 
 @property (nonatomic, assign) DeviceListPushVCType pushVCType;
-@property (nonatomic, strong) NSString *payMoney;//收款金额
+@property (nonatomic, strong) NSString *payMoney; // 收款金额
+@property (nonatomic, assign) NSInteger NLDevWithPinKey; // 新大陆蓝牙(带键盘)
 @property (nonatomic, assign) HFBNewLanPayType hfbNewLandPayType;
 @property (nonatomic, strong) TDPayInfo *payInfo;
 

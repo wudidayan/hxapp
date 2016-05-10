@@ -29,8 +29,9 @@
 #endif
 
 //=================OEM_参数控制===========//
-#define APP_NAME            @"满e刷"            //应用名称
-#define APP_SERVICE_PHONE   @"021-65909780"     //客服电话
+#define APP_NAME            @"满e刷"  // 应用名称
+#define APP_SERVICE_PHONE   @"021-65909780"  // 客服电话
+#define APP_SERVICE_IM      @"QQ:2335107083" // 客服即时通讯号
 #define APP_CALL_PHOME      @"021-65909780"
 
 #define YZM_NUM_CODE        6                   //验证码位数

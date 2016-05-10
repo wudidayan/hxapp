@@ -81,9 +81,8 @@
 #endif
     
     
-    
+    NSLog(@"NLDevWithPinKey: %ld", self.NLDevWithPinKey);
     _app = [TDAppDelegate sharedAppDelegate];
-    
     [self getDeviceInfo];
 }
 

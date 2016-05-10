@@ -86,26 +86,36 @@
 //    seachDeviceVC.pushVCType = BindDevice;
 //    seachDeviceVC.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:seachDeviceVC animated:YES];
-    UIActionSheet * sheet = [[UIActionSheet alloc]initWithTitle:@"刷卡器类型" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"新大陆音频", @"新大陆蓝牙",@"天瑜蓝牙", nil];
+    UIActionSheet * sheet = [[UIActionSheet alloc]initWithTitle:@"请选择刷卡器类型" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"新大陆音频", @"新大陆蓝牙", @"新大陆蓝牙(带键盘)", @"天瑜蓝牙", nil];
     [sheet showInView:self.view];
 }
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 
-    if (0 == buttonIndex) {
-        //新大陆音频
+    if (buttonIndex == 0) {
+        // 新大陆音频
         TDBindNewLandViewController *bindNewLandVC = [[TDBindNewLandViewController alloc] init];
         [self.navigationController pushViewController:bindNewLandVC animated:YES];
-        
-    }else if (1 == buttonIndex){
-        //新大陆蓝牙
+    }
+    else if (buttonIndex == 1) {
+        // 新大陆蓝牙
         TDSearchNewLandBlueTViewController *searchNewLandBlueVC = [[TDSearchNewLandBlueTViewController alloc] init];
         [self.navigationController pushViewController:searchNewLandBlueVC animated:YES];
-    }else
-    {
+    }
+    else if (buttonIndex == 2) {
+        // 新大陆蓝牙(带键盘)
+        TDSearchNewLandBlueTViewController *searchNewLandBlueVC2 = [[TDSearchNewLandBlueTViewController alloc] init];
+        [self.navigationController pushViewController:searchNewLandBlueVC2 animated:YES];
+    }
+    else if (buttonIndex == 3) {
+        // 天瑜蓝牙
         TDBindTYViewController *bindVC = [[TDBindTYViewController alloc]init];
         [self.navigationController pushViewController:bindVC animated:YES];
     }
+    else {
+        //
+    }
 }
+
 -(void)getDeviceList{
 
     //获取终端列表

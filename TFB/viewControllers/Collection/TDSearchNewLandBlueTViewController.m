@@ -164,6 +164,7 @@
         nlBlueSwipeVC.hfbNewLandPayType = self.hfbNewLandPayType;
         nlBlueSwipeVC.payInfo = self.payInfo;
         nlBlueSwipeVC.payMoney = self.payMoney;
+        nlBlueSwipeVC.NLDevWithPinKey = self.NLDevWithPinKey;
         [self.navigationController pushViewController:nlBlueSwipeVC animated:YES];
     }
     

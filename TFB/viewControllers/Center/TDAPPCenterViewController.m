@@ -373,13 +373,12 @@
         {
             if (![user.custStatus isEqualToString:@"2"]) {
                 [self.view makeToast:@"尚未完成实名认证" duration:2.0f position:@"center"];
-            }else{
+            }
+            else {
                 
-                UIActionSheet *chooseTermSheet = [[UIActionSheet alloc] initWithTitle:@"选择终端" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"新大陆音频", @"新大陆蓝牙",@"天瑜蓝牙",nil];
+                UIActionSheet *chooseTermSheet = [[UIActionSheet alloc] initWithTitle:@"请选择刷卡器类型" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"新大陆音频", @"新大陆蓝牙", @"新大陆蓝牙(带键盘)", @"天瑜蓝牙", nil];
                 chooseTermSheet.tag = CHOOSETERMSHEETTAG;
                 [chooseTermSheet showInView:self.view];
-                
-                
             }
         }
             break;
@@ -439,24 +438,28 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (actionSheet.tag == CHOOSETERMSHEETTAG) {
-        
         if (buttonIndex == 0) {
-            
             HFBSwipeViewController *hfbSwipeVC = [[HFBSwipeViewController alloc] init];
             hfbSwipeVC.hfbNewLandPayType = HFBkNewLandBankInquiry;
             hfbSwipeVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:hfbSwipeVC animated:YES];
         }
         else if (buttonIndex == 1) {
-            
             TDSearchNewLandBlueTViewController *searchNLBlueVC = [[TDSearchNewLandBlueTViewController alloc] init];
             searchNLBlueVC.hidesBottomBarWhenPushed = YES;
             searchNLBlueVC.pushVCType = SwipeCard;
             searchNLBlueVC.payMoney = @"0.00";
             [self.navigationController pushViewController:searchNLBlueVC animated:YES];
         }
-        else if(buttonIndex == 2)
-        {
+        else if (buttonIndex == 2) {
+            TDSearchNewLandBlueTViewController *searchNLBlueVC2 = [[TDSearchNewLandBlueTViewController alloc] init];
+            searchNLBlueVC2.hidesBottomBarWhenPushed = YES;
+            searchNLBlueVC2.pushVCType = SwipeCard;
+            searchNLBlueVC2.payMoney = @"0.00";
+            searchNLBlueVC2.NLDevWithPinKey = 1; // 目的: 用于区分ME15和ME30
+            [self.navigationController pushViewController:searchNLBlueVC2 animated:YES];
+        }
+        else if(buttonIndex == 3) {
             TDBalanceViewController *balanceVC = [[TDBalanceViewController alloc]init];
             balanceVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:balanceVC animated:YES];

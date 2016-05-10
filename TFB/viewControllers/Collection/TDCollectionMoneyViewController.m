@@ -72,8 +72,7 @@
     }
     _payInfo.payAmt = _moneyLabel.text;
     
-   
-    UIActionSheet *chooseDeviceActionSheet = [[UIActionSheet alloc] initWithTitle:@"选择刷卡器类型" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"新大陆音频", @"新大陆蓝牙",@"天瑜蓝牙", nil];
+    UIActionSheet *chooseDeviceActionSheet = [[UIActionSheet alloc] initWithTitle:@"选择刷卡器类型" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"新大陆音频", @"新大陆蓝牙", @"新大陆蓝牙(带键盘)", @"天瑜蓝牙", nil];
     chooseDeviceActionSheet.tag = CHOOSEDEVICEACTIONSHEETTAG;
     [chooseDeviceActionSheet showInView:self.view];
     
@@ -83,17 +82,16 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (actionSheet.tag == CHOOSEDEVICEACTIONSHEETTAG) {
-        
         if (buttonIndex == 0) {
-            
-            //新大陆
+            // 新大陆音频
             HFBSwipeViewController *hfbSwipeVC = [[HFBSwipeViewController alloc] init];
             if (_payment == kPaymentT1) {
                 hfbSwipeVC.hfbNewLandPayType = HFBkNewLandPayment;
-                
-            }else if(_payment == kPaymentT0){
+            }
+            else if(_payment == kPaymentT0){
                 hfbSwipeVC.hfbNewLandPayType = HFBkNewLandPaymentT;
             }
+            
             hfbSwipeVC.payMoney = _moneyLabel.text;
             hfbSwipeVC.payInfo = _payInfo;
             hfbSwipeVC.hidesBottomBarWhenPushed = YES;
@@ -101,14 +99,15 @@
 
         }
         else if (buttonIndex == 1) {
-            
+            // 新大陆蓝牙
             TDSearchNewLandBlueTViewController *searchNLBlueVC = [[TDSearchNewLandBlueTViewController alloc] init];
             if (_payment == kPaymentT1) {
                 searchNLBlueVC.hfbNewLandPayType = HFBkNewLandPayment;
-                
-            }else if(_payment == kPaymentT0){
+            }
+            else if(_payment == kPaymentT0) {
                 searchNLBlueVC.hfbNewLandPayType = HFBkNewLandPaymentT;
             }
+            
             searchNLBlueVC.payMoney = _moneyLabel.text;
             searchNLBlueVC.payInfo = _payInfo;
             searchNLBlueVC.pushVCType = SwipeCard;
@@ -116,12 +115,31 @@
             [self.navigationController pushViewController:searchNLBlueVC animated:YES];
         }
         else if (buttonIndex == 2) {
-#warning 这儿是收款跳转
+            // 新大陆蓝牙(带键盘)
+            TDSearchNewLandBlueTViewController *searchNLBlueVC2 = [[TDSearchNewLandBlueTViewController alloc] init];
+            if (_payment == kPaymentT1) {
+                searchNLBlueVC2.hfbNewLandPayType = HFBkNewLandPayment;
+            }
+            else if(_payment == kPaymentT0) {
+                searchNLBlueVC2.hfbNewLandPayType = HFBkNewLandPaymentT;
+            }
+            
+            searchNLBlueVC2.NLDevWithPinKey = 1; // 目的: 用于区分ME15和ME30
+            searchNLBlueVC2.payMoney = _moneyLabel.text;
+            searchNLBlueVC2.payInfo = _payInfo;
+            searchNLBlueVC2.pushVCType = SwipeCard;
+            searchNLBlueVC2.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:searchNLBlueVC2 animated:YES];
+        }
+        else if (buttonIndex == 3) {
+            // 天瑜蓝牙
             TDTYPayViewController *payVC = [[TDTYPayViewController alloc]init];
             payVC.payInfo = _payInfo;
             payVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:payVC animated:YES];
-            
+        }
+        else {
+            //
         }
     }
 }

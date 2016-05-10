@@ -58,6 +58,8 @@
 		18D9EF181ACD610A00C4DAA7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D9EF171ACD610A00C4DAA7 /* AudioToolbox.framework */; };
 		18F0A9471BEC532F0059AB2B /* td_app_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F0A9461BEC532F0059AB2B /* td_app_logo@2x.png */; };
 		18F5EBC71B5644C500470D76 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F5EBC61B5644C500470D76 /* CoreBluetooth.framework */; };
+		4CFA463A1CE1B7E300809874 /* longlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA46391CE1B7E300809874 /* longlogo.png */; };
+		4CFA463C1CE1DACE00809874 /* 129AE5220F8D531981E7.lic in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA463B1CE1DACE00809874 /* 129AE5220F8D531981E7.lic */; };
 		4F1A998A1B0D77C70067F9DD /* UIImage+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A99891B0D77C70067F9DD /* UIImage+Reflection.m */; };
 		4F1A9AF11B0DB9880067F9DD /* TDFenRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A9AEC1B0DB9880067F9DD /* TDFenRunViewController.m */; };
 		4F1A9AF21B0DB9880067F9DD /* TDFenRunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A9AED1B0DB9880067F9DD /* TDFenRunViewController.xib */; };
@@ -316,6 +318,8 @@
 		18D9EF171ACD610A00C4DAA7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		18F0A9461BEC532F0059AB2B /* td_app_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "td_app_logo@2x.png"; sourceTree = "<group>"; };
 		18F5EBC61B5644C500470D76 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		4CFA46391CE1B7E300809874 /* longlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longlogo.png; sourceTree = "<group>"; };
+		4CFA463B1CE1DACE00809874 /* 129AE5220F8D531981E7.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 129AE5220F8D531981E7.lic; sourceTree = "<group>"; };
 		4F1A99881B0D77C70067F9DD /* UIImage+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Reflection.h"; sourceTree = "<group>"; };
 		4F1A99891B0D77C70067F9DD /* UIImage+Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Reflection.m"; sourceTree = "<group>"; };
 		4F1A9AEB1B0DB9880067F9DD /* TDFenRunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDFenRunViewController.h; sourceTree = "<group>"; };
@@ -754,6 +758,7 @@
 		18A1EEE21AB28800005A3523 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4CFA46391CE1B7E300809874 /* longlogo.png */,
 				9D41A6521C926BE6007ED769 /* Next.png */,
 				18D37E051BE8A671000FFA85 /* fail@2x.png */,
 				18D37E061BE8A671000FFA85 /* succes@2x.png */,
@@ -1294,6 +1299,7 @@
 		9DEF7D621C843C6E00968C27 /* ScanBankCard */ = {
 			isa = PBXGroup;
 			children = (
+				4CFA463B1CE1DACE00809874 /* 129AE5220F8D531981E7.lic */,
 				9DA30B141CD22DB7000009F4 /* 6C9727E21359B65426F9.lic */,
 				9DEF7D631C843C6E00968C27 /* BankCardCameraViewController.h */,
 				9DEF7D641C843C6E00968C27 /* BankCardCameraViewController.mm */,
@@ -1434,6 +1440,7 @@
 				4FC36A051B0C628400A26BDE /* TDVerificationCodeViewController.xib in Resources */,
 				4FC36AA11B0C62F900A26BDE /* TDBankCardCell.xib in Resources */,
 				18D37E041BE8900C000FFA85 /* TDPayResaultViewController.xib in Resources */,
+				4CFA463C1CE1DACE00809874 /* 129AE5220F8D531981E7.lic in Resources */,
 				9D41A6531C926BE6007ED769 /* Next.png in Resources */,
 				4FC36A201B0C629700A26BDE /* TDDrawingCashViewController.xib in Resources */,
 				18A1EEE61AB28800005A3523 /* InfoPlist.strings in Resources */,
@@ -1448,6 +1455,7 @@
 				9DD2DC951C328855000EA91C /* TDzhihangViewController.xib in Resources */,
 				4FC36A121B0C628D00A26BDE /* TDForgetPwdViewController.xib in Resources */,
 				4FC36AAD1B0C62F900A26BDE /* TDEditPwdTypeViewController.xib in Resources */,
+				4CFA463A1CE1B7E300809874 /* longlogo.png in Resources */,
 				18D37DFA1BE848D4000FFA85 /* swiping_cardNO.png in Resources */,
 				9E6F64BA1CBF588600EC73E4 /* TDBalanceViewController.xib in Resources */,
 				4FC36A4A1B0C62A200A26BDE /* TDPayViewController.xib in Resources */,
