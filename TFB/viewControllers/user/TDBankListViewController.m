@@ -19,7 +19,7 @@
     UITableView *table = [[UITableView alloc]init];
     table.dataSource = self;
     table.delegate = self;
-    table.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-50);
+    table.frame = CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height-100);
     table.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:table];
 }

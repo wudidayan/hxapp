@@ -16,12 +16,12 @@
     if (string.length == 0) {
         return @"- -";
     }
-    if (string.length < 14) {
+    if (string.length != 14) {
         return string;
     }
     
-    return [NSString stringWithFormat:@"%@月 %@日 %@:%@:%@",
-//                [string substringWithRange:(NSRange){0,4}],
+    return [NSString stringWithFormat:@"%@月%@日 %@:%@:%@",
+                /*[string substringWithRange:(NSRange){0,4}],*/
                 [string substringWithRange:(NSRange){4,2}],
                 [string substringWithRange:(NSRange){6,2}],
                 [string substringWithRange:(NSRange){8,2}],

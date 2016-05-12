@@ -42,8 +42,8 @@
     
     _BankCardNumLabel.text = _payInfo.bankCardNumber;
     _PayAmtLabel.text = _payInfo.payAmt;
-    _typeButton.layer.borderColor = [UIColor grayColor].CGColor;
-    _typeButton.layer.borderWidth = 1.0f;
+    //_typeButton.layer.borderColor = [UIColor grayColor].CGColor;
+    //_typeButton.layer.borderWidth = 1.0f;
     _typeButton.layer.cornerRadius = 3.0f;
     UIView * bgView = _BankCardNumLabel.superview;
     [self layerWithView:bgView];
@@ -58,7 +58,7 @@
 //         _payInfo.rate = [(TDRate *)[_payInfo.termInfo.ratesArray firstObject] rateNo];
 //    }
     
-    
+    NSLog(@"ifOutPin: %@", _payInfo.ifOutPin);
 }
 
 -(void)findLocation

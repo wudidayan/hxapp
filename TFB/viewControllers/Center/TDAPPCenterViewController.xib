@@ -144,7 +144,7 @@
                         <view alpha="0.20000000000000001" contentMode="scaleToFill" id="lu8-Nt-slH">
                             <rect key="frame" x="0.0" y="186" width="320" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconfont_shoukuan" id="Ktk-cc-v5A">
                             <rect key="frame" x="30" y="15" width="50" height="50"/>
@@ -157,17 +157,27 @@
                         <view alpha="0.20000000000000001" contentMode="scaleToFill" id="qu7-GV-gPc">
                             <rect key="frame" x="0.0" y="93" width="320" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view alpha="0.20000000298023224" contentMode="scaleToFill" id="Hvo-lU-wnS">
+                            <rect key="frame" x="0.0" y="280" width="320" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view alpha="0.20000000298023224" contentMode="scaleToFill" id="mEu-AC-YFG">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view alpha="0.20000000000000001" contentMode="scaleToFill" id="oNV-xa-cwL">
                             <rect key="frame" x="214" y="0.0" width="1" height="280"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view alpha="0.20000000000000001" contentMode="scaleToFill" id="s54-Kx-YLR">
                             <rect key="frame" x="107" y="0.0" width="1" height="280"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xqv-c1-EQu">
                             <rect key="frame" x="15" y="194" width="80" height="80"/>

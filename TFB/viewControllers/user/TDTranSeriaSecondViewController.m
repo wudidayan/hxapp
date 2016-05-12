@@ -378,7 +378,8 @@
     
     TDTranSerial *tranSerial = self.dataMuArray[indexPath.row];
     cell.busTypeLabel.text = tranSerial.prdordMessage;
-    cell.timeLabel.text = tranSerial.ordtime;
+//    cell.timeLabel.text = tranSerial.ordtime;
+    cell.timeLabel.text = [TDBaseModel dataChangeWithString: tranSerial.ordtime];
     cell.stateLabel.text = tranSerial.ordMessage ;
     cell.tranAmtLabel.text = [NSString stringWithFormat:@"%.2f",tranSerial.ordamt.floatValue/100];
     cell.cardNoLabel.text = @"";

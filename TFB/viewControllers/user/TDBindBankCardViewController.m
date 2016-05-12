@@ -540,4 +540,14 @@
 
 }
 
+- (IBAction)textFieldDoneEditing:(id)sender {
+    [sender resignFirstResponder];
+}
+
+- (IBAction)backgroundTap:(id)sender {
+    [self.cardNumTF resignFirstResponder];
+    [self.idNumText resignFirstResponder];
+    [self.categories resignFirstResponder];
+}
+
 @end

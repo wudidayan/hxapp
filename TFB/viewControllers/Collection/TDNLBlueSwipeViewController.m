@@ -82,6 +82,11 @@
     
     
     NSLog(@"NLDevWithPinKey: %ld", self.NLDevWithPinKey);
+    if (self.NLDevWithPinKey == 1) {
+        _payInfo.ifOutPin = @"1";
+        NSLog(@"ifOutPin: %@", _payInfo.ifOutPin);
+    }
+    
     _app = [TDAppDelegate sharedAppDelegate];
     [self getDeviceInfo];
 }

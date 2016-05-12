@@ -83,6 +83,7 @@
 {
     MKNetworkEngine *networkEngine = [[MKNetworkEngine alloc] init];
     NSString *url = [NSString stringWithFormat:@"%@%@%@", HOST, tradeCode, SUFFIX];
+    NSLog(@"交易码: %@", tradeCode);
     MKNetworkOperation *operation = [networkEngine operationWithURLString:url params:[self jsonWithDic:params] httpMethod:@"POST"];
     __weak MKNetworkOperation *weakOperation = operation;
     [weakOperation addCompletionHandler:^(MKNetworkOperation *completedOperation) {
