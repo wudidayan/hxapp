@@ -83,12 +83,23 @@
     
     NSLog(@"NLDevWithPinKey: %ld", self.NLDevWithPinKey);
     if (self.NLDevWithPinKey == 1) {
-        _payInfo.ifOutPin = @"1";
-        NSLog(@"ifOutPin: %@", _payInfo.ifOutPin);
+        _payInfo.OutPinDevType = @"1";
+        NSLog(@"OutPinDevType: %@", _payInfo.OutPinDevType);
     }
     
     _app = [TDAppDelegate sharedAppDelegate];
     [self getDeviceInfo];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if(![_payInfo.OutPinDevType isEqualToString:@"1"]) {
+        if ([_app.device isAlive]) {
+            NSLog(@"destroy ME15");
+            [_app.device destroy];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -202,11 +213,11 @@
     if (err) {
         [reader cancelCardRead];
         if ([err isKindOfClass:NSClassFromString(@"NLProcessTimeoutError")]) {
-            [self addText:@"超时"];
+            [self addText:@"读卡超时，请返回重试"];
         } else if ([err isKindOfClass:NSClassFromString(@"NLProcessCancelError")]) {
             [self addText:@"取消"];
         } else {
-            [self addText:CString(@"失败:%@",err)];
+            [self addText:CString(@"读卡失败:%@，请返回重试",err)];
         }
         return;
     }
@@ -254,6 +265,94 @@
         id<NLEmvTransController> emvController = [self.emvModule emvTransControllerWithListener:self];
         [emvController startEmvWithAmount:[NSDecimalNumber decimalNumberWithString:self.payMoney] cashback:[NSDecimalNumber zero] forceOnline:NO];
         
+    }
+    else if (NLModuleTypeCommonNCCard == openType) {
+        // qpboc
+        int processedCode = 0x0B; //0x25为查询余额代码 0x0B为非接交易消费
+        if(_hfbNewLandPayType == HFBkNewLandBankInquiry)
+        {
+            processedCode = 0x25;
+        }
+        
+        id<NLQPBOCModule> qpbocModule = (id<NLQPBOCModule> )[_app.device standardModuleWithModuleType:NLModuleTypeCommonQPBOC];
+        NSError * err = nil;
+        NLEmvTransInfo * emvTransInfo=[qpbocModule startQPBOCWithAmount:[NSDecimalNumber decimalNumberWithString:self.payMoney] processCode:processedCode timeout:60 error:&err];
+        if (!emvTransInfo || err) {
+            if (err) {
+                if ([err isKindOfClass:NSClassFromString(@"NLProcessTimeoutError")]) {
+                    [self addText:@"挥卡超时"];
+                    return;
+                } else if ([err isKindOfClass:NSClassFromString(@"NLProcessCancelError")]) {
+                    [self addText:@"挥卡取消"];
+                    return;
+                } else {
+                    [self addText:@"挥卡错误"];
+                    return;
+                }
+            } else {
+                [self addText:@"挥卡错误"];
+                return;
+            }
+        } else {
+            int exeRslt = emvTransInfo.executeRslt;
+            /*
+            if (rslt==0x00 || rslt==0x01 || rslt == 0x11 || rslt == 0x0d) {
+                [self addText:emvTransInfo.cardNo];
+            } else {
+                [self addText:@"失败"];
+                return;
+            }
+            */
+            if(exeRslt == 0x0F) {
+                id<NLSwiper> swiper = (id<NLSwiper>)[_app.device standardModuleWithModuleType:NLModuleTypeCommonSwiper];
+                rslt = [swiper readEncryptResultWithReadModel:@[@(NLSwiperReadModelReadICSecondTrack)] wk:[[NLWorkingKey alloc] initWithIndex:NL_DEFAULT_TRACK_WK_INDEX] encryptAlgorithm:[NLTrackEncryptAlgorithm BY_UNIONPAY_MODEL]];
+                
+                if (rslt) {
+                    NSString *enc = [[NSString alloc] initWithData:rslt.secondTrackData encoding:NSUTF8StringEncoding];
+                    NSLog(@"encTrankSecond: %@", enc);
+                    NSLog(@"encTrackThrid: %@", [self getMessageString:rslt.thirdTrackData]);
+                    NSLog(@"acctId: %@", [rslt account].acctId);
+                    NSLog(@"cardExpirationDate: %@", emvTransInfo.cardExpirationDate);
+                    NSLog(@"validDate: %@", rslt.validDate);
+                    
+                    id<TLVPackage> tlvPackage = [emvTransInfo setExternalInfoPackageWithTags:
+                        @[@0x9F26, @0x9F27, @0x9F10, @0x9F37, @0x9F36,
+                          @0x95, @0x9A, @0x9C, @0x9F02, @0x5F2a, @0x82,
+                          @0x9F1A, @0x9F03, @0x9F33, @0x9F34, @0x9F35,
+                          @0x9F1E, @0x84, @0x9F09, @0x9F41, @0x9F63]];
+                    if (![NLISOUtils hexStringWithData:[tlvPackage pack]] || [[NLISOUtils hexStringWithData:[tlvPackage pack]] isEqualToString:@""] || ![emvTransInfo cardNo] || [[emvTransInfo cardNo] isEqualToString:@""] ||  [[emvTransInfo cardNo] length] < 10) {
+                        [self addText:@"卡片信息不完整，请返回重试"];
+                        return;
+                    }
+                    
+                    NSLog(@"DcData: %@", [NLISOUtils hexStringWithData:[tlvPackage pack]]);
+                    NSLog(@"ICNumber: %@", [emvTransInfo cardSequenceNumber]);
+                    
+                    [self getCardInfoWithDic:@{@"cardType":@"IC",
+                                               @"encTrankSecond":enc,
+                                               @"encTrackThrid":[self getMessageString:rslt.thirdTrackData],
+                                               @"maskedPAN":[rslt account].acctId,
+                                               @"DcData":[NLISOUtils hexStringWithData:[tlvPackage pack]],
+                                               @"KSN":[emvTransInfo cardSequenceNumber],
+                                               @"ICNumber":[emvTransInfo cardSequenceNumber],
+                                               @"nDate":rslt.validDate,
+                                               @"expiryDate":rslt.validDate
+                                               }];
+                }
+                else {
+                    [self addText:@"刷卡失败"];
+                    return;
+                }
+            }
+            else if (exeRslt==0x00 || exeRslt==0x01 || exeRslt == 0x11 || exeRslt == 0x0d) {
+                [self addText:@"此交易不支持非接方式，请返回重刷"];
+            }
+            else {
+                [self addText:@"失败"];
+                return;
+            }
+        }
+
     }
     else if (NLModuleTypeCommonSwiper == openType) {
         
@@ -404,7 +503,7 @@
         //self.cardNumLabel.text = [aDic objectForKey:@"maskedPAN"];
         self.payInfo.bankCardNumber = [aDic objectForKey:@"maskedPAN"];
         [self.payInfo SwipeWithDictionary:aDic];
-        
+
         [self goToSignWithCardInfo:aDic];
         
     });
@@ -429,7 +528,6 @@
 }
 
 -(void)clickbackButton {
-    
     [_app.device destroy];
     [NSThread detachNewThreadSelector:@selector(chexiao) toTarget:self withObject:nil];
     

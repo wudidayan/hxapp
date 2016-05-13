@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self backButton];
-    self.title = @"绑定怡丰蓝牙设备";
+    self.title = @"绑定蓝牙设备";
     
     _termNameLabel.text = _termName;
     _termTypeLabel.text = @"新大陆蓝牙";

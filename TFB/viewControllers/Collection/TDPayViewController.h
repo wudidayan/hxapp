@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *BankCardNumLabel;
 @property (strong, nonatomic) IBOutlet UILabel *PayAmtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pinMsg;
 
 @property (strong, nonatomic) IBOutlet UITextField *BankPasswordText;
 @property (strong, nonatomic) IBOutlet UIButton *typeButton;

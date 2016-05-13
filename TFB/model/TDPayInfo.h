@@ -53,7 +53,7 @@
 @property (nonatomic,strong) NSString * bankCradNum;  //卡号  -> 中间*替代
 @property (nonatomic,strong) NSString * bankCardNumber; //卡号 不带*
 
-@property (nonatomic,strong) NSString *ifOutPin; // 是否外部获取PIN
+@property (nonatomic,strong) NSString *OutPinDevType; // 外部获取PIN设备类型：“1” - 新大陆蓝牙ME30,
 
 //单利 (为了保证每次刷卡该对象已被初始化 干脆不用单利)
 //-(TDPayInfo *)sharePayDefault;

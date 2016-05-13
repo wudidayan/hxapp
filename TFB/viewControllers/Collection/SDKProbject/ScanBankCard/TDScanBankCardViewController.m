@@ -25,7 +25,7 @@
     
     isWrite = NO;
     [self backButton];
-    self.navigationController.navigationBar.tintColor = [UIColor grayColor];
+    //self.navigationController.navigationBar.tintColor = [UIColor grayColor];
     self.cardNum.text = self.no;
     NSLog(@"%@",self.image);
     CGImageRef cgimage=self.image.CGImage;

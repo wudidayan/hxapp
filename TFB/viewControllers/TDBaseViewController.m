@@ -33,7 +33,7 @@
     UIBarButtonItem * leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(clickbackButton)];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = leftButton;
-
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
 }
 -(void)clickbackButton{
 

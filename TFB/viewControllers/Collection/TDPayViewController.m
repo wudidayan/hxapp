@@ -11,6 +11,11 @@
 #import "TDTerm.h"
 #import "CJCommon.h"
 #import "TDPayResaultViewController.h"
+#import <MESDK/MESDK.h>
+
+// 新大陆刷卡器PIN秘钥默认索引
+#define NL_DEFAULT_PIN_WK_INDEX 2
+#define ExCode_GET_PININPUT_FAILED 1004
 
 @interface TDPayViewController (){
 
@@ -58,7 +63,23 @@
 //         _payInfo.rate = [(TDRate *)[_payInfo.termInfo.ratesArray firstObject] rateNo];
 //    }
     
-    NSLog(@"ifOutPin: %@", _payInfo.ifOutPin);
+    NSLog(@"OutPinDevType: %@", _payInfo.OutPinDevType);
+    if([_payInfo.OutPinDevType isEqualToString:@"1"]) {
+        _BankPasswordText.text = @"123456";
+        _BankPasswordText.enabled = false;
+        _pinMsg.text = @"请点付款按钮后，通过MPOS键盘输入密码";
+    }
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if([_payInfo.OutPinDevType isEqualToString:@"1"]) {
+        if ([[TDAppDelegate sharedAppDelegate].device isAlive]) {
+            NSLog(@"destroy OutPinDevType ME30");
+            [[TDAppDelegate sharedAppDelegate].device destroy];
+        }
+    }
 }
 
 -(void)findLocation
@@ -171,6 +192,71 @@
     
 }
 
+- (id<NLDeviceEvent>)eventFilter:(NLAbstractProcessDeviceEvent<NLDeviceEvent>*)event exCode:(int)defaultExCode
+{
+    if (event.isSuccess || event.isUserCanceled) {
+        return event;
+    }
+    
+    if (event.error) {
+        return nil;
+    }
+    
+    return nil;
+}
+
+- (void)pinInputWithAmt:(NSDecimalNumber *)amt acctId:(NSString *)acctId
+{
+    if (![[TDAppDelegate sharedAppDelegate].device isAlive]) {
+        [self.view makeToast:@"设备断开，无法操作" duration:2.0f position:@"center"];
+        [self clickbackButton];
+        return ;
+    }
+    
+    id<NLLCD> lcd = (id<NLLCD>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonLCD];
+    id<NLPinInput> pin = (id<NLPinInput>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonPinInput];
+    NSError *err;
+    NLEventHolder *listener = [NLEventHolder new];
+    NLWorkingKey *wk = [[NLWorkingKey alloc] initWithIndex: NL_DEFAULT_PIN_WK_INDEX];
+    NSString *tipsInfo = [NSString stringWithFormat:@"消费金额为:%@\n请输入交易密码:", amt];
+    [pin startPinInputWithWorkingKey:wk
+                       pinManageType:NLPinManageTypeMKSK
+                       acctInputType:NLAccountInputTypeUserAccount
+                          acctSymbol:acctId
+                         inputMaxLen:6
+                          pinPadding:[NSData fillWithByte:'F' len:10]
+                      isEnterEnabled:YES
+                      displayContent:tipsInfo
+                             timeout:(long) (30 * 1000)
+                       inputListener:listener];
+    
+    [listener startWait:&err];
+    if (err) {
+        [pin cancelPinInput];
+        [lcd clearScreen];
+        return;
+    }
+    
+    NLPinInputFinishedEvent *event = [self eventFilter:listener.event exCode:ExCode_GET_PININPUT_FAILED];
+    if (!event) {
+        [lcd clearScreen];
+        _pinMsg.text = @"密码输入失败";
+        return;
+    }
+    
+    if ([event isUserCanceled]) {
+        _pinMsg.text = @"密码输入撤销";
+        return;
+    }
+    
+    [lcd clearScreen];
+    NSData *data = [event encrypPin];
+    NSData *ksn = [event ksn];
+    _pinMsg.text = @"密码输入完成，提交请求";
+    NSLog(@"encrypPin: %@, ksn: %@", data, ksn);
+//    [self showMsgOnMainThread:CString(@"密码:%@, %@消费完成", [NLDump hexDumpWithData:data], [NLDump hexDumpWithData:ksn])];
+}
+
 - (IBAction)ClickPayButton:(UIButton *)sender {
     
     if (![_payInfo.subPayType isEqualToString:PAY_SUB_TYPE]) {
@@ -198,8 +284,18 @@
         _payInfo.mac = @"";
     }
     
-    if (!_payInfo.pinblk) {
-        _payInfo.pinblk = [CJCommon pinResultMak:[TDPinKeyInfo pinKeyDefault].zpinkey account:_payInfo.bankCardNumber passwd:_BankPasswordText.text];
+    if([_payInfo.OutPinDevType isEqualToString:@"1"]) {
+        _pinMsg.text = @"等待输入密码";
+        [self pinInputWithAmt:[NSDecimalNumber decimalNumberWithString:_payInfo.payAmt] acctId:_payInfo.bankCardNumber];
+        // 处理pinblock
+        if (!_payInfo.pinblk) {
+            _payInfo.pinblk = [CJCommon pinResultMak:[TDPinKeyInfo pinKeyDefault].zpinkey account:_payInfo.bankCardNumber passwd:_BankPasswordText.text];
+        }
+    }
+    else {
+        if (!_payInfo.pinblk) {
+            _payInfo.pinblk = [CJCommon pinResultMak:[TDPinKeyInfo pinKeyDefault].zpinkey account:_payInfo.bankCardNumber passwd:_BankPasswordText.text];
+        }
     }
     
     if (!_payInfo.period || [_payInfo.period isEqualToString:@""]) {

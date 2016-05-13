@@ -12,7 +12,7 @@
 #import "TDBindNLBlueViewController.h"
 #import "TDNLBlueSwipeViewController.h"
 
-#define SEARCHTIMEOUT 6
+#define SEARCHTIMEOUT 4
 
 
 @interface TDSearchNewLandBlueTViewController ()
@@ -91,17 +91,18 @@
 - (void)startScan {
     
     if ([NLBluetoothHelper isConnected]) {
-        
+        NSLog(@"NLBluetoothHelper isConnected, destroy and reConnect");
+        [[TDAppDelegate sharedAppDelegate].device destroy];
     }
     
     _HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:_HUD];
-    _HUD.labelText = @"搜索蓝牙设备中...5s";
+    _HUD.labelText = @"搜索蓝牙设备中...";
     [_HUD show:YES];
     [self timerFireMethod];
     
     [NLBluetoothHelper startScan];
-    [self performSelector:@selector(stopScanNL) withObject:self afterDelay:5.0f];
+    [self performSelector:@selector(stopScanNL) withObject:self afterDelay:/*5.0f*/SEARCHTIMEOUT - 1];
 }
 
 - (void)stopScanNL {
