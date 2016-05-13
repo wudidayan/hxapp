@@ -13,6 +13,8 @@
 #import "TDPayResaultViewController.h"
 #import <MESDK/MESDK.h>
 
+// 新大陆刷卡器主秘钥默认索引
+#define NL_DEFAULT_MK_INDEX     1
 // 新大陆刷卡器PIN秘钥默认索引
 #define NL_DEFAULT_PIN_WK_INDEX 2
 #define ExCode_GET_PININPUT_FAILED 1004
@@ -67,7 +69,7 @@
     if([_payInfo.OutPinDevType isEqualToString:@"1"]) {
         _BankPasswordText.text = @"123456";
         _BankPasswordText.enabled = false;
-        _pinMsg.text = @"请点付款按钮后，通过MPOS键盘输入密码";
+        _pinMsg.text = @"请点支付按钮后，通过MPOS键盘输入密码";
     }
 }
 
@@ -205,17 +207,37 @@
     return nil;
 }
 
-- (void)pinInputWithAmt:(NSDecimalNumber *)amt acctId:(NSString *)acctId
+- (NSData *)pinInputWithAmt:(NSDecimalNumber *)amt acctId:(NSString *)acctId
 {
     if (![[TDAppDelegate sharedAppDelegate].device isAlive]) {
-        [self.view makeToast:@"设备断开，无法操作" duration:2.0f position:@"center"];
+        [self.view makeToast:@"设备断开，无法完成支付" duration:2.0f position:@"center"];
         [self clickbackButton];
-        return ;
+        return nil;
+    }
+
+    // 罐装PIK
+    NSError *errPinLd = nil;
+    id<NLPinInput> pinLd = (id<NLPinInput>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonPinInput];
+    NSString *pik = [TDPinKeyInfo pinKeyDefault].zpinkey;
+    NSData *cv = [pinLd loadWorkingKeyWithWorkingKeyType:NLWorkingKeyTypePinInput mainKeyIndex:NL_DEFAULT_MK_INDEX workingKeyIndex:NL_DEFAULT_PIN_WK_INDEX data:[NLISOUtils hexStr2Data:pik] error:&errPinLd];
+    NSLog(@"装载PIK结果：%@", (errPinLd ? [errPinLd description] : @"灌装PIN密钥成功!"));
+    
+    if(cv != nil) {
+        NSString *cvStr = [[NSString alloc] initWithData:cv encoding:NSUTF8StringEncoding];
+        if(![cvStr isEqualToString:[TDPinKeyInfo pinKeyDefault].zpincv]) {
+            [self.view makeToast:@"秘钥装载错误" duration:2.0f position:@"center"];
+            [[TDControllerManager sharedInstance]createTabbarController];
+            return nil;
+        }
+    }
+    else {
+        [self.view makeToast:@"秘钥装载失败" duration:2.0f position:@"center"];
+        return nil;
     }
     
     id<NLLCD> lcd = (id<NLLCD>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonLCD];
     id<NLPinInput> pin = (id<NLPinInput>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonPinInput];
-    NSError *err;
+    NSError *err = nil;
     NLEventHolder *listener = [NLEventHolder new];
     NLWorkingKey *wk = [[NLWorkingKey alloc] initWithIndex: NL_DEFAULT_PIN_WK_INDEX];
     NSString *tipsInfo = [NSString stringWithFormat:@"消费金额为:%@\n请输入交易密码:", amt];
@@ -234,27 +256,24 @@
     if (err) {
         [pin cancelPinInput];
         [lcd clearScreen];
-        return;
+        return nil;
     }
     
     NLPinInputFinishedEvent *event = [self eventFilter:listener.event exCode:ExCode_GET_PININPUT_FAILED];
     if (!event) {
         [lcd clearScreen];
-        _pinMsg.text = @"密码输入失败";
-        return;
+        return nil;
     }
     
     if ([event isUserCanceled]) {
-        _pinMsg.text = @"密码输入撤销";
-        return;
+        return nil;
     }
     
     [lcd clearScreen];
-    NSData *data = [event encrypPin];
+    NSData *encPin = [event encrypPin];
     NSData *ksn = [event ksn];
-    _pinMsg.text = @"密码输入完成，提交请求";
-    NSLog(@"encrypPin: %@, ksn: %@", data, ksn);
-//    [self showMsgOnMainThread:CString(@"密码:%@, %@消费完成", [NLDump hexDumpWithData:data], [NLDump hexDumpWithData:ksn])];
+    NSLog(@"encrypPin: %@, ksn: %@", encPin, ksn);
+    return encPin;
 }
 
 - (IBAction)ClickPayButton:(UIButton *)sender {
@@ -286,10 +305,15 @@
     
     if([_payInfo.OutPinDevType isEqualToString:@"1"]) {
         _pinMsg.text = @"等待输入密码";
-        [self pinInputWithAmt:[NSDecimalNumber decimalNumberWithString:_payInfo.payAmt] acctId:_payInfo.bankCardNumber];
-        // 处理pinblock
-        if (!_payInfo.pinblk) {
-            _payInfo.pinblk = [CJCommon pinResultMak:[TDPinKeyInfo pinKeyDefault].zpinkey account:_payInfo.bankCardNumber passwd:_BankPasswordText.text];
+        NSData *encPin = [self pinInputWithAmt:[NSDecimalNumber decimalNumberWithString:_payInfo.payAmt] acctId:_payInfo.bankCardNumber];
+        if (encPin != nil) {
+            _payInfo.pinblk = [[NSString alloc] initWithData:encPin encoding:NSUTF8StringEncoding];
+            NSLog(@"pinblk: %@", _payInfo.pinblk);
+            _pinMsg.text = @"";
+        }
+        else {
+            _pinMsg.text = @"获取密码失败，请重新支付";
+            return;
         }
     }
     else {
