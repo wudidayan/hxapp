@@ -344,11 +344,13 @@
                     return;
                 }
             }
+            /*
             else if (exeRslt==0x00 || exeRslt==0x01 || exeRslt == 0x11 || exeRslt == 0x0d) {
                 [self addText:@"此交易不支持非接方式，请返回重刷"];
             }
+            */
             else {
-                [self addText:@"失败"];
+                [self addText:CString(@"读卡失败，请返回重试 [NCCard_%d]", exeRslt)];
                 return;
             }
         }

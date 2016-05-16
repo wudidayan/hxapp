@@ -12,6 +12,7 @@
 #import "CJCommon.h"
 #import "TDPayResaultViewController.h"
 #import <MESDK/MESDK.h>
+#import "NLDump.h"
 
 // 新大陆刷卡器主秘钥默认索引
 #define NL_DEFAULT_MK_INDEX     1
@@ -211,7 +212,7 @@
 {
     if (![[TDAppDelegate sharedAppDelegate].device isAlive]) {
         [self.view makeToast:@"设备断开，无法完成支付" duration:2.0f position:@"center"];
-        [self clickbackButton];
+        [self performSelector:@selector(gotoHome) withObject:self afterDelay:2.f];
         return nil;
     }
 
@@ -220,13 +221,19 @@
     id<NLPinInput> pinLd = (id<NLPinInput>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonPinInput];
     NSString *pik = [TDPinKeyInfo pinKeyDefault].zpinkey;
     NSData *cv = [pinLd loadWorkingKeyWithWorkingKeyType:NLWorkingKeyTypePinInput mainKeyIndex:NL_DEFAULT_MK_INDEX workingKeyIndex:NL_DEFAULT_PIN_WK_INDEX data:[NLISOUtils hexStr2Data:pik] error:&errPinLd];
-    NSLog(@"装载PIK结果：%@", (errPinLd ? [errPinLd description] : @"灌装PIN密钥成功!"));
-    
+    NSLog(@"装载PIK[%@]结果：%@", pik, (errPinLd ? [errPinLd description] : @"成功!"));
+    if(errPinLd != nil) {
+        [self.view makeToast:@"秘钥装载失败" duration:2.0f position:@"center"];
+        return nil;
+    }
+
     if(cv != nil) {
-        NSString *cvStr = [[NSString alloc] initWithData:cv encoding:NSUTF8StringEncoding];
-        if(![cvStr isEqualToString:[TDPinKeyInfo pinKeyDefault].zpincv]) {
+        NSString *cvStr = [NLDump hexDumpWithData:cv];
+        NSString *cvStrS = [cvStr substringToIndex:8];
+        NSString *cvStrD = [[TDPinKeyInfo pinKeyDefault].zpincv substringToIndex:8];
+        if(![cvStrS isEqualToString:cvStrD]) {
             [self.view makeToast:@"秘钥装载错误" duration:2.0f position:@"center"];
-            [[TDControllerManager sharedInstance]createTabbarController];
+            [self performSelector:@selector(gotoHome) withObject:self afterDelay:2.f];
             return nil;
         }
     }
@@ -234,7 +241,7 @@
         [self.view makeToast:@"秘钥装载失败" duration:2.0f position:@"center"];
         return nil;
     }
-    
+
     id<NLLCD> lcd = (id<NLLCD>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonLCD];
     id<NLPinInput> pin = (id<NLPinInput>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonPinInput];
     NSError *err = nil;
@@ -304,11 +311,11 @@
     }
     
     if([_payInfo.OutPinDevType isEqualToString:@"1"]) {
-        _pinMsg.text = @"等待输入密码";
+        _pinMsg.text = @"等待密码输入...";
         NSData *encPin = [self pinInputWithAmt:[NSDecimalNumber decimalNumberWithString:_payInfo.payAmt] acctId:_payInfo.bankCardNumber];
         if (encPin != nil) {
-            _payInfo.pinblk = [[NSString alloc] initWithData:encPin encoding:NSUTF8StringEncoding];
-            NSLog(@"pinblk: %@", _payInfo.pinblk);
+            _payInfo.pinblk = [NLDump hexDumpWithData:encPin];
+            NSLog(@"encPin: %@, pinblk: %@", encPin, _payInfo.pinblk);
             _pinMsg.text = @"";
         }
         else {
@@ -320,6 +327,8 @@
         if (!_payInfo.pinblk) {
             _payInfo.pinblk = [CJCommon pinResultMak:[TDPinKeyInfo pinKeyDefault].zpinkey account:_payInfo.bankCardNumber passwd:_BankPasswordText.text];
         }
+        
+        NSLog(@"pinblk: %@", _payInfo.pinblk);
     }
     
     if (!_payInfo.period || [_payInfo.period isEqualToString:@""]) {
@@ -464,6 +473,10 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+- (void)gotoHome {
+    
+    [[TDControllerManager sharedInstance]createTabbarController];
+}
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
