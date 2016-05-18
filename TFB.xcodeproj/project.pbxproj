@@ -318,6 +318,7 @@
 		18D9EF171ACD610A00C4DAA7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		18F0A9461BEC532F0059AB2B /* td_app_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "td_app_logo@2x.png"; sourceTree = "<group>"; };
 		18F5EBC61B5644C500470D76 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		4CE8475F1CE97854001AC016 /* NLDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDump.h; sourceTree = "<group>"; };
 		4CFA46391CE1B7E300809874 /* longlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longlogo.png; sourceTree = "<group>"; };
 		4CFA463B1CE1DACE00809874 /* 129AE5220F8D531981E7.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 129AE5220F8D531981E7.lic; sourceTree = "<group>"; };
 		4F1A99881B0D77C70067F9DD /* UIImage+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Reflection.h"; sourceTree = "<group>"; };
@@ -1005,6 +1006,7 @@
 			children = (
 				4FC36A241B0C62A200A26BDE /* SDKProbject */,
 				4FC36A211B0C62A200A26BDE /* Header.h */,
+				4CE8475F1CE97854001AC016 /* NLDump.h */,
 				4FC36A221B0C62A200A26BDE /* MyView.h */,
 				4FC36A231B0C62A200A26BDE /* MyView.m */,
 				4FC36A2D1B0C62A200A26BDE /* TDCollectionMoneyViewController.h */,

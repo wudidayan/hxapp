@@ -40,7 +40,7 @@
     _isPhoto = YES;
     self.title = @"全部记录";
     _tranMeString = @"00";// 00：所有，01：收款,02:消费,03:提现 
-    UIBarButtonItem * barButton = [[UIBarButtonItem alloc]initWithTitle:@"交易类型" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    UIBarButtonItem * barButton = [[UIBarButtonItem alloc]initWithTitle:@"筛选" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
     self.navigationItem.rightBarButtonItem = barButton;
     

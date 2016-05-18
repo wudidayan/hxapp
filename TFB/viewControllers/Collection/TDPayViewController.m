@@ -312,7 +312,9 @@
     
     if([_payInfo.OutPinDevType isEqualToString:@"1"]) {
         _pinMsg.text = @"等待密码输入...";
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSData *encPin = [self pinInputWithAmt:[NSDecimalNumber decimalNumberWithString:_payInfo.payAmt] acctId:_payInfo.bankCardNumber];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (encPin != nil) {
             _payInfo.pinblk = [NLDump hexDumpWithData:encPin];
             NSLog(@"encPin: %@, pinblk: %@", encPin, _payInfo.pinblk);
@@ -343,8 +345,7 @@
         {
             _scanOrNot = @"2";
         }
-        
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
         NSLog(@"1%@",_payInfo.prdordNo );
         NSLog(@"2%@",_payInfo.payType);
         NSLog(@"3%@",_payInfo.rate);
@@ -363,6 +364,7 @@
         NSLog(@"16%@",_scanOrNot);
         NSLog(@"17%@",_location);
     if (_location) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_payInfo.prdordNo payType:_payInfo.payType rate:_payInfo.rate termNo:_payInfo.termInfo.termNo termType:_payInfo.termType payAmt:payAmt track:_payInfo.track pinblk:_payInfo.pinblk random:@"CDB9C9D14724091B" mediaType:_payInfo.mediaType period:_payInfo.period icdata:_payInfo.icdata crdnum:_payInfo.crdnum mac:_payInfo.mac ctype:_payInfo.ctype scancardnum:_finalCardNum scanornot:_scanOrNot address:_location complete:^(BOOL succeed, NSString *msg, NSString *cod) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             

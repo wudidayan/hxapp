@@ -20,7 +20,7 @@
     table.dataSource = self;
     table.delegate = self;
     table.frame = CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height-100);
-    table.separatorStyle = UITableViewCellSeparatorStyleNone;
+    table.separatorStyle = UITableViewCellSeparatorStyleSingleLine; //UITableViewCellSeparatorStyleNone;
     [self.view addSubview:table];
 }
 
@@ -47,6 +47,8 @@
     if (!cell) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
     }
+    
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     cell.textLabel.text = self.bankArr[indexPath.row];
     return cell;
     
