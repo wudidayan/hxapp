@@ -64,19 +64,24 @@ static const char * const kZSYPopoverListButtonClickForDone = "kZSYPopoverListBu
     
     _titleName = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleName.font = [UIFont systemFontOfSize:17.0f];
+    /*
     self.titleName.backgroundColor = [UIColor colorWithRed:59./255.
                                                  green:89./255.
                                                   blue:152./255.
                                                  alpha:1.0f];
-    
+    */
+    self.titleName.backgroundColor = [UIColor colorWithRed:17./255.
+                                                     green:150./255.
+                                                      blue:219./255.
+                                                     alpha:1.0f];
     self.titleName.textAlignment = NSTextAlignmentCenter;
     self.titleName.textColor = [UIColor whiteColor];
     CGFloat xWidth = self.bounds.size.width;
     self.titleName.lineBreakMode = NSLineBreakByTruncatingTail;
-    self.titleName.frame = CGRectMake(0, 0, xWidth, 32.0f);
+    self.titleName.frame = CGRectMake(0, 0, xWidth, 40.0f);
     [self addSubview:self.titleName];
     
-    CGRect tableFrame = CGRectMake(0, 32.0f, xWidth, self.bounds.size.height-32.0f);
+    CGRect tableFrame = CGRectMake(0, 40.0f, xWidth, self.bounds.size.height-40.0f);
     _mainPopoverListView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
     self.mainPopoverListView.dataSource = self;
     self.mainPopoverListView.delegate = self;
@@ -87,7 +92,7 @@ static const char * const kZSYPopoverListButtonClickForDone = "kZSYPopoverListBu
 {
     if (self.cancelButton || self.doneButton)
     {
-        self.mainPopoverListView.frame = CGRectMake(0, 32.0f, self.mainPopoverListView.frame.size.width, self.mainPopoverListView.frame.size.height - ZSYCustomButtonHeight);
+        self.mainPopoverListView.frame = CGRectMake(0, 40.0f, self.mainPopoverListView.frame.size.width, self.mainPopoverListView.frame.size.height - ZSYCustomButtonHeight);
     }
     if (self.doneButton && nil == self.cancelButton)
     {

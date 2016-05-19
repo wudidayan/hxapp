@@ -49,5 +49,6 @@
 //====================end================//
 
 #define TITTLE_MESSAGE_TEXT  @"世界上最遥远的距离就是没有网络!"
+#define CString(s, ... ) [NSString stringWithFormat:s, ##__VA_ARGS__]
 
 #endif
