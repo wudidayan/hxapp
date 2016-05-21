@@ -27,8 +27,8 @@
     switch (status.intValue) {
         case 0: statusString = type? @"未认证":@"未绑定";     break;
         case 1: statusString = @"审核中";     break;
-        case 2: statusString = @"审核已通过";  break;
-        case 3: statusString = @"审核不通过";  break;
+        case 2: statusString = @"审核通过";  break;
+        case 3: statusString = @"审核拒绝";  break;
         default:statusString = @"异常";       break;
     }
     return statusString;

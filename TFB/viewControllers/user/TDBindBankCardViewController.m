@@ -59,7 +59,7 @@
     recognizer.numberOfTapsRequired = 1;
     [self.categories addGestureRecognizer:recognizer];
     
-    self.categories.textAlignment = NSTextAlignmentCenter;
+    //self.categories.textAlignment = NSTextAlignmentCenter;
     if (!self.categories.text) {
         self.categories.text = @"";
     }

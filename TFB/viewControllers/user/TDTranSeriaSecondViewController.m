@@ -63,7 +63,9 @@
     [self.tableView addLegendFooterWithRefreshingBlock:^{
         [weakSelf upPull];
     }];
-    
+
+    [self.tableView.header setFont:[UIFont systemFontOfSize:12.0f]];
+    [self.tableView.header setTextColor:[UIColor colorWithRed:154/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
     [self.tableView.header beginRefreshing];
 
     [self.tableView reloadData];

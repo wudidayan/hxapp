@@ -35,7 +35,7 @@
     _cellTextArray = @[@"联系客服", @"当前版本", @"关于我们"];
     _cellImageArray = @[@"shanghu_kefu", @"shanghu_renew", @"shanghu_aboutmine"];
     self.tableView.tableFooterView = [[UIView alloc] init];
-    
+    self.tableView.rowHeight = 36;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,22 +76,25 @@
 {
     UIView *bgView = [[UIView alloc] init];
     bgView.tag = 10010;
-    bgView.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 44);
-    //    bgView.backgroundColor = [UIColor greenColor];
+    bgView.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 36);
+    //bgView.backgroundColor = [UIColor greenColor];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_cellImageArray[indexPath.row]]];
-    imageView.frame = CGRectMake(10, 8, 30, 30);
+    imageView.frame = CGRectMake(10, 6, 24, 24);
     [bgView addSubview:imageView];
     
     UILabel *textLabel = [[UILabel alloc] init];
-    textLabel.frame = CGRectMake(imageView.frame.size.width + imageView.frame.origin.x + 8, 2, self.tableView.bounds.size.width / 2 - (imageView.frame.size.width + imageView.frame.origin.x + 8), 40);
+    textLabel.frame = CGRectMake(imageView.frame.size.width + imageView.frame.origin.x + 8, 2, self.tableView.bounds.size.width / 2 - (imageView.frame.size.width + imageView.frame.origin.x + 8), 32);
     textLabel.text = _cellTextArray[indexPath.row];
+    textLabel.font = [UIFont systemFontOfSize:14.0f];
+    textLabel.textAlignment = NSTextAlignmentLeft;
     [bgView addSubview:textLabel];
     
     if (indexPath.row == 0) {
         UILabel *verLabel = [[UILabel alloc] init];
-        verLabel.frame = CGRectMake(self.tableView.bounds.size.width / 2, 2, self.tableView.bounds.size.width / 2 -10, 40);
+        verLabel.frame = CGRectMake(self.tableView.bounds.size.width / 2, 2, self.tableView.bounds.size.width / 2 -10, 32);
         verLabel.text = APP_SERVICE_PHONE;
+        verLabel.font = [UIFont systemFontOfSize:12.0f];
         verLabel.textAlignment = NSTextAlignmentRight;
         //154 170 170
         verLabel.textColor = [UIColor colorWithRed:154/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];
@@ -100,8 +103,9 @@
     
     if (indexPath.row == 1) {
         UILabel *phoneNum = [[UILabel alloc] init];
-        phoneNum.frame = CGRectMake(self.tableView.bounds.size.width / 2, 2, self.tableView.bounds.size.width / 2 - 10, 40);
+        phoneNum.frame = CGRectMake(self.tableView.bounds.size.width / 2, 2, self.tableView.bounds.size.width / 2 - 10, 32);
         phoneNum.text = [NSString stringWithFormat:@"%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
+        phoneNum.font = [UIFont systemFontOfSize:12.0f];
         phoneNum.textAlignment = NSTextAlignmentRight;
         //154 170 170
         phoneNum.textColor = [UIColor colorWithRed:154/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];

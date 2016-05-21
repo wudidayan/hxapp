@@ -64,13 +64,13 @@
 //        //未实名认证
 //        [self.view makeToast:@"尚未实名认证,请先进行实名认证" duration:2.0f position:@"center"];
 //    }
-   
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self.bottomTableView.header setFont:[UIFont systemFontOfSize:12.0f]];
+    [self.bottomTableView.header setTextColor:[UIColor colorWithRed:154/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
     [self.bottomTableView.header beginRefreshing];
 }
 
@@ -83,7 +83,7 @@
     [self.topView addGestureRecognizer:userTap];
     
     self.bottomTableView.tableFooterView = [[UIView alloc] init];
-    
+    self.bottomTableView.rowHeight = 36;
 //    self.bottomTableView.backgroundColor = [UIColor redColor];
 //    NSLog(@"%@", self.bottomTableView.frame);
     
@@ -117,18 +117,21 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIndef];
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_cellImageArray[indexPath.row]]];
-        imageView.frame = CGRectMake(10, 8, 30, 30);
+        imageView.frame = CGRectMake(10, 6, 24, 24);
         [cell.contentView addSubview:imageView];
         
         UILabel *textLabel = [[UILabel alloc] init];
-        textLabel.frame = CGRectMake(imageView.frame.size.width + imageView.frame.origin.x + 8, 2, self.bottomTableView.bounds.size.width / 2 - (imageView.frame.size.width + imageView.frame.origin.x + 8) + 40, 40);
+        textLabel.frame = CGRectMake(imageView.frame.size.width + imageView.frame.origin.x + 8, 2, self.bottomTableView.bounds.size.width / 2 - (imageView.frame.size.width + imageView.frame.origin.x + 8), 32);
         textLabel.text = _cellTextArray[indexPath.row];
+        textLabel.font = [UIFont systemFontOfSize:14.0f];
+        textLabel.textAlignment = NSTextAlignmentLeft;
+        //textLabel.backgroundColor = [UIColor redColor];
         [cell.contentView addSubview:textLabel];
         
         if (indexPath.row == 1) {
             _redView = [[UIView alloc]init];
             _redView.tag = 1;
-            _redView.frame = CGRectMake(self.bottomTableView.bounds.size.width-50, 20, 10, 10);
+            _redView.frame = CGRectMake(self.bottomTableView.bounds.size.width - 30, 13, 10, 10);
             _redView.layer.cornerRadius = 5;//圆形
             _redView.backgroundColor = [UIColor redColor];//颜色：红色
             [cell.contentView addSubview:_redView];
@@ -151,8 +154,8 @@
             if(indexPath.row == 6){
                 cerStatus.tag = 6;
             }
-            cerStatus.frame = CGRectMake(self.bottomTableView.bounds.size.width / 2, 2, self.bottomTableView.bounds.size.width / 2 - 10, 40);
-            cerStatus.font = [UIFont systemFontOfSize:14.0f];
+            cerStatus.frame = CGRectMake(self.bottomTableView.bounds.size.width / 2, 2, self.bottomTableView.bounds.size.width / 2 - 10, 32);
+            cerStatus.font = [UIFont systemFontOfSize:12.0f];
             cerStatus.textAlignment = NSTextAlignmentRight;
             //154 170 170
             cerStatus.textColor = [UIColor colorWithRed:154/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];

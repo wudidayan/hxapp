@@ -58,6 +58,13 @@
 		18D9EF181ACD610A00C4DAA7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D9EF171ACD610A00C4DAA7 /* AudioToolbox.framework */; };
 		18F0A9471BEC532F0059AB2B /* td_app_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F0A9461BEC532F0059AB2B /* td_app_logo@2x.png */; };
 		18F5EBC71B5644C500470D76 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F5EBC61B5644C500470D76 /* CoreBluetooth.framework */; };
+		4C0D37031CED8F9E004E078E /* TDFastPayStep1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D37011CED8F9E004E078E /* TDFastPayStep1ViewController.m */; };
+		4C0D37041CED8F9E004E078E /* TDFastPayStep1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D37021CED8F9E004E078E /* TDFastPayStep1ViewController.xib */; };
+		4C0D37091CEDD06D004E078E /* viewlist_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D37071CEDD06D004E078E /* viewlist_normal.png */; };
+		4C0D370A1CEDD06D004E078E /* viewlist_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D37081CEDD06D004E078E /* viewlist_selected.png */; };
+		4C0D370D1CEEB96E004E078E /* TDFastPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D370C1CEEB96E004E078E /* TDFastPay.m */; };
+		4C0D37111CEED2B2004E078E /* TDFastPayStep2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D370F1CEED2B2004E078E /* TDFastPayStep2ViewController.m */; };
+		4C0D37121CEED2B2004E078E /* TDFastPayStep2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D37101CEED2B2004E078E /* TDFastPayStep2ViewController.xib */; };
 		4CFA463A1CE1B7E300809874 /* longlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA46391CE1B7E300809874 /* longlogo.png */; };
 		4CFA463C1CE1DACE00809874 /* 129AE5220F8D531981E7.lic in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA463B1CE1DACE00809874 /* 129AE5220F8D531981E7.lic */; };
 		4F1A998A1B0D77C70067F9DD /* UIImage+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A99891B0D77C70067F9DD /* UIImage+Reflection.m */; };
@@ -318,6 +325,16 @@
 		18D9EF171ACD610A00C4DAA7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		18F0A9461BEC532F0059AB2B /* td_app_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "td_app_logo@2x.png"; sourceTree = "<group>"; };
 		18F5EBC61B5644C500470D76 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		4C0D37001CED8F9E004E078E /* TDFastPayStep1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDFastPayStep1ViewController.h; path = FastPay/TDFastPayStep1ViewController.h; sourceTree = "<group>"; };
+		4C0D37011CED8F9E004E078E /* TDFastPayStep1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFastPayStep1ViewController.m; path = FastPay/TDFastPayStep1ViewController.m; sourceTree = "<group>"; };
+		4C0D37021CED8F9E004E078E /* TDFastPayStep1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDFastPayStep1ViewController.xib; path = FastPay/TDFastPayStep1ViewController.xib; sourceTree = "<group>"; };
+		4C0D37071CEDD06D004E078E /* viewlist_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viewlist_normal.png; sourceTree = "<group>"; };
+		4C0D37081CEDD06D004E078E /* viewlist_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viewlist_selected.png; sourceTree = "<group>"; };
+		4C0D370B1CEEB96E004E078E /* TDFastPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDFastPay.h; sourceTree = "<group>"; };
+		4C0D370C1CEEB96E004E078E /* TDFastPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDFastPay.m; sourceTree = "<group>"; };
+		4C0D370E1CEED2B2004E078E /* TDFastPayStep2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDFastPayStep2ViewController.h; path = FastPay/TDFastPayStep2ViewController.h; sourceTree = "<group>"; };
+		4C0D370F1CEED2B2004E078E /* TDFastPayStep2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFastPayStep2ViewController.m; path = FastPay/TDFastPayStep2ViewController.m; sourceTree = "<group>"; };
+		4C0D37101CEED2B2004E078E /* TDFastPayStep2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDFastPayStep2ViewController.xib; path = FastPay/TDFastPayStep2ViewController.xib; sourceTree = "<group>"; };
 		4CE8475F1CE97854001AC016 /* NLDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDump.h; sourceTree = "<group>"; };
 		4CFA46391CE1B7E300809874 /* longlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longlogo.png; sourceTree = "<group>"; };
 		4CFA463B1CE1DACE00809874 /* 129AE5220F8D531981E7.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 129AE5220F8D531981E7.lic; sourceTree = "<group>"; };
@@ -759,6 +776,8 @@
 		18A1EEE21AB28800005A3523 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C0D37071CEDD06D004E078E /* viewlist_normal.png */,
+				4C0D37081CEDD06D004E078E /* viewlist_selected.png */,
 				4CFA46391CE1B7E300809874 /* longlogo.png */,
 				9D41A6521C926BE6007ED769 /* Next.png */,
 				18D37E051BE8A671000FFA85 /* fail@2x.png */,
@@ -797,9 +816,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4C0D36FF1CED8F58004E078E /* FastPay */ = {
+			isa = PBXGroup;
+			children = (
+				4C0D370E1CEED2B2004E078E /* TDFastPayStep2ViewController.h */,
+				4C0D370F1CEED2B2004E078E /* TDFastPayStep2ViewController.m */,
+				4C0D37101CEED2B2004E078E /* TDFastPayStep2ViewController.xib */,
+				4C0D37001CED8F9E004E078E /* TDFastPayStep1ViewController.h */,
+				4C0D37011CED8F9E004E078E /* TDFastPayStep1ViewController.m */,
+				4C0D37021CED8F9E004E078E /* TDFastPayStep1ViewController.xib */,
+			);
+			name = FastPay;
+			sourceTree = "<group>";
+		};
 		4FC369421B0C3E2900A26BDE /* model */ = {
 			isa = PBXGroup;
 			children = (
+				4C0D370B1CEEB96E004E078E /* TDFastPay.h */,
+				4C0D370C1CEEB96E004E078E /* TDFastPay.m */,
 				9E6F64BB1CBF591700EC73E4 /* TDLanYaUerInfo.h */,
 				9E6F64BC1CBF591700EC73E4 /* TDLanYaUerInfo.m */,
 				4FC369471B0C3E6200A26BDE /* TDBaseModel.h */,
@@ -984,6 +1018,7 @@
 				4FC369F31B0C607E00A26BDE /* Collection */,
 				4FC369F51B0C607E00A26BDE /* setting */,
 				4FC369F61B0C607E00A26BDE /* user */,
+				4C0D36FF1CED8F58004E078E /* FastPay */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -1424,6 +1459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0D370A1CEDD06D004E078E /* viewlist_selected.png in Resources */,
 				4FC36A4E1B0C62A200A26BDE /* TDSignViewController.xib in Resources */,
 				4FC36A691B0C62E500A26BDE /* HelpMessage.plist in Resources */,
 				4FC36A6F1B0C62E500A26BDE /* TDFinanceViewController.xib in Resources */,
@@ -1439,11 +1475,13 @@
 				183919511BDDC87C00A96767 /* Default-568h@2x.png in Resources */,
 				9E6F64B51CBF588000EC73E4 /* TDBindTYViewController.xib in Resources */,
 				4FC36AAB1B0C62F900A26BDE /* TDDeviceTableViewCell.xib in Resources */,
+				4C0D37121CEED2B2004E078E /* TDFastPayStep2ViewController.xib in Resources */,
 				4FC36A051B0C628400A26BDE /* TDVerificationCodeViewController.xib in Resources */,
 				4FC36AA11B0C62F900A26BDE /* TDBankCardCell.xib in Resources */,
 				18D37E041BE8900C000FFA85 /* TDPayResaultViewController.xib in Resources */,
 				4CFA463C1CE1DACE00809874 /* 129AE5220F8D531981E7.lic in Resources */,
 				9D41A6531C926BE6007ED769 /* Next.png in Resources */,
+				4C0D37091CEDD06D004E078E /* viewlist_normal.png in Resources */,
 				4FC36A201B0C629700A26BDE /* TDDrawingCashViewController.xib in Resources */,
 				18A1EEE61AB28800005A3523 /* InfoPlist.strings in Resources */,
 				9E6F64C51CBF6CD300EC73E4 /* TDBankInquiryMoneyViewController.xib in Resources */,
@@ -1487,6 +1525,7 @@
 				4F998B831AFDF26A0093AF4F /* bg_input_pwd@2x.jpg in Resources */,
 				9E6F64D11CBF8CE600EC73E4 /* TDTYPayViewController.xib in Resources */,
 				4F998B871AFDF2D40093AF4F /* bg_sales_slip@2x.jpg in Resources */,
+				4C0D37041CED8F9E004E078E /* TDFastPayStep1ViewController.xib in Resources */,
 				170E091A1C48DE6400238833 /* TDChangeBankViewController.xib in Resources */,
 				9DF6EF441C8ABCBA00118ED3 /* LICENSE in Resources */,
 				4FBE00F01B218F070029CDF5 /* TDTixianSerialViewController.xib in Resources */,
@@ -1616,9 +1655,11 @@
 				9DEF7D6E1C843C6E00968C27 /* TDScanBankCardViewController.m in Sources */,
 				4FC369DE1B0C5F3500A26BDE /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				4FC36A731B0C62E500A26BDE /* TDNoticeTableViewCell.m in Sources */,
+				4C0D37111CEED2B2004E078E /* TDFastPayStep2ViewController.m in Sources */,
 				18701B141BE4818B00800C77 /* TDNewTranSeriaInfoViewController.m in Sources */,
 				9E6F64B91CBF588600EC73E4 /* TDBalanceViewController.m in Sources */,
 				18A6CA661BDEF9DE004BC3AA /* JSONKit.m in Sources */,
+				4C0D37031CED8F9E004E078E /* TDFastPayStep1ViewController.m in Sources */,
 				4FC3696A1B0C5EFF00A26BDE /* TDHttpEngine.m in Sources */,
 				9DD2DC8F1C327B3C000EA91C /* TDBankListViewController.m in Sources */,
 				1890330B1BE1B42F003966C3 /* CJCommon.m in Sources */,
@@ -1626,6 +1667,7 @@
 				9DF6EF481C8ABCBB00118ED3 /* UUDatePicker_DateModel.m in Sources */,
 				4FC3695C1B0C3E6200A26BDE /* TDDynamicImg.m in Sources */,
 				9D41A66F1C92A215007ED769 /* MJRefreshConst.m in Sources */,
+				4C0D370D1CEEB96E004E078E /* TDFastPay.m in Sources */,
 				4FC36AD71B0C652500A26BDE /* TDAnimation.m in Sources */,
 				4FC36AAC1B0C62F900A26BDE /* TDEditPwdTypeViewController.m in Sources */,
 				4FC369E01B0C5F3500A26BDE /* MKNetworkOperation.m in Sources */,

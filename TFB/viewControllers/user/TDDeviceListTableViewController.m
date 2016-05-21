@@ -28,6 +28,8 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.tableView.header setFont:[UIFont systemFontOfSize:12.0f]];
+    [self.tableView.header setTextColor:[UIColor colorWithRed:154/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
     [self.tableView.header beginRefreshing];
 
 }
@@ -41,7 +43,7 @@
     [button setBackgroundImage:[UIImage imageNamed:@"bg_btn"] forState:0];
     [BGView addSubview:button];
     [button setTitle:@"绑定刷卡器" forState:0];
-    button.frame = CGRectMake(0, 0, BGView.bounds.size.width-30, 40);
+    button.frame = CGRectMake(0, 0, BGView.bounds.size.width-30, 45);
     button.center = CGPointMake(BGView.bounds.size.width/2, BGView.bounds.size.height/2);
     [button addTarget:self action:@selector(clickButton) forControlEvents:1 << 6];
     

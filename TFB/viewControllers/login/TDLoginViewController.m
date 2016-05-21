@@ -41,7 +41,7 @@
 //    _isRememberAccount = YES;
     
 //    [self creatLayerWithView:_useMobileText.superview];
-   [_tittleImageV.layer addAnimation:[TDAnimation opacityTimes_Animation:2 durTimes:0.5] forKey:nil];
+//   [_tittleImageV.layer addAnimation:[TDAnimation opacityTimes_Animation:2 durTimes:0.5] forKey:nil];
    
 //    UIImage *im = [UIImage imageNamed:@"td_app_logo"];
 //    UIImageView * image = [[UIImageView alloc]initWithFrame:CGRectMake(_tittleImageV.frame.origin.x,

@@ -8,6 +8,7 @@
 
 #import "TDBaseViewController.h"
 #import "ZSYPopoverListView.h"
+#import "TDFastPay.h"
 
 @interface TDFastPayStep1ViewController : TDBaseViewController<UIGestureRecognizerDelegate, UINavigationBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate,UIActionSheetDelegate,ZSYPopoverListDatasource, ZSYPopoverListDelegate,UITextFieldDelegate>
 
@@ -17,5 +18,7 @@
 
 - (IBAction)commitBtnClick:(id)sender;
 - (IBAction)clickBankButton:(UIButton *)sender;
+
+@property (nonatomic,strong) TDFastPay *fastPayContext;
 
 @end

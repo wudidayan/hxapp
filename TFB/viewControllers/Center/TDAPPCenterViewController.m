@@ -17,6 +17,7 @@
 #import "TDRealCertificationViewController.h"
 #import "TDBalanceViewController.h"
 #import "TDDrawingCashViewController.h"
+#import "TDFastPayStep1ViewController.h"
 #define kDuration 1.0f
 #define CHOOSETERMSHEETTAG 131
 @interface TDAPPCenterViewController (){
@@ -360,8 +361,9 @@
             break;
         case 2:
         {
-            [self.view makeToast:@"暂未开通" duration:2.0f position:@"center"];
-            
+            //[self.view makeToast:@"暂未开通" duration:2.0f position:@"center"];
+            TDFastPayStep1ViewController *fastPayController = [[TDFastPayStep1ViewController alloc]init];
+            [self.navigationController pushViewController:fastPayController animated:YES];
         }
             break;
         case 3:

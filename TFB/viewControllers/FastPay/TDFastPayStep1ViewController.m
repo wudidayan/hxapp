@@ -8,7 +8,7 @@
 
 #import "ZSYPopoverListView.h"
 #import "TDFastPayStep1ViewController.h"
-
+#import "TDFastPayStep2ViewController.h"
 
 @interface TDFastPayStep1ViewController ()
 {
@@ -37,6 +37,7 @@
                            @"工商银行",@"平安银行",@"中国邮政",@"浦发银行",nil];
     self.bankArr = _bankArrDefault;
     [_bankNameButtom setTitle:@"= 请点击选择支持的银行 =" forState:0];
+    self.fastPayContext = [[TDFastPay alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,18 +52,24 @@
         return;
     }
 
-    if (_cardNumTF.text.length <= 0) {
-        [self.view makeToast:@"请输入银行卡号" duration:2.0f position:@"center"];
+    if (_cardNumTF.text.length < 16) {
+        [self.view makeToast:@"请输入正确的银行卡号" duration:2.0f position:@"center"];
         return;
     }
 
+    self.fastPayContext.bankName = _bankNameButtom.titleLabel.text;
+    self.fastPayContext.cardNo = _cardNumTF.text;
+
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self.view makeToast:CString(@"%@／%@", _cardNumTF.text, _bankNameButtom.titleLabel.text) duration:2.0f position:@"center"];
+    [self.view makeToast:CString(@"%@／%@", self.fastPayContext.cardNo, self.fastPayContext.bankName) duration:2.0f position:@"center"];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
+    TDFastPayStep2ViewController *fastPayController = [[TDFastPayStep2ViewController alloc]init];
+    fastPayController.fastPayContext = self.fastPayContext;
+    [self.navigationController pushViewController:fastPayController animated:YES];
 }
 
-- (void)popToRoot
-{
+- (void)popToRoot {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -95,11 +102,11 @@
     
     if ( self.selectedIndexPath && NSOrderedSame == [self.selectedIndexPath compare:indexPath])
     {
-        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+        cell.imageView.image = [UIImage imageNamed:@"viewlist_selected.png"];
     }
     else
     {
-        cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+        cell.imageView.image = [UIImage imageNamed:@"viewlist_normal.png"];
     }
     
     NSString *bankName = self.bankArr[indexPath.row];
@@ -110,7 +117,7 @@
 - (void)popoverListView:(ZSYPopoverListView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_normal.png"];
+    cell.imageView.image = [UIImage imageNamed:@"viewlist_normal.png"];
     
 }
 
@@ -118,7 +125,7 @@
 {
     self.selectedIndexPath = indexPath;
     UITableViewCell *cell = [tableView popoverCellForRowAtIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"fs_main_login_selected.png"];
+    cell.imageView.image = [UIImage imageNamed:@"viewlist_selected.png"];
     NSLog(@"Select: %@", self.bankArr[indexPath.row]);
     [_bankNameButtom setTitle:self.bankArr[indexPath.row] forState:0];
     [tableView dismiss];

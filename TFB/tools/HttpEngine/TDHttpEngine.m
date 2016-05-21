@@ -813,7 +813,7 @@
             
             for (int i = 0; i < dataArray.count; i++) {
                 TDBankCardInfo *bankCardInfo = [[TDBankCardInfo alloc] initWithDictionary:dataArray[i]];
-                bankCardInfo.cerStatus = @"审核已通过";
+                bankCardInfo.cerStatus = @"审核通过";
                 [tempArray addObject:bankCardInfo];
             }
             
