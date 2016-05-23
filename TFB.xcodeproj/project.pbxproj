@@ -65,6 +65,10 @@
 		4C0D370D1CEEB96E004E078E /* TDFastPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D370C1CEEB96E004E078E /* TDFastPay.m */; };
 		4C0D37111CEED2B2004E078E /* TDFastPayStep2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D370F1CEED2B2004E078E /* TDFastPayStep2ViewController.m */; };
 		4C0D37121CEED2B2004E078E /* TDFastPayStep2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D37101CEED2B2004E078E /* TDFastPayStep2ViewController.xib */; };
+		4CB0DB011CF2A8100042B1C4 /* TDFastPayStep3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0DAFF1CF2A8100042B1C4 /* TDFastPayStep3ViewController.m */; };
+		4CB0DB021CF2A8100042B1C4 /* TDFastPayStep3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB0DB001CF2A8100042B1C4 /* TDFastPayStep3ViewController.xib */; };
+		4CB0DB0B1CF2DB450042B1C4 /* TDFastPayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0DB091CF2DB450042B1C4 /* TDFastPayResultViewController.m */; };
+		4CB0DB0C1CF2DB450042B1C4 /* TDFastPayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB0DB0A1CF2DB450042B1C4 /* TDFastPayResultViewController.xib */; };
 		4CFA463A1CE1B7E300809874 /* longlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA46391CE1B7E300809874 /* longlogo.png */; };
 		4CFA463C1CE1DACE00809874 /* 129AE5220F8D531981E7.lic in Resources */ = {isa = PBXBuildFile; fileRef = 4CFA463B1CE1DACE00809874 /* 129AE5220F8D531981E7.lic */; };
 		4F1A998A1B0D77C70067F9DD /* UIImage+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A99891B0D77C70067F9DD /* UIImage+Reflection.m */; };
@@ -335,6 +339,12 @@
 		4C0D370E1CEED2B2004E078E /* TDFastPayStep2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDFastPayStep2ViewController.h; path = FastPay/TDFastPayStep2ViewController.h; sourceTree = "<group>"; };
 		4C0D370F1CEED2B2004E078E /* TDFastPayStep2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFastPayStep2ViewController.m; path = FastPay/TDFastPayStep2ViewController.m; sourceTree = "<group>"; };
 		4C0D37101CEED2B2004E078E /* TDFastPayStep2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDFastPayStep2ViewController.xib; path = FastPay/TDFastPayStep2ViewController.xib; sourceTree = "<group>"; };
+		4CB0DAFE1CF2A8100042B1C4 /* TDFastPayStep3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDFastPayStep3ViewController.h; path = FastPay/TDFastPayStep3ViewController.h; sourceTree = "<group>"; };
+		4CB0DAFF1CF2A8100042B1C4 /* TDFastPayStep3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFastPayStep3ViewController.m; path = FastPay/TDFastPayStep3ViewController.m; sourceTree = "<group>"; };
+		4CB0DB001CF2A8100042B1C4 /* TDFastPayStep3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDFastPayStep3ViewController.xib; path = FastPay/TDFastPayStep3ViewController.xib; sourceTree = "<group>"; };
+		4CB0DB081CF2DB450042B1C4 /* TDFastPayResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDFastPayResultViewController.h; path = FastPay/TDFastPayResultViewController.h; sourceTree = "<group>"; };
+		4CB0DB091CF2DB450042B1C4 /* TDFastPayResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFastPayResultViewController.m; path = FastPay/TDFastPayResultViewController.m; sourceTree = "<group>"; };
+		4CB0DB0A1CF2DB450042B1C4 /* TDFastPayResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDFastPayResultViewController.xib; path = FastPay/TDFastPayResultViewController.xib; sourceTree = "<group>"; };
 		4CE8475F1CE97854001AC016 /* NLDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDump.h; sourceTree = "<group>"; };
 		4CFA46391CE1B7E300809874 /* longlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longlogo.png; sourceTree = "<group>"; };
 		4CFA463B1CE1DACE00809874 /* 129AE5220F8D531981E7.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 129AE5220F8D531981E7.lic; sourceTree = "<group>"; };
@@ -819,6 +829,12 @@
 		4C0D36FF1CED8F58004E078E /* FastPay */ = {
 			isa = PBXGroup;
 			children = (
+				4CB0DB081CF2DB450042B1C4 /* TDFastPayResultViewController.h */,
+				4CB0DB091CF2DB450042B1C4 /* TDFastPayResultViewController.m */,
+				4CB0DB0A1CF2DB450042B1C4 /* TDFastPayResultViewController.xib */,
+				4CB0DAFE1CF2A8100042B1C4 /* TDFastPayStep3ViewController.h */,
+				4CB0DAFF1CF2A8100042B1C4 /* TDFastPayStep3ViewController.m */,
+				4CB0DB001CF2A8100042B1C4 /* TDFastPayStep3ViewController.xib */,
 				4C0D370E1CEED2B2004E078E /* TDFastPayStep2ViewController.h */,
 				4C0D370F1CEED2B2004E078E /* TDFastPayStep2ViewController.m */,
 				4C0D37101CEED2B2004E078E /* TDFastPayStep2ViewController.xib */,
@@ -1477,6 +1493,7 @@
 				4FC36AAB1B0C62F900A26BDE /* TDDeviceTableViewCell.xib in Resources */,
 				4C0D37121CEED2B2004E078E /* TDFastPayStep2ViewController.xib in Resources */,
 				4FC36A051B0C628400A26BDE /* TDVerificationCodeViewController.xib in Resources */,
+				4CB0DB021CF2A8100042B1C4 /* TDFastPayStep3ViewController.xib in Resources */,
 				4FC36AA11B0C62F900A26BDE /* TDBankCardCell.xib in Resources */,
 				18D37E041BE8900C000FFA85 /* TDPayResaultViewController.xib in Resources */,
 				4CFA463C1CE1DACE00809874 /* 129AE5220F8D531981E7.lic in Resources */,
@@ -1512,6 +1529,7 @@
 				4FBE00F51B218F4B0029CDF5 /* TDTixianViewCell.xib in Resources */,
 				4F9E25BA1B09C8D100E764D7 /* messageText.txt in Resources */,
 				4FC36AA91B0C62F900A26BDE /* TDDeviceListTableViewController.xib in Resources */,
+				4CB0DB0C1CF2DB450042B1C4 /* TDFastPayResultViewController.xib in Resources */,
 				4F1A9AF41B0DB9880067F9DD /* TDFenRunTableViewCell.xib in Resources */,
 				18D37E071BE8A671000FFA85 /* fail@2x.png in Resources */,
 				4FC36A1E1B0C629700A26BDE /* TDAPPCenterViewController.xib in Resources */,
@@ -1577,6 +1595,7 @@
 				189202231BFABECB00C8F21D /* TDBindNLBlueViewController.m in Sources */,
 				4FC36AB61B0C62F900A26BDE /* TDTranSeriaViewController.m in Sources */,
 				4FC369CC1B0C5F3500A26BDE /* MBProgressHUD.m in Sources */,
+				4CB0DB0B1CF2DB450042B1C4 /* TDFastPayResultViewController.m in Sources */,
 				9E6F64BD1CBF591700EC73E4 /* TDLanYaUerInfo.m in Sources */,
 				9E6F64D01CBF8CE600EC73E4 /* TDTYPayViewController.m in Sources */,
 				4F1A9AF31B0DB9880067F9DD /* TDFenRunTableViewCell.m in Sources */,
@@ -1661,6 +1680,7 @@
 				18A6CA661BDEF9DE004BC3AA /* JSONKit.m in Sources */,
 				4C0D37031CED8F9E004E078E /* TDFastPayStep1ViewController.m in Sources */,
 				4FC3696A1B0C5EFF00A26BDE /* TDHttpEngine.m in Sources */,
+				4CB0DB011CF2A8100042B1C4 /* TDFastPayStep3ViewController.m in Sources */,
 				9DD2DC8F1C327B3C000EA91C /* TDBankListViewController.m in Sources */,
 				1890330B1BE1B42F003966C3 /* CJCommon.m in Sources */,
 				4FC36A701B0C62E500A26BDE /* TDHelpMessageTableViewController.m in Sources */,
@@ -1806,8 +1826,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1832,7 +1852,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huiXinkeji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2cad2f4f-0be8-4792-b182-b69b1d2e991f";
+				PROVISIONING_PROFILE = "d03effdf-960f-4cc9-acb1-528aae7d6b46";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1843,8 +1863,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 雁 程 (5MNHPVFNE5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Huixin Factoring Business Co.,  Ltd (4U8D7EJPXL)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1869,7 +1889,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huiXinkeji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2cad2f4f-0be8-4792-b182-b69b1d2e991f";
+				PROVISIONING_PROFILE = "d03effdf-960f-4cc9-acb1-528aae7d6b46";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

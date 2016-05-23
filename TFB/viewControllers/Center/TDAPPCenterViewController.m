@@ -363,6 +363,7 @@
         {
             //[self.view makeToast:@"暂未开通" duration:2.0f position:@"center"];
             TDFastPayStep1ViewController *fastPayController = [[TDFastPayStep1ViewController alloc]init];
+            fastPayController.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:fastPayController animated:YES];
         }
             break;

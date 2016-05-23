@@ -2,13 +2,14 @@
 //  TDFastPayStep1ViewController.m
 //  TFB
 //
-//  Created by Nothing on 15/4/13.
-//  Copyright (c) 2015年 TD. All rights reserved.
+//  Created by Nothing on 16/5/15.
+//  Copyright (c) 2016年 TD. All rights reserved.
 //
 
 #import "ZSYPopoverListView.h"
 #import "TDFastPayStep1ViewController.h"
 #import "TDFastPayStep2ViewController.h"
+#define ALERT_VIEW_TAG_CARDSIGN  10
 
 @interface TDFastPayStep1ViewController ()
 {
@@ -29,6 +30,7 @@
     [self backButton];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"银行卡";
+    [self.bankNameButtom.layer setCornerRadius:5.0f];
     
     // 获取支持的银行列表
     self.bankArrDefault = [NSArray arrayWithObjects:
@@ -36,8 +38,12 @@
                            @"兴业银行",@"招商银行",@"中信银行",@"广东发展银行",@"华夏银行",
                            @"工商银行",@"平安银行",@"中国邮政",@"浦发银行",nil];
     self.bankArr = _bankArrDefault;
-    [_bankNameButtom setTitle:@"= 请点击选择支持的银行 =" forState:0];
+    [_bankNameButtom setTitle:@"= 请选择支持的银行 =" forState:0];
     self.fastPayContext = [[TDFastPay alloc]init];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,10 +69,17 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.view makeToast:CString(@"%@／%@", self.fastPayContext.cardNo, self.fastPayContext.bankName) duration:2.0f position:@"center"];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    
-    TDFastPayStep2ViewController *fastPayController = [[TDFastPayStep2ViewController alloc]init];
-    fastPayController.fastPayContext = self.fastPayContext;
-    [self.navigationController pushViewController:fastPayController animated:YES];
+
+    if(_cardNumTF.text.length == 17) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"签约提示" message:@"您的卡尚未签约，是否现在去签约？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"去签约", nil];
+        alertView.tag = ALERT_VIEW_TAG_CARDSIGN;
+        [alertView show];
+    } else {
+        TDFastPayStep2ViewController *fastPayController = [[TDFastPayStep2ViewController alloc]init];
+        fastPayController.fastPayContext = self.fastPayContext;
+        fastPayController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:fastPayController animated:YES];
+    }
 }
 
 - (void)popToRoot {
@@ -137,6 +150,17 @@
 
 -(void)clickbackButton {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == ALERT_VIEW_TAG_CARDSIGN) {
+        if (0 == buttonIndex) {
+            [self clickbackButton];
+        } else {
+            [self.view makeToast:@"去签约" duration:2.0f position:@"center"];
+        }
+    }
 }
 
 @end

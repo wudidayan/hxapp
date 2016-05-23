@@ -12,6 +12,7 @@
 // mobileNo        手机号
 // mobileAuthNo    手机验证码
 // txnAmt          交易金额
+// payType         支付方式，（0）支付，（1）签约＋支付
 
 @property (nonatomic, strong) NSString *bankName;
 @property (nonatomic, strong) NSString *cardNo;
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) NSString *mobileNo;
 @property (nonatomic, strong) NSString *mobileAuthNo;
 @property (nonatomic, strong) NSString *txnAmt;
+@property (nonatomic, strong) NSString *payType;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dic;
 

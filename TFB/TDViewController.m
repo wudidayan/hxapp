@@ -36,9 +36,11 @@
                                                                            imageV.frame.size.width,
                                                                            imageV.frame.size.height * IMAGE_HIGHT_R)];
         [self.view addSubview:image];
+        /*
         [image setImage:[[imageV image] reflectionWithAlpha:0.3]];
         [image setImage:[[imageV image] reflectionRotatedWithAlpha:0.05]];
         [image setImage:[[imageV image] reflectionWithHeight:imageV.frame.size.height]];
+        */
     }];
 }
 

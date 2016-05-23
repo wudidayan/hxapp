@@ -2,22 +2,15 @@
 //  TDFastPayStep2ViewController.m
 //  TFB
 //
-//  Created by Nothing on 15/4/13.
-//  Copyright (c) 2015年 TD. All rights reserved.
+//  Created by Nothing on 16/5/15.
+//  Copyright (c) 2016年 TD. All rights reserved.
 //
 
 #import "ZSYPopoverListView.h"
 #import "TDFastPayStep2ViewController.h"
-
+#import "TDFastPayStep3ViewController.h"
 
 @interface TDFastPayStep2ViewController ()
-{
-    ZSYPopoverListView *listView;
-}
-
-@property (nonatomic,strong) NSArray *bankArr;
-@property (nonatomic,strong) NSArray *bankArrDefault;
-@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 @end
 
@@ -41,6 +34,12 @@
 
     if (self.cardExpireDate.text.length != 4) {
         [self.view makeToast:@"请输入卡有效期(YYMM)" duration:2.0f position:@"center"];
+        return;
+    }
+
+    NSInteger mm = [[self.cardExpireDate.text substringWithRange:(NSRange){2,2}] integerValue];
+    if (mm > 12) {
+        [self.view makeToast:@"请输入正确的卡有效期(YYMM)" duration:2.0f position:@"center"];
         return;
     }
 
@@ -68,6 +67,11 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.view makeToast:CString(@"%@ ／ %@ / %@ ／ %@ / %@ / %@", self.fastPayContext.cardNo, self.fastPayContext.bankName, self.fastPayContext.cardExpireDate, self.fastPayContext.cardCvv, self.fastPayContext.mobileNo, self.fastPayContext.idNo) duration:2.0f position:@"center"];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
+    TDFastPayStep3ViewController *fastPayController = [[TDFastPayStep3ViewController alloc]init];
+    fastPayController.fastPayContext = self.fastPayContext;
+    fastPayController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:fastPayController animated:YES];
 }
 
 - (void)popToRoot {
@@ -80,6 +84,10 @@
 
 -(void)clickbackButton {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)textFieldDoneEditing:(id)sender {
+    [sender resignFirstResponder];
 }
 
 @end

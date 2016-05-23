@@ -10,16 +10,16 @@
 #import "ZSYPopoverListView.h"
 #import "TDFastPay.h"
 
-@interface TDFastPayStep2ViewController : TDBaseViewController<UIGestureRecognizerDelegate, UINavigationBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate>
+@interface TDFastPayStep3ViewController : TDBaseViewController<UIGestureRecognizerDelegate, UINavigationBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *txnAmt;
+@property (weak, nonatomic) IBOutlet UITextField *mobileCode;
 @property (weak, nonatomic) IBOutlet UITextField *cardNo;
-@property (weak, nonatomic) IBOutlet UITextField *cardExpireDate;
-@property (weak, nonatomic) IBOutlet UITextField *cardCvv;
-@property (weak, nonatomic) IBOutlet UITextField *mobileNo;
-@property (weak, nonatomic) IBOutlet UITextField *idNo;
 @property (weak, nonatomic) IBOutlet UIButton *commitBtn;
+@property (weak, nonatomic) IBOutlet UIButton *getMobileCode;
 
 - (IBAction)commitBtnClick:(id)sender;
+- (IBAction)getMobileCodeClick:(id)sender;
 
 @property (nonatomic,strong) TDFastPay *fastPayContext;
 

@@ -12,6 +12,7 @@
 // mobileNo        手机号
 // mobileAuthNo    手机验证码
 // txnAmt          交易金额
+// payType         支付方式，（0）支付，（1）签约＋支付
 
 - (instancetype)initWithDictionary:(NSDictionary *)dic{
 
@@ -27,6 +28,7 @@
         self.mobileNo = [dic objectForKey:@"mobileNo"];
         self.mobileAuthNo = [dic objectForKey:@"mobileAuthNo"];
         self.txnAmt = [dic objectForKey:@"txnAmt"];
+        self.payType = [dic objectForKey:@"payType"];
     }
     
     return self;
