@@ -65,6 +65,7 @@
 		4C0D370D1CEEB96E004E078E /* TDFastPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D370C1CEEB96E004E078E /* TDFastPay.m */; };
 		4C0D37111CEED2B2004E078E /* TDFastPayStep2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D370F1CEED2B2004E078E /* TDFastPayStep2ViewController.m */; };
 		4C0D37121CEED2B2004E078E /* TDFastPayStep2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D37101CEED2B2004E078E /* TDFastPayStep2ViewController.xib */; };
+		4C0E20C21D0044EE00D09AE6 /* libSBankCardInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0E20C01D0044EE00D09AE6 /* libSBankCardInfo.a */; };
 		4CB0DB011CF2A8100042B1C4 /* TDFastPayStep3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0DAFF1CF2A8100042B1C4 /* TDFastPayStep3ViewController.m */; };
 		4CB0DB021CF2A8100042B1C4 /* TDFastPayStep3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB0DB001CF2A8100042B1C4 /* TDFastPayStep3ViewController.xib */; };
 		4CB0DB0B1CF2DB450042B1C4 /* TDFastPayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0DB091CF2DB450042B1C4 /* TDFastPayResultViewController.m */; };
@@ -339,6 +340,8 @@
 		4C0D370E1CEED2B2004E078E /* TDFastPayStep2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDFastPayStep2ViewController.h; path = FastPay/TDFastPayStep2ViewController.h; sourceTree = "<group>"; };
 		4C0D370F1CEED2B2004E078E /* TDFastPayStep2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFastPayStep2ViewController.m; path = FastPay/TDFastPayStep2ViewController.m; sourceTree = "<group>"; };
 		4C0D37101CEED2B2004E078E /* TDFastPayStep2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDFastPayStep2ViewController.xib; path = FastPay/TDFastPayStep2ViewController.xib; sourceTree = "<group>"; };
+		4C0E20C01D0044EE00D09AE6 /* libSBankCardInfo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSBankCardInfo.a; sourceTree = "<group>"; };
+		4C0E20C11D0044EE00D09AE6 /* SBankCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBankCardInfo.h; sourceTree = "<group>"; };
 		4CB0DAFE1CF2A8100042B1C4 /* TDFastPayStep3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDFastPayStep3ViewController.h; path = FastPay/TDFastPayStep3ViewController.h; sourceTree = "<group>"; };
 		4CB0DAFF1CF2A8100042B1C4 /* TDFastPayStep3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFastPayStep3ViewController.m; path = FastPay/TDFastPayStep3ViewController.m; sourceTree = "<group>"; };
 		4CB0DB001CF2A8100042B1C4 /* TDFastPayStep3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TDFastPayStep3ViewController.xib; path = FastPay/TDFastPayStep3ViewController.xib; sourceTree = "<group>"; };
@@ -674,6 +677,7 @@
 				18C293771ABC2AB200908C83 /* SystemConfiguration.framework in Frameworks */,
 				18C293751ABC2AA000908C83 /* CFNetwork.framework in Frameworks */,
 				9DDAD2EC1CBCC65200E92E2C /* libTYCommonLib.a in Frameworks */,
+				4C0E20C21D0044EE00D09AE6 /* libSBankCardInfo.a in Frameworks */,
 				18C293731ABC2A3F00908C83 /* libz.1.2.5.dylib in Frameworks */,
 				9DEF7D6D1C843C6E00968C27 /* libSBankCard.a in Frameworks */,
 				18D37DF31BE84602000FFA85 /* NLSecurityExtKit.framework in Frameworks */,
@@ -1352,6 +1356,8 @@
 		9DEF7D621C843C6E00968C27 /* ScanBankCard */ = {
 			isa = PBXGroup;
 			children = (
+				4C0E20C01D0044EE00D09AE6 /* libSBankCardInfo.a */,
+				4C0E20C11D0044EE00D09AE6 /* SBankCardInfo.h */,
 				4CFA463B1CE1DACE00809874 /* 129AE5220F8D531981E7.lic */,
 				9DA30B141CD22DB7000009F4 /* 6C9727E21359B65426F9.lic */,
 				9DEF7D631C843C6E00968C27 /* BankCardCameraViewController.h */,

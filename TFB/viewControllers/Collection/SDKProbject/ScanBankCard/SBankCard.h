@@ -13,8 +13,10 @@
 
 //识别结果
 @property(copy, nonatomic) NSString *nsNo; //银行卡号
-
-@property(strong, nonatomic) UIImage *resultImg;//银行卡号区域图像（400*70）
+//银行卡号区域图像（400*70）
+@property(strong, nonatomic) UIImage *resultImg;
+//银行卡全图
+@property(strong, nonatomic) UIImage *bankCardImg;
 
 //初始化核心
 -(int)initSBankCard:(NSString *)nsUserID nsReserve:(NSString *) nsReserve;
