@@ -43,7 +43,8 @@
     [TDHttpEngine requestForgetBalanceWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin complete:^(BOOL succeed, NSString *msg, NSString *cod, TDBalanceInfo *info) {
         if (succeed) {
             
-            weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.acT1AP.floatValue/100];
+//          weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.acT1AP.floatValue/100];
+            weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.balance.floatValue/100.0];
             
 //            weakSelf.AlreadyAmtLabel.text = [NSString stringWithFormat:@"已结算金额:%.2f",info.acT1Y.floatValue/100];
 //            weakSelf.DoesNotAmtLabel.text = [NSString stringWithFormat:@"未结算金额:%.2f",info.acT0.floatValue/100];
@@ -87,8 +88,8 @@
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         if (succeed) {
             
-            weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.acT1AP.floatValue/100];
-            
+//          weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.acT1AP.floatValue/100];
+            weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.balance.floatValue/100];
 //            weakSelf.AlreadyAmtLabel.text = [NSString stringWithFormat:@"已结算金额:%.2f",info.acT1Y.floatValue/100];
 //            weakSelf.DoesNotAmtLabel.text = [NSString stringWithFormat:@"未结算金额:%.2f",info.acT0.floatValue/100];
             //            weakSelf.daishenAmt.text = [NSString stringWithFormat:@"待审金额:%.2f",info.acT0.floatValue/100];

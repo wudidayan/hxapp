@@ -32,8 +32,44 @@
     self.acT1UNA = [dictionary objectForKey:@"acT1UNA"];
     self.acT1AP  = [dictionary objectForKey:@"acT1AP"];
     self.acT1AUNP  = [dictionary objectForKey:@"acT1AUNP"];
+    self.onCredit  = [dictionary objectForKey:@"onCredit"];
+    self.freeze  = [dictionary objectForKey:@"freeze"];
+    self.reserveField  = [dictionary objectForKey:@"reserveField"];
     
+    
+    NSLog(@"acT1AP: %@", self.acT1AP);
+    NSLog(@"onCredit: %@", self.onCredit);
+    NSLog(@"freeze: %@", self.freeze);
+    
+    int iAcT1AP = 0;
+    int iOnCredit = 0;
+    int iFreeze = 0;
+    int iBalance = 0;
+    
+    if(self.acT1AP == nil) {
+        iAcT1AP = 0;
+    } else {
+        iAcT1AP = self.acT1AP.intValue;
+    }
+    
+    if(self.onCredit == nil) {
+        iOnCredit = 0;
+    } else {
+        iOnCredit = abs(self.onCredit.intValue);
+    }
+    
+    if(self.freeze == nil) {
+        iFreeze = 0;
+    } else {
+        iFreeze = self.freeze.intValue;
+    }
+    
+    iBalance = iAcT1AP - iOnCredit - iFreeze;
+    if(iBalance < 0) {
+        iBalance = 0;
+    }
 
+    self.balance = [NSString stringWithFormat:@"%d",iBalance];
 }
 
 @end

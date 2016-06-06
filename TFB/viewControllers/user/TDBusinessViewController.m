@@ -421,7 +421,8 @@
 
         if (succeed) {
             
-            weakSelf.BalanceLabel.text = [NSString stringWithFormat:@"%.2f",info.acT1AP.floatValue/100];
+//          weakSelf.BalanceLabel.text = [NSString stringWithFormat:@"%.2f",info.acT1AP.floatValue/100];
+            weakSelf.BalanceLabel.text = [NSString stringWithFormat:@"%.2f",info.balance.floatValue/100];
             
             [self requestUserMessage];
         }else{
