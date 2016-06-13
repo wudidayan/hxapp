@@ -20,6 +20,8 @@
 //onCredit      挂帐金额	N       挂帐金额
 //freeze	    冻结金额	N       冻结金额
 //reserveField	保留使用	N		保留使用
+//balanceDisp   显示余额
+//balance       实际可用余额
 
 @property (nonatomic,copy) NSString * acBal;  //总余额
 @property (nonatomic,copy) NSString * acT1Y;  //隔天到账余额
@@ -32,7 +34,8 @@
 @property (nonatomic,copy) NSString *onCredit;  // 挂帐金额
 @property (nonatomic,copy) NSString *freeze;  // 冻结金额
 @property (nonatomic,copy) NSString *reserveField;  // 保留使用
-@property (nonatomic,copy) NSString *balance;  // 显示余额
+@property (nonatomic,copy) NSString *balanceDisp;  // 显示余额
+@property (nonatomic,copy) NSString *balance;  // 实际可用余额
 
 + (instancetype)balanceDefault;
 -(void)dataWithDictionary:(NSDictionary *)dictionary;

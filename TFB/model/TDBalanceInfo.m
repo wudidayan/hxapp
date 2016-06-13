@@ -45,6 +45,7 @@
     int iOnCredit = 0;
     int iFreeze = 0;
     int iBalance = 0;
+    int iBalanceDisp = 0;
     
     if(self.acT1AP == nil) {
         iAcT1AP = 0;
@@ -64,12 +65,14 @@
         iFreeze = self.freeze.intValue;
     }
     
+    iBalanceDisp = iBalanceDisp;
     iBalance = iAcT1AP - iOnCredit - iFreeze;
     if(iBalance < 0) {
         iBalance = 0;
     }
 
     self.balance = [NSString stringWithFormat:@"%d",iBalance];
+    self.balanceDisp = [NSString stringWithFormat:@"%d",iBalanceDisp];
 }
 
 @end

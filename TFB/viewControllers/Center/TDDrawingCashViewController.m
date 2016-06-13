@@ -21,6 +21,7 @@
 
 @property (nonatomic,strong) NSString * casType; //提现类型
 @property (nonatomic,strong) NSString * cardNo;
+@property (nonatomic,assign) NSInteger balanceAvailable;
 
 @end
 
@@ -44,7 +45,8 @@
         if (succeed) {
             
 //          weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.acT1AP.floatValue/100];
-            weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.balance.floatValue/100.0];
+            weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.balanceDisp.floatValue/100.0];
+            self.balanceAvailable = info.balance.integerValue;
             
 //            weakSelf.AlreadyAmtLabel.text = [NSString stringWithFormat:@"已结算金额:%.2f",info.acT1Y.floatValue/100];
 //            weakSelf.DoesNotAmtLabel.text = [NSString stringWithFormat:@"未结算金额:%.2f",info.acT0.floatValue/100];
@@ -89,7 +91,8 @@
         if (succeed) {
             
 //          weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.acT1AP.floatValue/100];
-            weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.balance.floatValue/100];
+            weakSelf.TatolAmtLabel.text = [NSString stringWithFormat:@"%.2f",info.balanceDisp.floatValue/100];
+            self.balanceAvailable = info.balance.integerValue;
 //            weakSelf.AlreadyAmtLabel.text = [NSString stringWithFormat:@"已结算金额:%.2f",info.acT1Y.floatValue/100];
 //            weakSelf.DoesNotAmtLabel.text = [NSString stringWithFormat:@"未结算金额:%.2f",info.acT0.floatValue/100];
             //            weakSelf.daishenAmt.text = [NSString stringWithFormat:@"待审金额:%.2f",info.acT0.floatValue/100];
@@ -145,10 +148,18 @@
         [self.view makeToast:@"请输入金额" duration:2.0f position:@"center"];
         return;
     }
-    if(_oldMoney.floatValue <= 0){
+    
+    if(_oldMoney.floatValue <= 0) {
         [self.view makeToast:@"输入金额无效" duration:2.0f position:@"center"];
         return;
     }
+    
+    int iBalanceAvailable = (int)self.balanceAvailable;
+    if (_oldMoney.floatValue > iBalanceAvailable / 100.0) {
+        [self.view makeToast:@"可提余额不足" duration:2.0f position:@"center"];
+        return;
+    }
+    
     //计算手续费
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -179,15 +190,21 @@
         _isFee = NO;
 
     if (_moneyText.text.length <= 0) {
-        
         [self.view makeToast:@"请输入提现金额" duration:2.0f position:@"center"];
         return;
     }
+    
     if (([_moneyText.text floatValue]) > [self.TatolAmtLabel.text floatValue]) {
-        
         [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
         return;
     }
+    
+    int iBalanceAvailable = (int)self.balanceAvailable;
+    if (([_moneyText.text floatValue]) > iBalanceAvailable / 100.0) {
+        [self.view makeToast:@"可提余额不足" duration:2.0f position:@"center"];
+        return;
+    }
+    
     if (NO == [NSString checkPasswordLength:_payPasswordText.text]) {
         [self.view makeToast:@"密码长度为6-20位字母或有效数字组成" duration:2.0f position:@"center"];
         return;
