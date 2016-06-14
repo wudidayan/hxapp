@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *userName;
 @property (strong, nonatomic) IBOutlet UILabel *BankName;
 @property (strong, nonatomic) IBOutlet UILabel *BankCardNum;
+@property (weak, nonatomic) IBOutlet UILabel *custId;
 - (IBAction)clickButton:(UIButton *)sender;
 
 //@property (strong, nonatomic) IBOutlet UILabel *trialLabel;

@@ -24,6 +24,7 @@
 #import "TDDrawingCashViewController.h"
 #import "TDBindBankCardViewController.h"
 #import "TDFenRunViewController.h"
+#import "TDQrcodeViewController.h"
 
 #import "MJRefresh.h"
 #import "TDBalanceInfo.h"
@@ -56,6 +57,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    UIBarButtonItem * barButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"qrcode"] style:UIBarButtonItemStylePlain target:self action:@selector(clickQrcodeButton)];
+    self.navigationItem.rightBarButtonItem = barButton;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     _cellTextArray = @[@"提款到银行账户", @"未完成交易",@"已完成交易",@"修改密码",@"设备列表", @"实名认证", @"绑定银行卡"];
     _cellImageArray = @[@"shanghu_tixian", @"shanghu_notdone",@"shanghu_done",@"shanghu_xiugaipwd", @"shanghu_shebei" , @"shanghu_shiming", @"shanghu_bindBank"];
@@ -438,6 +443,10 @@
     [super didReceiveMemoryWarning];
 }
 
-
+-(void)clickQrcodeButton {
+    TDQrcodeViewController *qrcodeVC = [[TDQrcodeViewController alloc] init];
+    qrcodeVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:qrcodeVC animated:YES];
+}
 
 @end

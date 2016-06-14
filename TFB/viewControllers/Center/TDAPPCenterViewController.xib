@@ -90,7 +90,7 @@
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="信用卡还款">
+                            <state key="normal" title="扫码收款">
                                 <color key="titleColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -143,7 +143,7 @@
                                 <outletCollection property="gestureRecognizers" destination="HMS-n1-Fc3" appends="YES" id="78h-nE-Gr9"/>
                             </connections>
                         </imageView>
-                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="service_tuan" id="ozc-CX-GS9">
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="service_qrcode" id="ozc-CX-GS9">
                             <rect key="frame" x="39" y="118" width="32" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <gestureRecognizers/>
@@ -204,7 +204,7 @@
                                 <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="Eej-0X-Jd7"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6SE-PQ-JbB">
+                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6SE-PQ-JbB">
                             <rect key="frame" x="121" y="193" width="80" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -212,19 +212,19 @@
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
-                            <state key="normal">
+                            <state key="normal" title="信用卡还款">
                                 <color key="titleColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="U5I-Zg-gqD"/>
                             </connections>
                         </button>
-                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="service_space" id="f8K-0m-ZRJ">
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="service_tuan" id="f8K-0m-ZRJ">
                             <rect key="frame" x="144" y="211" width="32" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <gestureRecognizers/>
                         </imageView>
-                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="akS-6N-MdH">
+                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="akS-6N-MdH">
                             <rect key="frame" x="227" y="193" width="80" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -355,6 +355,7 @@
         <image name="iconfont_shoukuan" width="42" height="42"/>
         <image name="service_jiudian" width="42" height="42"/>
         <image name="service_menpiao" width="42" height="42"/>
+        <image name="service_qrcode" width="42" height="42"/>
         <image name="service_shouji" width="42" height="42"/>
         <image name="service_space" width="42" height="42"/>
         <image name="service_tuan" width="42" height="42"/>

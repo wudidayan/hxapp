@@ -18,6 +18,8 @@
 #import "TDBalanceViewController.h"
 #import "TDDrawingCashViewController.h"
 #import "TDFastPayStep1ViewController.h"
+#import "TDScanCodeStep1ViewController.h"
+
 #define kDuration 1.0f
 #define CHOOSETERMSHEETTAG 131
 @interface TDAPPCenterViewController (){
@@ -369,7 +371,10 @@
             break;
         case 3:
         {
-            [self.view makeToast:@"暂未开通" duration:2.0f position:@"center"];
+            //[self.view makeToast:@"暂未开通" duration:2.0f position:@"center"];
+            TDScanCodeStep1ViewController *scanCodeController = [[TDScanCodeStep1ViewController alloc]init];
+            scanCodeController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:scanCodeController animated:YES];
         }
             break;
         case 4:

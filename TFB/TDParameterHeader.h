@@ -22,9 +22,11 @@
 
 #if DEBUG_VER
 #define HOST @"http://103.47.137.53:8098/mpcctp/"  // 测试服务器
+#define HOST_APPLOGIN @"http://103.47.137.53:8099/applogin/"  // app网页注册地址
 #define AGREEMENT_URL @"http://103.47.137.53:8899/pay/test/agreement.html" // 服务协议地址
 #else
 #define HOST @"http://103.47.137.51:8098/mpcctp/"  // 生产环境
+#define HOST_APPLOGIN @"http://103.47.137.51:8099/applogin/"  // app网页注册地址
 #define AGREEMENT_URL @"http://103.47.137.51:8899/pay/test/agreement.html" // 服务协议地址
 #endif
 

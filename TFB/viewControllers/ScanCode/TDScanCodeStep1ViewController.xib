@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TDScanCodeStep1ViewController">
+            <connections>
+                <outlet property="commitBtn" destination="6KK-dI-u9a" id="9DA-uF-nSu"/>
+                <outlet property="txnAmt" destination="RtQ-Rj-al0" id="5CR-s2-Jvs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="eH0-AC-EUO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-so-o0X">
+                    <rect key="frame" x="0.0" y="80" width="320" height="55"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入收款金额" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="RtQ-Rj-al0">
+                            <rect key="frame" x="87" y="15" width="194" height="25"/>
+                            <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcf-06-00V">
+                            <rect key="frame" x="283" y="15" width="25" height="25"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="收款金额" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLg-d4-WSm">
+                    <rect key="frame" x="15" y="95" width="70" height="25"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KK-dI-u9a">
+                    <rect key="frame" x="10" y="148" width="300" height="45"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="3"/>
+                    <state key="normal" title="下一步" backgroundImage="bg_btn">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="commitBtnClick:" destination="-1" eventType="touchUpInside" id="GjA-9d-0Dj"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="240" y="211"/>
+        </view>
+        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="Xl0-G5-uXC">
+            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </activityIndicatorView>
+        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="eem-BJ-Gq8">
+            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </activityIndicatorView>
+        <viewController id="IkC-6z-3B4">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="Zuo-bL-eiO"/>
+                <viewControllerLayoutGuide type="bottom" id="KlN-hv-QWw"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="crW-eQ-Pr4">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            </view>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="bg_btn" width="300" height="45"/>
+    </resources>
+</document>

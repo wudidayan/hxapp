@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TDScanCodeStep2ViewController">
+            <connections>
+                <outlet property="localScanBtn" destination="dLg-kC-Xll" id="Rkm-Dl-Wg0"/>
+                <outlet property="payStatus" destination="4GG-d1-3db" id="07g-kM-iq3"/>
+                <outlet property="qrcodeImgView" destination="ud2-b0-d23" id="esG-Qi-Ijr"/>
+                <outlet property="txnAmtVal" destination="Q5G-aG-OiS" id="Nvq-sm-DKq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="VnB-Xk-ArW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ud2-b0-d23">
+                    <rect key="frame" x="70" y="104" width="180" height="180"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5G-aG-OiS">
+                    <rect key="frame" x="8" y="292" width="304" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-kC-Xll">
+                    <rect key="frame" x="10" y="340" width="300" height="45"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="3"/>
+                    <state key="normal" title="本地扫码" backgroundImage="bg_btn">
+                        <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="scanBtnClick:" destination="-1" eventType="touchUpInside" id="fE6-n4-lg5"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GG-d1-3db">
+                    <rect key="frame" x="8" y="316" width="304" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="240" y="211"/>
+        </view>
+        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="Xl0-G5-uXC">
+            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </activityIndicatorView>
+        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="eem-BJ-Gq8">
+            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </activityIndicatorView>
+        <viewController id="IkC-6z-3B4">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="Zuo-bL-eiO"/>
+                <viewControllerLayoutGuide type="bottom" id="KlN-hv-QWw"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="crW-eQ-Pr4">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            </view>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="bg_btn" width="300" height="45"/>
+    </resources>
+</document>

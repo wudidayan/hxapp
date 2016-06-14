@@ -69,6 +69,7 @@
     }
     
     self.userMoblie.text = [TDUser defaultUser].custLoginStar;
+    self.custId.text = [TDUser defaultUser].custId;
     self.userName.text = [TDUser defaultUser].custName?[TDUser defaultUser].custName:@"- -";
     self.BankCardNum.text = info.cardNoStar?info.cardNoStar:@"尚未绑定银行卡";
     self.BankName.text = info.issnam?info.issnam:@"尚未绑定银行卡";
