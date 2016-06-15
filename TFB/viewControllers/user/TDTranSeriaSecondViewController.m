@@ -384,7 +384,7 @@
     cell.timeLabel.text = [TDBaseModel dataChangeWithString: tranSerial.ordtime];
     cell.stateLabel.text = tranSerial.ordMessage ;
     cell.tranAmtLabel.text = [NSString stringWithFormat:@"%.2f",tranSerial.ordamt.floatValue/100];
-    cell.cardNoLabel.text = @"";
+    cell.cardNoLabel.text = tranSerial.payTypeMessage;
     
     return cell;
 }

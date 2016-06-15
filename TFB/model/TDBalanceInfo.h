@@ -20,6 +20,13 @@
 //onCredit      挂帐金额	N       挂帐金额
 //freeze	    冻结金额	N       冻结金额
 //reserveField	保留使用	N		保留使用
+
+//acT1AP_ACT03  帐户类型03已审核金额（快捷）
+//acT1Y_ACT03   帐户类型03隔天到账金额
+
+//acT1AP_ACT04  帐户类型03已审核金额（扫码）
+//acT1Y_ACT04   帐户类型03隔天到账金额
+
 //balanceDisp   显示余额
 //balance       实际可用余额
 
@@ -34,6 +41,13 @@
 @property (nonatomic,copy) NSString *onCredit;  // 挂帐金额
 @property (nonatomic,copy) NSString *freeze;  // 冻结金额
 @property (nonatomic,copy) NSString *reserveField;  // 保留使用
+
+@property (nonatomic,copy) NSString *acT1AP_ACT03;  // 帐户类型03已审核金额（快捷）
+@property (nonatomic,copy) NSString *acT1Y_ACT03;  // 帐户类型03隔天到账金额
+
+@property (nonatomic,copy) NSString *acT1AP_ACT04;  // 帐户类型03已审核金额（扫码）
+@property (nonatomic,copy) NSString *acT1Y_ACT04;  // 帐户类型03隔天到账金额
+
 @property (nonatomic,copy) NSString *balanceDisp;  // 显示余额
 @property (nonatomic,copy) NSString *balance;  // 实际可用余额
 

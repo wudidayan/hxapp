@@ -29,7 +29,8 @@
         self.ordtime = [aDic objectForKey:@"ordtime"];
         self.ordtype = [aDic objectForKey:@"ordtype"];
         self.prdordno = [aDic objectForKey:@"prdordno"];
-        
+        self.payWay = [aDic objectForKey:@"payWay"];
+        self.acctType = [aDic objectForKey:@"acctType"];
    
 //        @property (nonatomic,strong) NSString * ordMessage;
 //        @property (nonatomic,strong) NSString * prdordMessage;
@@ -51,14 +52,27 @@
         
         if (1 == self.ordtype.intValue) {
             self.prdordMessage = @"收款";
+            if(2 == self.payWay.intValue) {
+                self.payTypeMessage = @"刷卡";
+            } else if (3 == self.payWay.intValue) {
+                self.payTypeMessage = @"快捷";
+            } else if (4 == self.payWay.intValue) {
+                self.payTypeMessage = @"扫码";
+            }
         }else if (2 == self.ordtype.intValue){
             self.prdordMessage  = @"商品";
         }else if (3 == self.ordtype.intValue){
             self.prdordMessage = @"提现";
+            if(2 == self.acctType.intValue) {
+                self.payTypeMessage = @"刷卡";
+            } else if (3 == self.acctType.intValue) {
+                self.payTypeMessage = @"快捷";
+            } else if (4 == self.acctType.intValue) {
+                self.payTypeMessage = @"扫码";
+            }
         }
-        
-        
     }
+    
     return self;
 }
 
@@ -114,15 +128,43 @@
         self.fjpath = [aDic objectForKey:@"fjpath"];
         self.cardNoStar = [TDTranDetailedSerial cardNoStarWithCardNo:self.payCardNo];
         self.prdordno = [aDic objectForKey:@"prdordno"];
+        self.acctType = [aDic objectForKey:@"acctType"];
+        self.payTypeMessage = [aDic objectForKey:@"payTypeMessage"];
+        self.ordstatusMessage = [aDic objectForKey:@"ordstatus"];
         
         if (1 == self.payType.intValue) {
             self.payTypeMessage = @"支付账户";
         }else if (2 == self.payType.intValue){
-            self.payTypeMessage  = @"终端";
+            self.payTypeMessage  = @"终端刷卡";
         }else if (3 == self.payType.intValue){
             self.payTypeMessage = @"快捷支付";
+        }else if (4 == self.payType.intValue){
+            self.payTypeMessage = @"扫码支付";
+        }
+
+        if (1 == self.acctType.intValue) {
+            self.payTypeMessage = @"合并提现";
+        }else if (2 == self.acctType.intValue){
+            self.payTypeMessage  = @"终端账户";
+        }else if (3 == self.acctType.intValue){
+            self.payTypeMessage = @"快捷账户";
+        }else if (4 == self.acctType.intValue){
+            self.payTypeMessage = @"扫码账户";
         }
         
+        if (0 == self.ordstatus.intValue) {
+            self.ordstatusMessage = @"未处理";
+        } else if (1 == self.ordstatus.intValue){
+            self.ordstatusMessage  = @"成功";
+        } else if (2 == self.ordstatus.intValue){
+            self.ordstatusMessage = @"失败";
+        } else if (3 == self.ordstatus.intValue){
+            self.ordstatusMessage  = @"可疑";
+        } else if (4 == self.ordstatus.intValue){
+            self.ordstatusMessage = @"处理中";
+        } else if (5 == self.ordstatus.intValue){
+            self.ordstatusMessage = @"已取消";
+        }
     }
     return self;
 }
@@ -161,6 +203,8 @@
         self.sucDate = [TDTiXianDetailedSerial dataChangeWithString:[aDic objectForKey:@"sucDate"]];;
         self.ordamt = [aDic objectForKey:@"ordamt"];
         self.prdordno = [aDic objectForKey:@"prdordno"];
+        self.acctType = [aDic objectForKey:@"acctType"];
+        
         if (0 == self.casType.intValue) {
             self.casTypeMessage = @" T0 提现";
         }else if (1 == self.casType.intValue){
@@ -168,18 +212,30 @@
         }else if (2 == self.casType.intValue){
             self.casTypeMessage = @"T0 + T1 提现";
         }
+
+        if (1 == self.acctType.intValue) {
+            self.payTypeMessage = @"合并提现";
+        } else if (2 == self.acctType.intValue){
+            self.payTypeMessage  = @"刷卡账户";
+        } else if (3 == self.acctType.intValue){
+            self.payTypeMessage = @"快捷账户";
+        } else if (4 == self.acctType.intValue){
+            self.payTypeMessage = @"扫码账户";
+        } else {
+            self.payTypeMessage = @"";
+        }
         
         if (0 == self.ordstatus.intValue) {
             self.ordstatusMessage = @"未处理";
-        }else if (1 == self.ordstatus.intValue){
+        } else if (1 == self.ordstatus.intValue){
             self.ordstatusMessage  = @"成功";
-        }else if (2 == self.ordstatus.intValue){
+        } else if (2 == self.ordstatus.intValue){
             self.ordstatusMessage = @"失败";
-        }else if (3 == self.ordstatus.intValue){
+        } else if (3 == self.ordstatus.intValue){
             self.ordstatusMessage  = @"可疑";
-        }else if (4 == self.ordstatus.intValue){
+        } else if (4 == self.ordstatus.intValue){
             self.ordstatusMessage = @"处理中";
-        }else if (5 == self.ordstatus.intValue){
+        } else if (5 == self.ordstatus.intValue){
             self.ordstatusMessage = @"已取消";
         }
     }

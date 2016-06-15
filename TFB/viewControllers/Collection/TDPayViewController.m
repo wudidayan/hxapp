@@ -365,7 +365,7 @@
         NSLog(@"17%@",_location);
     if (_location) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_payInfo.prdordNo payType:_payInfo.payType rate:_payInfo.rate termNo:_payInfo.termInfo.termNo termType:_payInfo.termType payAmt:payAmt track:_payInfo.track pinblk:_payInfo.pinblk random:@"CDB9C9D14724091B" mediaType:_payInfo.mediaType period:_payInfo.period icdata:_payInfo.icdata crdnum:_payInfo.crdnum mac:_payInfo.mac ctype:_payInfo.ctype scancardnum:_finalCardNum scanornot:_scanOrNot address:_location complete:^(BOOL succeed, NSString *msg, NSString *cod) {
+        [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_payInfo.prdordNo payType:_payInfo.payType rate:_payInfo.rate termNo:_payInfo.termInfo.termNo termType:_payInfo.termType payAmt:payAmt track:_payInfo.track pinblk:_payInfo.pinblk random:@"CDB9C9D14724091B" mediaType:_payInfo.mediaType period:_payInfo.period icdata:_payInfo.icdata crdnum:_payInfo.crdnum mac:_payInfo.mac ctype:_payInfo.ctype scancardnum:_finalCardNum scanornot:_scanOrNot address:_location complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             
             TDPayResaultViewController *resultVC = [[TDPayResaultViewController alloc] init];
@@ -425,7 +425,7 @@
             }
             if (_location) {
                 [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_payInfo.prdordNo payType:_payInfo.payType rate:_payInfo.rate termNo:_payInfo.termInfo.termNo termType:_payInfo.termType payAmt:payAmt track:_payInfo.track pinblk:_payInfo.pinblk random:@"CDB9C9D14724091B" mediaType:_payInfo.mediaType period:_payInfo.period icdata:_payInfo.icdata crdnum:_payInfo.crdnum mac:_payInfo.mac ctype:_payInfo.ctype scancardnum:_finalCardNum scanornot:_scanOrNot address:_location complete:^(BOOL succeed, NSString *msg, NSString *cod) {
+                [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_payInfo.prdordNo payType:_payInfo.payType rate:_payInfo.rate termNo:_payInfo.termInfo.termNo termType:_payInfo.termType payAmt:payAmt track:_payInfo.track pinblk:_payInfo.pinblk random:@"CDB9C9D14724091B" mediaType:_payInfo.mediaType period:_payInfo.period icdata:_payInfo.icdata crdnum:_payInfo.crdnum mac:_payInfo.mac ctype:_payInfo.ctype scancardnum:_finalCardNum scanornot:_scanOrNot address:_location complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
                     
                     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                     TDPayResaultViewController *resultVC = [[TDPayResaultViewController alloc] init];

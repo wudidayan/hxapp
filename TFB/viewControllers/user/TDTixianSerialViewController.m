@@ -48,26 +48,14 @@
     tixianCell.backgroundColor = [UIColor clearColor];
     tixianCell.tittleLabel.text = _array[indexPath.row];
     
-//    @property (nonatomic,strong) NSString * cardno;
-//    @property (nonatomic,strong) NSString * casDate;
-//    @property (nonatomic,strong) NSString * casType;
-//    @property (nonatomic,strong) NSString * casordno;
-//    @property (nonatomic,strong) NSString * custId;
-//    @property (nonatomic,strong) NSString * custName;
-//    @property (nonatomic,strong) NSString * fee;
-//    @property (nonatomic,strong) NSString * netrecAmt;
-//    @property (nonatomic,strong) NSString * ordamt;
-//    @property (nonatomic,strong) NSString * ordstatus;
-//    @property (nonatomic,strong) NSString * serviceFee;
-//    @property (nonatomic,strong) NSString * sucDate;
-//    
-//    @property (nonatomic,strong) NSString * casTypeMessage;
-//    @property (nonatomic,strong) NSString * ordstatusMessage;
-    
     if (0 == indexPath.row) {
         tixianCell.contextLabel.text = _tixianInfo.casordno;
     }else if (1== indexPath.row){
-            tixianCell.contextLabel.text = _tixianInfo.casTypeMessage;
+        if(_tixianInfo.payTypeMessage.length > 0) {
+            tixianCell.contextLabel.text = [NSString stringWithFormat:@"%@(%@)", _tixianInfo.casTypeMessage, _tixianInfo.payTypeMessage];
+        } else {
+            tixianCell.contextLabel.text = [NSString stringWithFormat:@"%@", _tixianInfo.casTypeMessage];
+        }
     }else if (2== indexPath.row){
            tixianCell.contextLabel.text = _tixianInfo.casDate;
     }else if (3== indexPath.row){

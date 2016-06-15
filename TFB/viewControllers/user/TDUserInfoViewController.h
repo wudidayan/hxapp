@@ -10,11 +10,15 @@
 
 @interface TDUserInfoViewController : TDBaseViewController
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIView *bgViewBalance;
 @property (strong, nonatomic) IBOutlet UILabel *userMoblie;
 @property (strong, nonatomic) IBOutlet UILabel *userName;
 @property (strong, nonatomic) IBOutlet UILabel *BankName;
 @property (strong, nonatomic) IBOutlet UILabel *BankCardNum;
 @property (weak, nonatomic) IBOutlet UILabel *custId;
+@property (weak, nonatomic) IBOutlet UILabel *scanCodeBalance;
+@property (weak, nonatomic) IBOutlet UILabel *fastPayBalance;
+@property (weak, nonatomic) IBOutlet UILabel *totalBalance;
 - (IBAction)clickButton:(UIButton *)sender;
 
 //@property (strong, nonatomic) IBOutlet UILabel *trialLabel;

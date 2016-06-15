@@ -21,8 +21,17 @@
 @property (strong, nonatomic) IBOutlet UITextField *payPasswordText;
 
 @property (nonatomic,strong) TDBalanceInfo * balanceInfo;
+@property (weak, nonatomic) IBOutlet UILabel *swipeCardAct;
+@property (weak, nonatomic) IBOutlet UIButton *swipeCardActBtn;
+@property (weak, nonatomic) IBOutlet UILabel *scanCodeAct;
+@property (weak, nonatomic) IBOutlet UIButton *scanCodeActBtn;
+@property (weak, nonatomic) IBOutlet UILabel *fastPayAct;
+@property (weak, nonatomic) IBOutlet UIButton *fastPayActBtn;
+@property (weak, nonatomic) IBOutlet UILabel *actTips;
 - (IBAction)clickFeeButton:(UIButton *)sender;
-
+- (IBAction)clickSwipeCardActBtn:(UIButton *)sender;
+- (IBAction)clickScanCodeActBtn:(UIButton *)sender;
+- (IBAction)clickFastPayActBtn:(UIButton *)sender;
 - (IBAction)clickButton:(UIButton *)sender;
 
 @end

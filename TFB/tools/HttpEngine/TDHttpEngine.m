@@ -76,6 +76,8 @@
 #define UPDATA_APP          @"SY0009"   //自动鞥新
 #define NOTICEQUERY         @"SY0020"   //记录已阅公告
 
+#define SCANCODE_QUERY      @"SM0001"   //查询扫码支付结果
+
 @implementation TDHttpEngine
 
 
@@ -843,16 +845,16 @@
  *  @param payPwd     支付密码
  *  @param complete   block回调
  */
-+(void)requestFortxTranWithCustId:(NSString *)custId Mobile:(NSString *)custMobile txamt:(NSString *)txamt casType:(NSString *)casType cardNo:(NSString *)cardNo payPwd:(NSString *)payPwd complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod))complete{
-   
++(void)requestFortxTranWithCustId:(NSString *)custId Mobile:(NSString *)custMobile txamt:(NSString *)txamt casType:(NSString *)casType cardNo:(NSString *)cardNo payPwd:(NSString *)payPwd andAcctType:(NSString *)acctType andAmtAcctType02:(NSString *)amtAcctType02 andAmtAcctType03:(NSString *)amtAcctType03 andAmtAcctType04:(NSString *)amtAcctType04 complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod))complete{
+/*
     if (![TDHttpManager requestCanContinuationWith:6 andParams:custId,custMobile,txamt,casType,cardNo,payPwd, nil]) {
         return;
     }
-    
+*/
     
     NSString * pwdMD5 = [payPwd MD5];
     
-    NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] initWithObjects:@[custId,custMobile,txamt,casType,cardNo,pwdMD5] forKeys:@[@"custId", @"custMobile",@"txamt",@"casType",@"cardNo",@"payPwd"]];
+    NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] initWithObjects:@[custId,custMobile,txamt,casType,cardNo,pwdMD5,acctType,amtAcctType02,amtAcctType03,amtAcctType04] forKeys:@[@"custId", @"custMobile",@"txamt",@"casType",@"cardNo",@"payPwd",@"acctType",@"amtAcctType02",@"amtAcctType03",@"amtAcctType04"]];
     
     [TDHttpManager requestWithParams:dataDic tradeCode:DEAWINGCASH complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *dictionary) {
         
@@ -909,7 +911,7 @@
  *  @param ctype      到帐类型        TO   T1
  *  @param complete   block回传
  */
-+ (void)requestForPayWithCustId:(NSString *)custId custMobile:(NSString *)custMobile prdordNo:(NSString *)prdordNo payType:(NSString *)payType rate:(NSString *)rate termNo:(NSString *)termNo termType:(NSString *)termType payAmt:(NSString *)payAmt track:(NSString *)track pinblk:(NSString *)pinblk random:(NSString *)random mediaType:(NSString *)mediaType period:(NSString *)period icdata:(NSString *)icdata crdnum:(NSString *)crdnum mac:(NSString *)mac ctype:(NSString *)ctype scancardnum:(NSString *)scancardnum scanornot:(NSString *)scanornot address:(NSString *)address complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod))complete
++ (void)requestForPayWithCustId:(NSString *)custId custMobile:(NSString *)custMobile prdordNo:(NSString *)prdordNo payType:(NSString *)payType rate:(NSString *)rate termNo:(NSString *)termNo termType:(NSString *)termType payAmt:(NSString *)payAmt track:(NSString *)track pinblk:(NSString *)pinblk random:(NSString *)random mediaType:(NSString *)mediaType period:(NSString *)period icdata:(NSString *)icdata crdnum:(NSString *)crdnum mac:(NSString *)mac ctype:(NSString *)ctype scancardnum:(NSString *)scancardnum scanornot:(NSString *)scanornot address:(NSString *)address complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic))complete
 {
     
     if (![TDHttpManager requestCanContinuationWith:20 andParams:custId, custMobile, prdordNo, payType, rate, termNo, termType, payAmt, track, pinblk, random, mediaType, period, icdata, crdnum, mac,ctype, scancardnum, scanornot, address, nil]) {
@@ -920,9 +922,9 @@
     
     [TDHttpManager requestWithParams:dataDic tradeCode:PAYMENT complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *dictionary) {
         
-        NSLog(@"pay-----%@",dictionary);
+        NSLog(@"requestForPayWithCustId: %@",dictionary);
         if (complete) {
-            complete(succeed, msg, cod);
+            complete(succeed, msg, cod, dictionary);
         }
     }];
 }
@@ -1044,13 +1046,13 @@
  *  @param casType      提现类型
  *  @param complete   block回传
  */
-+ (void)requestGetFeeWithCustId:(NSString *)custId custMobile:(NSString *)custMobile andTxamt:(NSString *)txamt andCasType:(NSString *)casType complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod , NSString * fee))complete{
-
++ (void)requestGetFeeWithCustId:(NSString *)custId custMobile:(NSString *)custMobile andTxamt:(NSString *)txamt andCasType:(NSString *)casType andAcctType:(NSString *)acctType andAmtAcctType02:(NSString *)amtAcctType02 andAmtAcctType03:(NSString *)amtAcctType03 andAmtAcctType04:(NSString *)amtAcctType04 complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod , NSString * fee))complete {
+/*
     if (![TDHttpManager requestCanContinuationWith:4 andParams:custId, custMobile,txamt,casType, nil]) {
         return;
     }
-    
-    NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithObjects:@[custId, custMobile,txamt,casType] forKeys:@[@"custId", @"custMobile", @"txamt", @"casType"]];
+*/
+    NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithObjects:@[custId, custMobile,txamt,casType,acctType,amtAcctType02,amtAcctType03,amtAcctType04] forKeys:@[@"custId", @"custMobile", @"txamt", @"casType", @"acctType", @"amtAcctType02", @"amtAcctType03", @"amtAcctType04"]];
     
     [TDHttpManager requestWithParams:dataDic tradeCode:FEE complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *dictionary) {
         
@@ -1265,8 +1267,26 @@
     }];
 }
 
-
-
+/**
+ *  扫码支付结果查询
+ *
+ *  @param custId     商户id
+ *  @param custMobile 手机号
+ *  @param prdordNo   订单号
+ *  @param complete   block回传
+ */
++ (void)requestForScanCodeResult:(NSString *)custId custMobile:(NSString *)custMobile prdordNo:(NSString *)prdordNo  complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic))complete
+{
+    NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithObjects:@[custId, custMobile, prdordNo] forKeys:@[@"custId", @"custMobile", @"prdordNo"]];
+    
+    [TDHttpManager requestWithParams:dataDic tradeCode:SCANCODE_QUERY complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *dictionary) {
+        
+        NSLog(@"requestForScanCodeResult: %@",dictionary);
+        if (complete) {
+            complete(succeed, msg, cod, dictionary);
+        }
+    }];
+}
 
 
 

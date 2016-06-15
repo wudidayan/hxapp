@@ -103,27 +103,48 @@
 }
 
 - (void)getPayResult {
-    NSLog(@"getPayResult timer, count %d", _timerCount++);
-    if(_timerCount == 3) {
-        TDScanCodeResultViewController *resultController = [[TDScanCodeResultViewController alloc]init];
-        resultController.resultState = self.scanCodeContext.payResultMsg;
+    _timerCount++;
+    NSLog(@"getPayResult timer, count %d", _timerCount);
+    
+    if(_timerCount < 3) {
+        return; // 给用户支付预留一定时间，前2次不去查询
+    }
         
-        self.scanCodeContext.payResult = @"Y";
-        if([self.scanCodeContext.payResult isEqualToString:@"Y"]) {
-            resultController.isSuccess = TRUE;
-            if(resultController.resultState.length == 0) {
-                resultController.resultState = [NSString stringWithFormat:@"成功收款 %@ 元", self.scanCodeContext.txnAmt];
-            }
+    // 查询扫码支付结果
+    self.payStatus.text = @"...";
+    _scanCodeContext.payResult = @"U";
+    [TDHttpEngine requestForScanCodeResult:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_scanCodeContext.prdordNo complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
+        
+        if (succeed) {
+            _scanCodeContext.payResult = [infoDic objectForKey:@"payResult"];
         } else {
-            resultController.isSuccess = FALSE;
-            if(resultController.resultState.length == 0) {
-                resultController.resultState = @"交易失败";
-            }
+            self.payStatus.text = @"+.+";
         }
         
-        resultController.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:resultController animated:YES];
+    }];
+    
+    if([_scanCodeContext.payResult isEqualToString:@"U"]) {
+        self.payStatus.text = @"-.-";
+        return;
     }
+    
+    TDScanCodeResultViewController *resultController = [[TDScanCodeResultViewController alloc]init];
+    resultController.resultState = self.scanCodeContext.payResultMsg;
+
+    if([self.scanCodeContext.payResult isEqualToString:@"Y"]) {
+        resultController.isSuccess = TRUE;
+        if(resultController.resultState.length == 0) {
+            resultController.resultState = [NSString stringWithFormat:@"成功收款 %@ 元", self.scanCodeContext.txnAmt];
+        }
+    } else {
+        resultController.isSuccess = FALSE;
+        if(resultController.resultState.length == 0) {
+            resultController.resultState = @"交易失败";
+        }
+    }
+        
+    resultController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:resultController animated:YES];
 }
 
 @end

@@ -35,6 +35,7 @@
     self.navigationItem.leftBarButtonItem = leftButton;
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
 }
+
 -(void)clickbackButton{
 
     [self.navigationController popViewControllerAnimated:YES];

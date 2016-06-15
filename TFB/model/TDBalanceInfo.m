@@ -36,43 +36,67 @@
     self.freeze  = [dictionary objectForKey:@"freeze"];
     self.reserveField  = [dictionary objectForKey:@"reserveField"];
     
+    self.acT1AP_ACT03  = [dictionary objectForKey:@"acT1AP_ACT03"];
+    self.acT1Y_ACT03  = [dictionary objectForKey:@"acT1Y_ACT03"];
+    self.acT1AP_ACT04  = [dictionary objectForKey:@"acT1AP_ACT04"];
+    self.acT1Y_ACT04  = [dictionary objectForKey:@"acT1Y_ACT04"];
     
     NSLog(@"acT1AP: %@", self.acT1AP);
     NSLog(@"onCredit: %@", self.onCredit);
     NSLog(@"freeze: %@", self.freeze);
+    NSLog(@"acT1AP_ACT03: %@", self.acT1AP_ACT03);
+    NSLog(@"acT1Y_ACT03: %@", self.acT1Y_ACT03);
+    NSLog(@"acT1AP_ACT04: %@", self.acT1AP_ACT04);
+    NSLog(@"acT1Y_ACT04: %@", self.acT1Y_ACT04);
     
-    int iAcT1AP = 0;
-    int iOnCredit = 0;
-    int iFreeze = 0;
-    int iBalance = 0;
-    int iBalanceDisp = 0;
+    long long llAcT1AP = 0;
+    long long llOnCredit = 0;
+    long long llFreeze = 0;
+    
+    long long llAcT1AP_ACT03 = 0;
+    long long llAcT1AP_ACT04 = 0;
+    
+    long long llBalance = 0;
+    long long llBalanceDisp = 0;
     
     if(self.acT1AP == nil) {
-        iAcT1AP = 0;
+        llAcT1AP = 0;
     } else {
-        iAcT1AP = self.acT1AP.intValue;
+        llAcT1AP = self.acT1AP.longLongValue;
     }
     
     if(self.onCredit == nil) {
-        iOnCredit = 0;
+        llOnCredit = 0;
     } else {
-        iOnCredit = abs(self.onCredit.intValue);
+        llOnCredit = llabs(self.onCredit.longLongValue);
     }
     
     if(self.freeze == nil) {
-        iFreeze = 0;
+        llFreeze = 0;
     } else {
-        iFreeze = self.freeze.intValue;
-    }
-    
-    iBalanceDisp = iBalanceDisp;
-    iBalance = iAcT1AP - iOnCredit - iFreeze;
-    if(iBalance < 0) {
-        iBalance = 0;
+        llFreeze = self.freeze.longLongValue;
     }
 
-    self.balance = [NSString stringWithFormat:@"%d",iBalance];
-    self.balanceDisp = [NSString stringWithFormat:@"%d",iBalanceDisp];
+    if(self.acT1AP_ACT03 == nil) {
+        llFreeze = 0;
+    } else {
+        llFreeze = self.acT1AP_ACT03.longLongValue;
+    }
+    
+    if(self.acT1AP_ACT04 == nil) {
+        llFreeze = 0;
+    } else {
+        llFreeze = self.acT1AP_ACT04.longLongValue;
+    }
+    
+    llBalanceDisp = llAcT1AP + llAcT1AP_ACT03 + llAcT1AP_ACT04;
+    llBalance = llBalanceDisp - llOnCredit - llFreeze;
+    if(llBalance < 0) {
+        llBalance = 0;
+    }
+
+    self.balance = [NSString stringWithFormat:@"%lld",llBalance];
+    self.balanceDisp = [NSString stringWithFormat:@"%lld",llBalanceDisp];
 }
 
 @end

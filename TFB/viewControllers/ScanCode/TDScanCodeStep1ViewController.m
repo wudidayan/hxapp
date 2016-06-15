@@ -27,19 +27,47 @@
     if (self.txnAmt.text.length == 0 || self.txnAmt.text.length > 9) {
         [self.view makeToast:@"请输入有效的收款金额" duration:2.0f position:@"center"];
         return;
+    } else {
+        self.scanCodeContext.txnAmt = _txnAmt.text;
     }
-
-    self.scanCodeContext.txnAmt = _txnAmt.text;
-    self.scanCodeContext.payData = @"http://123.com/test测试";
     
+    // 收款订单
+    __weak typeof(self)weakSelf = self;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self.view makeToast:CString(@"%@", self.scanCodeContext.txnAmt) duration:2.0f position:@"center"];
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    NSString *payAmt = [NSString stringWithFormat:@"%.2f", _scanCodeContext.txnAmt.floatValue * 100];
+    [TDHttpEngine requestForPrdOrderWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordType:@"01" bizType:@"03" prdordAmt:payAmt prdName:@"扫码" price:payAmt complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
+        
+        if (succeed) {
+            _scanCodeContext.prdordNo = [infoDic objectForKey:@"prdordNo"];
+        } else {
+            [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+            [weakSelf.view makeToast:msg duration:2.0f position:@"center"];
+            return;
+        }
+    }];
+
+    // 支付
+    [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_scanCodeContext.prdordNo payType:@"04" rate:@"" termNo:@"" termType:@"" payAmt:payAmt track:@"" pinblk:@"" random:@"" mediaType:@"" period:@"" icdata:@"" crdnum:@"" mac:@"" ctype:@"00" scancardnum:@"" scanornot:@"" address:@"" complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
+
+        if (succeed) {
+            _scanCodeContext.payData = [infoDic objectForKey:@"payData"];
+        } else {
+            [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+            [weakSelf.view makeToast:msg duration:2.0f position:@"center"];
+            return;
+        }
+        
+    }];
     
-    TDScanCodeStep2ViewController *scanCodeController = [[TDScanCodeStep2ViewController alloc]init];
-    scanCodeController.scanCodeContext = self.scanCodeContext;
-    scanCodeController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:scanCodeController animated:YES];
+    [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+    if(_scanCodeContext.payData.length > 16) {
+        TDScanCodeStep2ViewController *scanCodeController = [[TDScanCodeStep2ViewController alloc]init];
+        scanCodeController.scanCodeContext = self.scanCodeContext;
+        scanCodeController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:scanCodeController animated:YES];
+    } else {
+        [weakSelf.view makeToast:@"生成二维码失败，请稍候重试" duration:2.0f position:@"center"];
+    }
 }
 
 - (void)popToRoot {

@@ -29,6 +29,10 @@
 @property (nonatomic, strong) NSString *Fjname;
 @property (nonatomic,strong) NSString * prdordno;
 
+@property (nonatomic,strong) NSString * payWay;
+@property (nonatomic,strong) NSString * acctType;
+@property (nonatomic,strong) NSString * payTypeMessage;
+
 - (instancetype)initWithDictionary:(NSDictionary *)aDic;
 
 
@@ -80,6 +84,8 @@
 @property (nonatomic,strong) NSString * payTypeMessage;
 @property (nonatomic,strong) NSString * fjpath;
 @property (nonatomic,strong) NSString * prdordno;
+@property (nonatomic,strong) NSString * acctType;
+@property (nonatomic,strong) NSString * ordstatusMessage;
 
 - (instancetype)initWithDictionary:(NSDictionary *)aDic;
 @end
@@ -118,6 +124,9 @@
 @property (nonatomic,strong) NSString * casTypeMessage;
 @property (nonatomic,strong) NSString * ordstatusMessage;
 @property (nonatomic,strong) NSString * prdordno;
+
+@property (nonatomic,strong) NSString * acctType;
+@property (nonatomic,strong) NSString * payTypeMessage;
 
 - (instancetype)initWithDictionary:(NSDictionary *)aDic;
 @end

@@ -256,7 +256,11 @@
  *  @param cardNo     结算银行卡卡号
  *  @param complete   block回调
  */
+/*
 +(void)requestFortxTranWithCustId:(NSString *)custId Mobile:(NSString *)custMobile txamt:(NSString *)txamt casType:(NSString *)casType cardNo:(NSString *)cardNo payPwd:(NSString *)payPwd complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod))complete;
+*/
++(void)requestFortxTranWithCustId:(NSString *)custId Mobile:(NSString *)custMobile txamt:(NSString *)txamt casType:(NSString *)casType cardNo:(NSString *)cardNo payPwd:(NSString *)payPwd andAcctType:(NSString *)acctType andAmtAcctType02:(NSString *)amtAcctType02 andAmtAcctType03:(NSString *)amtAcctType03 andAmtAcctType04:(NSString *)amtAcctType04 complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod))complete;
+    
 /**
  *  公告查询
  *
@@ -309,7 +313,7 @@
  *  @param scanornot   是否扫描所得
  *  @param complete   block回传
  */
-+ (void)requestForPayWithCustId:(NSString *)custId custMobile:(NSString *)custMobile prdordNo:(NSString *)prdordNo payType:(NSString *)payType rate:(NSString *)rate termNo:(NSString *)termNo termType:(NSString *)termType payAmt:(NSString *)payAmt track:(NSString *)track pinblk:(NSString *)pinblk random:(NSString *)random mediaType:(NSString *)mediaType period:(NSString *)period icdata:(NSString *)icdata crdnum:(NSString *)crdnum mac:(NSString *)mac ctype:(NSString *)ctype scancardnum:(NSString *)scancardnum scanornot:(NSString *)scanornot address:(NSString *)address complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod))complete;
++ (void)requestForPayWithCustId:(NSString *)custId custMobile:(NSString *)custMobile prdordNo:(NSString *)prdordNo payType:(NSString *)payType rate:(NSString *)rate termNo:(NSString *)termNo termType:(NSString *)termType payAmt:(NSString *)payAmt track:(NSString *)track pinblk:(NSString *)pinblk random:(NSString *)random mediaType:(NSString *)mediaType period:(NSString *)period icdata:(NSString *)icdata crdnum:(NSString *)crdnum mac:(NSString *)mac ctype:(NSString *)ctype scancardnum:(NSString *)scancardnum scanornot:(NSString *)scanornot address:(NSString *)address complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic))complete;
 
 /**
  * 上传扫描银行卡照片
@@ -361,7 +365,10 @@
  *  @param casType      提现类型
  *  @param complete   block回传
  */
+/*
 + (void)requestGetFeeWithCustId:(NSString *)custId custMobile:(NSString *)custMobile andTxamt:(NSString *)txamt andCasType:(NSString *)casType complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod , NSString * fee))complete;
+*/
++ (void)requestGetFeeWithCustId:(NSString *)custId custMobile:(NSString *)custMobile andTxamt:(NSString *)txamt andCasType:(NSString *)casType andAcctType:(NSString *)acctType andAmtAcctType02:(NSString *)amtAcctType02 andAmtAcctType03:(NSString *)amtAcctType03 andAmtAcctType04:(NSString *)amtAcctType04 complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod , NSString * fee))complete;
 /**
  *  用户退出
  *
@@ -394,4 +401,15 @@
  *  @param complete   block回传
  */
 + (void)requestForUpDataAppWithCustId:(NSString *)custId custMobile:(NSString *)custMobile complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod,NSDictionary * dic))complete;
+
+/**
+ *  扫码支付结果查询
+ *
+ *  @param custId     商户id
+ *  @param custMobile 手机号
+ *  @param prdordNo   订单号
+ *  @param complete   block回传
+ */
++ (void)requestForScanCodeResult:(NSString *)custId custMobile:(NSString *)custMobile prdordNo:(NSString *)prdordNo  complete:(void(^)(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic))complete;
+
 @end
