@@ -75,7 +75,7 @@
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="手机充值">
+                            <state key="normal" title="快捷收款">
                                 <color key="titleColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -232,14 +232,14 @@
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
-                            <state key="normal">
+                            <state key="normal" title="手机充值">
                                 <color key="titleColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="clickmainButton:" destination="-1" eventType="touchUpInside" id="UCr-Lh-nJQ"/>
                             </connections>
                         </button>
-                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="service_space" id="JoY-rM-qHb">
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="service_shouji" id="JoY-rM-qHb">
                             <rect key="frame" x="251" y="211" width="32" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <gestureRecognizers/>
@@ -252,7 +252,7 @@
                                 <outletCollection property="gestureRecognizers" destination="3Cu-Yk-T6r" appends="YES" id="IUL-2h-uxq"/>
                             </connections>
                         </imageView>
-                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="service_shouji" id="Ofi-Lm-Mu5">
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="service_kuaijie" id="Ofi-Lm-Mu5">
                             <rect key="frame" x="251" y="23" width="32" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <gestureRecognizers/>
@@ -354,10 +354,10 @@
     <resources>
         <image name="iconfont_shoukuan" width="42" height="42"/>
         <image name="service_jiudian" width="42" height="42"/>
+        <image name="service_kuaijie" width="42" height="42"/>
         <image name="service_menpiao" width="42" height="42"/>
         <image name="service_qrcode" width="42" height="42"/>
         <image name="service_shouji" width="42" height="42"/>
-        <image name="service_space" width="42" height="42"/>
         <image name="service_tuan" width="42" height="42"/>
         <image name="service_tuanduiyou" width="42" height="42"/>
         <image name="service_zhuanzhang-1" width="42" height="42"/>

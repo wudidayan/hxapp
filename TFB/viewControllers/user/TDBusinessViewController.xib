@@ -46,7 +46,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shanghu_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="OyX-Hv-Z1O">
-                            <rect key="frame" x="281" y="24" width="32" height="32"/>
+                            <rect key="frame" x="282" y="24" width="32" height="32"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="东方不败" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FK8-uK-2nh">
                             <rect key="frame" x="74" y="17" width="110" height="22"/>
@@ -86,7 +86,7 @@
         </view>
     </objects>
     <resources>
-        <image name="shanghu_arrow" width="28" height="28"/>
+        <image name="shanghu_arrow" width="16" height="16"/>
         <image name="shanghu_me" width="48" height="48"/>
     </resources>
 </document>

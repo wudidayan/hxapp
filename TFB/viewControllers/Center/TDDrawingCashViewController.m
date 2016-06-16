@@ -172,7 +172,7 @@
     }
     
     if(_actType == 2) {
-        if (_oldMoney.floatValue > [self.swipeCardAct.text floatValue]) {
+        if (_oldMoney.floatValue > [self.swipeCardAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
@@ -182,7 +182,7 @@
     }
     
     if(_actType == 3) {
-        if (_oldMoney.floatValue > [self.scanCodeAct.text floatValue]) {
+        if (_oldMoney.floatValue > [self.scanCodeAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
@@ -192,7 +192,7 @@
     }
     
     if(_actType == 4) {
-        if (_oldMoney.floatValue > [self.fastPayAct.text floatValue]) {
+        if (_oldMoney.floatValue > [self.fastPayAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
@@ -202,7 +202,7 @@
     }
 
     int iBalanceAvailable = (int)self.balanceAvailable;
-    if (_oldMoney.floatValue > iBalanceAvailable / 100.0) {
+    if (_oldMoney.floatValue > iBalanceAvailable / 100.0 + FLOAT_PRECISION) {
         [self.view makeToast:@"可提余额不足" duration:2.0f position:@"center"];
         return;
     }
@@ -241,13 +241,13 @@
         return;
     }
     
-    if (([_moneyText.text floatValue]) > [self.TatolAmtLabel.text floatValue]) {
+    if (([_moneyText.text floatValue]) > [self.TatolAmtLabel.text floatValue] + FLOAT_PRECISION) {
         [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
         return;
     }
 
     if(_actType == 2) {
-        if (([_moneyText.text floatValue]) > [self.swipeCardAct.text floatValue]) {
+        if (([_moneyText.text floatValue]) > [self.swipeCardAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
@@ -257,7 +257,7 @@
     }
     
     if(_actType == 3) {
-        if (([_moneyText.text floatValue]) > [self.scanCodeAct.text floatValue]) {
+        if (([_moneyText.text floatValue]) > [self.scanCodeAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
@@ -267,7 +267,7 @@
     }
     
     if(_actType == 4) {
-        if (([_moneyText.text floatValue]) > [self.fastPayAct.text floatValue]) {
+        if (([_moneyText.text floatValue]) > [self.fastPayAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
@@ -277,7 +277,7 @@
     }
     
     int iBalanceAvailable = (int)self.balanceAvailable;
-    if (([_moneyText.text floatValue]) > iBalanceAvailable / 100.0) {
+    if (([_moneyText.text floatValue]) > iBalanceAvailable / 100.0 + FLOAT_PRECISION) {
         [self.view makeToast:@"可提余额不足" duration:2.0f position:@"center"];
         return;
     }

@@ -52,5 +52,6 @@
 
 #define TITTLE_MESSAGE_TEXT  @"世界上最遥远的距离就是没有网络!"
 #define CString(s, ... ) [NSString stringWithFormat:s, ##__VA_ARGS__]
+#define FLOAT_PRECISION  0.00005  // 浮点数精度
 
 #endif
