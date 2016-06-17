@@ -26,8 +26,8 @@ typedef enum {
 
 @property (weak, nonatomic) IBOutlet UIButton *commitBtn;
 //@property (strong, nonatomic) IBOutlet UIButton *zhiHangButton;
-@property (strong, nonatomic) IBOutlet UITextField *categories;
 @property (strong, nonatomic) IBOutlet UIButton *bankNameButtom;
+@property (weak, nonatomic) IBOutlet UIButton *subBankNameBtn;
 
 @property (strong, nonatomic) IBOutlet UIButton *TRButton;
 - (IBAction)clickTRButton:(UIButton *)sender;

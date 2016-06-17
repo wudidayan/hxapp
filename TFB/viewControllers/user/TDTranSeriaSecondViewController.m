@@ -41,11 +41,13 @@
     _isPhoto = NO;
     self.title = @"全部记录";
     _tranMeString = @"00";// 00：所有，01：收款,02:消费,03:提现
+    /*
     UIBarButtonItem * barButton = [[UIBarButtonItem alloc]initWithTitle:@"筛选" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
-    
+    */
+    UIBarButtonItem * barButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"more_top"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     self.navigationItem.rightBarButtonItem = barButton;
-    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
     self.dataMuArray = [[NSMutableArray alloc] init];
 //    self.successArray = [[NSMutableArray alloc] init];
     [self backButton];
@@ -67,10 +69,7 @@
     [self.tableView.header setFont:[UIFont systemFontOfSize:12.0f]];
     [self.tableView.header setTextColor:[UIColor colorWithRed:154/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
     [self.tableView.header beginRefreshing];
-
-    [self.tableView reloadData];
-
-    
+    [self.tableView reloadData];   
 }
 - (void)showMenu
 {
@@ -88,7 +87,7 @@
                                                       }];
     
     REMenuItem *exploreItem = [[REMenuItem alloc] initWithTitle:@"收款"
-                                                       subtitle:@"提现交易记录"
+                                                       subtitle:@"收款交易记录"
                                                           image:nil
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
@@ -96,7 +95,7 @@
                                                              self.title =  @"收款记录";
                                                              [self updataRecord];
                                                          }];
-    
+ /*
     REMenuItem *activityItem = [[REMenuItem alloc] initWithTitle:@"消费"
                                                         subtitle:@"消费交易记录"
                                                            image:nil
@@ -106,6 +105,7 @@
                                                               self.title =  @"消费记录";
                                                               [self updataRecord];
                                                           }];
+*/
     REMenuItem *profileItem = [[REMenuItem alloc] initWithTitle:@"提现"
                                                        subtitle:@"提现交易记录"
                                                           image:nil
@@ -127,19 +127,21 @@
     
     homeItem.tag = 0;
     exploreItem.tag = 1;
-    activityItem.tag = 2;
+    //activityItem.tag = 2;
     profileItem.tag = 3;
     timeItem.tag = 4;
     
-    _menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem, profileItem,timeItem]];
+    //_menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem, profileItem,timeItem]];
+    _menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, profileItem,timeItem]];
     _menu.cornerRadius = 5;
     _menu.shadowColor = [UIColor blackColor];
+    _menu.font = [UIFont systemFontOfSize:14.0f];
+    _menu.subtitleFont = [UIFont systemFontOfSize:12.0f];
     _menu.shadowOffset = CGSizeMake(0, 1);
-    _menu.shadowOpacity = 1;
     _menu.imageOffset = CGSizeMake(5, -1);
-    
     [_menu showFromNavigationController:self.navigationController];
 }
+
 -(void)updataTimeRecord{
     timeView = [[UIView alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height)];
     timeView.backgroundColor = [UIColor whiteColor];

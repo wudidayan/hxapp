@@ -10,6 +10,11 @@
 #import "TDBankCardInfo.h"
 #import "TDBindBankCardViewController.h"
 
+#define GetColorFromHex(hexColor) \
+[UIColor colorWithRed:((hexColor >> 16) & 0xFF) / 255.0 \
+green:((hexColor >>  8) & 0xFF) / 255.0 \
+blue:((hexColor >>  0) & 0xFF) / 255.0 \
+alpha:((hexColor >> 24) & 0xFF) / 255.0]
 
 @interface TDDrawingCashViewController (){
 
@@ -46,6 +51,14 @@
     _amtAcctType02 = @"";
     _amtAcctType03 = @"";
     _amtAcctType04 = @"";
+    [_swipeCardActBtn.layer setCornerRadius:3.0];
+    [_scanCodeActBtn.layer setCornerRadius:3.0];
+    [_fastPayActBtn.layer setCornerRadius:3.0];
+
+    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
+    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
+    [_fastPayActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
+    [_feeBtn setBackgroundColor:GetColorFromHex(0xffff9000)];
    }
 
 -(void)requestBalance{
@@ -321,24 +334,36 @@
 }
 
 - (IBAction)clickSwipeCardActBtn:(UIButton *)sender {
-    self.actTips.text = @"提: 刷卡账户";
+    [_drawBtn setTitle:@"刷卡账户.提现" forState:UIControlStateNormal];
+    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(0xffff9080)];
+    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
+    [_fastPayActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
     _moneyText.text = self.swipeCardAct.text;
     _actType = 2;
     _moneyText.enabled = TRUE;
+    [self.payPasswordText becomeFirstResponder];
 }
 
 - (IBAction)clickScanCodeActBtn:(UIButton *)sender {
-    self.actTips.text = @"提: 扫码账户";
+    [_drawBtn setTitle:@"扫码账户.提现" forState:UIControlStateNormal];
+    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
+    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(0xffff9080)];
+    [_fastPayActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
     _moneyText.text = self.scanCodeAct.text;
     _actType = 4;
     _moneyText.enabled = TRUE;
+    [self.payPasswordText becomeFirstResponder];
 }
 
 - (IBAction)clickFastPayActBtn:(UIButton *)sender {
-    self.actTips.text = @"提: 快捷账户";
+    [_drawBtn setTitle:@"快捷账户.提现" forState:UIControlStateNormal];
+    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
+    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
+    [_fastPayActBtn setBackgroundColor:GetColorFromHex(0xffff9080)];
     _moneyText.text = self.fastPayAct.text;
     _actType = 3;
     _moneyText.enabled = TRUE;
+    [self.payPasswordText becomeFirstResponder];
 }
 
 @end

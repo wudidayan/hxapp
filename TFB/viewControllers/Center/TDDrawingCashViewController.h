@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *fastPayAct;
 @property (weak, nonatomic) IBOutlet UIButton *fastPayActBtn;
 @property (weak, nonatomic) IBOutlet UILabel *actTips;
+@property (weak, nonatomic) IBOutlet UIButton *drawBtn;
+@property (weak, nonatomic) IBOutlet UIButton *feeBtn;
 - (IBAction)clickFeeButton:(UIButton *)sender;
 - (IBAction)clickSwipeCardActBtn:(UIButton *)sender;
 - (IBAction)clickScanCodeActBtn:(UIButton *)sender;

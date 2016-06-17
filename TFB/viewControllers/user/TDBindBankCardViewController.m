@@ -31,6 +31,8 @@
     BOOL keyboardIsShown;
     UITextField * currentTextfield;
     BOOL isClickZhihang;
+    BOOL isClickBank;
+    BOOL isClickCity;
 }
 @property (nonatomic,strong) NSArray * citiyArr;
 @property (nonatomic,strong) NSMutableArray * bankArr;
@@ -52,17 +54,12 @@
 //        [self.view makeToast:@"尚未完成实名认证，请前往认证" duration:2.0f position:@"center"];
 //    }
     isClickZhihang = NO;
-    
-    self.categories.delegate = self;
+    isClickBank = NO;
+    isClickCity = NO;
     self.idNumText.delegate = self;
     UITapGestureRecognizer * recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
     recognizer.numberOfTapsRequired = 1;
-    [self.categories addGestureRecognizer:recognizer];
     
-    //self.categories.textAlignment = NSTextAlignmentCenter;
-    if (!self.categories.text) {
-        self.categories.text = @"";
-    }
     self.bankNameListArr = [NSMutableArray array];
     self.bankArr = [NSMutableArray array];
     self.bank = [[TDBankListViewController alloc]init];
@@ -98,11 +95,8 @@
         [self.bankNameButtom setTitle:showText forState:0];
         
     }];
-    self.bankNameButtom.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-
-
-   
+    //self.bankNameButtom.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 
@@ -250,23 +244,26 @@
         [self.view makeToast:@"请输入银行卡号" duration:2.0f position:@"center"];
         return;
     }
-    if (_categories.text.length <= 0) {
-        [self.view makeToast:@"请输入支行名称" duration:2.0f position:@"center"];
-        return;
-    }
-    if (_bankNameButtom.titleLabel.text.length <= 0) {
-        [self.view makeToast:@"请选择银行名称" duration:2.0f position:@"center"];
-        return;
-    }
-    if (isClickZhihang == NO) {
-        [self.view makeToast:@"请选择支行信息" duration:2.0f position:@"center"];
-        return;
-    }
+
     if (_loactionView.citieID.length <= 0 ||_loactionView.provinceID.length <= 0) {
         [self.view makeToast:@"请选择省/市" duration:2.0f position:@"center"];
         return;
     }
+
+    if (isClickCity == NO) {
+        [self.view makeToast:@"请选择省/市" duration:2.0f position:@"center"];
+        return;
+    }
     
+    if (isClickBank == NO) {
+        [self.view makeToast:@"请选择银行名称" duration:2.0f position:@"center"];
+        return;
+    }
+    
+    if (isClickZhihang == NO) {
+        [self.view makeToast:@"请选择支行信息" duration:2.0f position:@"center"];
+        return;
+    }
     
     NSString * operType = nil;
     NSString * oldCard = nil;
@@ -306,6 +303,7 @@
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 //选择省市
 - (IBAction)clickTRButton:(UIButton *)sender {
     [self.cardNumTF resignFirstResponder];
@@ -322,12 +320,12 @@
     if (_loactionView.isCanShow) {
         [_loactionView showInView:self.view];
     }
-
+    
+    isClickCity = YES;
 }
+
 //选择银行
 - (IBAction)clickBankButton:(UIButton *)sender {
-    //输入框的关键字
-    self.categories.text = @"";
     [self.cardNumTF resignFirstResponder];
     //放银行名称的数组
     [self.bankArr removeAllObjects];
@@ -335,6 +333,7 @@
         [self.view makeToast:@"请选择省/市" duration:2.0f position:@"center"];
         return;
     }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TDHttpEngine requestGetBankNamecustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin bankProId:_loactionView.provinceID bankCityId:_loactionView.citieID complete:^(BOOL succeed, NSString *msg, NSString *cod, NSArray *bankList) {
         NSLog(@"%@",bankList);
@@ -349,34 +348,34 @@
             [_bank returnText:^(NSString *showText) {
 
                 [self.bankNameButtom setTitle:showText forState:0];
-                
+                isClickBank = YES;
             }];
 
             [self presentViewController:_bank animated:YES completion:nil];
         }
         
     }];
+    
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-
-    
-    
 }
+
 //选择支行
 - (IBAction)clickZhihangButton:(UIButton *)sender {
-    isClickZhihang = YES;
     [self.cardNumTF resignFirstResponder];
     [self.bankNameListArr removeAllObjects];
+    
     if (_loactionView.citieID.length <= 0 ||_loactionView.provinceID.length <= 0) {
         [self.view makeToast:@"请选择省/市" duration:2.0f position:@"center"];
         return;
     }
-    if (_bankNameButtom.titleLabel.text.length <= 0) {
+    
+    if (isClickBank == NO) {
         [self.view makeToast:@"请选择银行名称" duration:2.0f position:@"center"];
         return;
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [TDHttpEngine requestGetBankListNameCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin bankProId:_loactionView.provinceID bankCityId:_loactionView.citieID bankName:self.bankNameButtom.titleLabel.text categories:self.categories.text complete:^(BOOL succeed, NSString *msg, NSString *cod, NSArray *bankList) {
+    [TDHttpEngine requestGetBankListNameCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin bankProId:_loactionView.provinceID bankCityId:_loactionView.citieID bankName:self.bankNameButtom.titleLabel.text categories:@"" complete:^(BOOL succeed, NSString *msg, NSString *cod, NSArray *bankList) {
         if (succeed) {
 
             for (TDbankListName *bankListName in bankList) {
@@ -388,14 +387,15 @@
             [_bankList returnZhihang:^(NSString *subBranch, NSString *cnapsCode) {
                 self.subBranch = subBranch;
                 self.cnapsCode = cnapsCode;
-                self.categories.text = subBranch;
+                [self.subBankNameBtn setTitle:subBranch forState:0];
+                isClickZhihang = YES;
             }];
             [self presentViewController:_bankList animated:YES completion:nil];
         }
     }];
+    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
-
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -420,6 +420,7 @@
         
         return;
     }
+    
     _bankNumImageV.highlighted = NO;
     _lineNumImageV.highlighted = NO;
     _AreaImageV.highlighted = NO;
@@ -428,12 +429,9 @@
     }
     
     if(buttonIndex == 0) {
-        
-        
-    }else {
-        
         [_TRButton setTitle:[NSString stringWithFormat:@"%@ / %@",_loactionView.province,_loactionView.citie] forState:0];
-        
+    } else {
+        [_TRButton setTitle:[NSString stringWithFormat:@"%@ / %@",_loactionView.province,_loactionView.citie] forState:0];
     }
 }
 
@@ -447,12 +445,9 @@
     
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-
-//    [self.view endEditing:YES];
-    [self.cardNumTF resignFirstResponder];
-    [self.categories resignFirstResponder];
-    
+    [self.view endEditing:YES];
 }
+
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     
@@ -463,10 +458,10 @@
     if (self.BGScrollView.contentOffset.y) {
         [self.BGScrollView setContentOffset:CGPointMake(0, 120) animated:YES];
     }
+    
     _bankNumImageV.highlighted = NO;
     _lineNumImageV.highlighted = NO;
     _AreaImageV.highlighted = NO;
-    [self.categories resignFirstResponder];
     [self.idNumText resignFirstResponder];
 //    [textField resignFirstResponder];
     return NO;
@@ -500,11 +495,13 @@
      name:UIKeyboardDidHideNotification
      object:nil];
 }
+
 //键盘弹起后处理scrollView的高度使得textfield可见
 -(void)keyboardDidShow:(NSNotification *)notification{
     if (keyboardIsShown) {
         return;
     }
+    
     NSDictionary * info = [notification userInfo];
     NSValue *avalue = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardRect = [self.view convertRect:[avalue CGRectValue] fromView:nil];
@@ -515,6 +512,7 @@
     [self.BGScrollView scrollRectToVisible:textFieldRect animated:YES];
     keyboardIsShown = YES;
 }
+
 //键盘隐藏后处理scrollview的高度，使其还原为本来的高度
 -(void)keyboardDidHide:(NSNotification *)notification{
     NSDictionary *info = [notification userInfo];
@@ -523,9 +521,9 @@
     CGRect viewFrame = [self.BGScrollView frame];
     viewFrame.size.height += keyboardRect.size.height;
     self.BGScrollView.frame = viewFrame;
-
     keyboardIsShown = NO;
 }
+
 //页面消失前取消通知
 -(void)viewWillDisappear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter]
@@ -547,7 +545,6 @@
 - (IBAction)backgroundTap:(id)sender {
     [self.cardNumTF resignFirstResponder];
     [self.idNumText resignFirstResponder];
-    [self.categories resignFirstResponder];
 }
 
 @end

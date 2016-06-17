@@ -15,6 +15,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"设置扫码收款金额";
     self.scanCodeContext = [[TDScanCode alloc]init];
+    [self.txnAmt becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
