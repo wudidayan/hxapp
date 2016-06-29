@@ -36,6 +36,7 @@
 @interface TDNLBlueSwipeViewController ()
 {
     TDAppDelegate *_app;
+    int _isSuccess;
 }
 @end
 
@@ -199,6 +200,8 @@
         [[[UIAlertView alloc] initWithTitle:@"提醒" message:@"设备未连接，请选择并连接！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
         return ;
     }
+    
+    _isSuccess = 1;
     [self addText:@"正在等待刷卡/插卡......"];
 
     id<NLSwiper> swiper = (id<NLSwiper>)[_app.device standardModuleWithModuleType:NLModuleTypeCommonSwiper];
@@ -263,7 +266,7 @@
         //[self.emvModule setOnlinePinConfig:config];
         
         id<NLEmvTransController> emvController = [self.emvModule emvTransControllerWithListener:self];
-        [emvController startEmvWithAmount:[NSDecimalNumber decimalNumberWithString:self.payMoney] cashback:[NSDecimalNumber zero] forceOnline:NO];
+        [emvController startEmvWithAmount:[NSDecimalNumber decimalNumberWithString:self.payMoney] cashback:[NSDecimalNumber zero] forceOnline:YES];
         
     }
     else if (NLModuleTypeCommonNCCard == openType) {
@@ -320,7 +323,7 @@
                           @0x95, @0x9A, @0x9C, @0x9F02, @0x5F2a, @0x82,
                           @0x9F1A, @0x9F03, @0x9F33, @0x9F34, @0x9F35,
                           @0x9F1E, @0x84, @0x9F09, @0x9F41, @0x9F63]];
-                    if (![NLISOUtils hexStringWithData:[tlvPackage pack]] || [[NLISOUtils hexStringWithData:[tlvPackage pack]] isEqualToString:@""] || ![emvTransInfo cardNo] || [[emvTransInfo cardNo] isEqualToString:@""] ||  [[emvTransInfo cardNo] length] < 10) {
+                    if (![NLISOUtils hexStringWithData:[tlvPackage pack]] || [[NLISOUtils hexStringWithData:[tlvPackage pack]] isEqualToString:@""] || ![emvTransInfo cardNo] || [[emvTransInfo cardNo] isEqualToString:@""] ||  [[emvTransInfo cardNo] length] < 12) {
                         [self addText:@"卡片信息不完整，请返回重试"];
                         return;
                     }
@@ -388,6 +391,8 @@
             return;
         }
         
+    } else {
+        [self addText:[NSString stringWithFormat:@"交易失败，[openType: %u]", openType]];
     }
 }
 
@@ -421,7 +426,7 @@
             track2 = [track2 stringByReplacingOccurrencesOfString:@" " withString:@""];
         }
         
-        if (![NLISOUtils hexStringWithData:[tlvPackage pack]] || [[NLISOUtils hexStringWithData:[tlvPackage pack]] isEqualToString:@""] || ![context cardNo] || [[context cardNo] isEqualToString:@""] || !erciStr || [erciStr isEqualToString:@""]) {
+        if (![NLISOUtils hexStringWithData:[tlvPackage pack]] || [[NLISOUtils hexStringWithData:[tlvPackage pack]] isEqualToString:@""] || ![context cardNo] || [[context cardNo] isEqualToString:@""] || !erciStr || [erciStr isEqualToString:@""] || [[context cardNo] length] < 12) {
             
             [self addText:@"卡片信息不完整，请返回重试或重新插入刷卡器进行操作"];
             
@@ -464,7 +469,22 @@
 }
 
 - (void)onEmvFinished:(BOOL)isSuccess context:(NLEmvTransInfo*)context error:(NSError*)err {
-    
+    if (!isSuccess) {
+        _isSuccess = 0;
+        [self addText:[NSString stringWithFormat:@"交易失败，onEmvFinished_NO_%@", err]];
+    } else {
+        [self addText:[NSString stringWithFormat:@"读卡成功"]];
+    }
+}
+
+- (void)onFallback:(NLEmvTransInfo*)context error:(NSError*)err {
+    _isSuccess = 0;
+    [self addText:[NSString stringWithFormat:@"交易失败，onFallback_%@", err]];
+}
+
+- (void)onError:(id<NLEmvTransController>)controller error:(NSError*)err {
+    _isSuccess = 0;
+    [self addText:[NSString stringWithFormat:@"交易失败，onError_%@", err]];
 }
 
 // 读取IC卡二磁道密文
@@ -499,6 +519,11 @@
 
 
 - (void)getCardInfoWithDic:(NSDictionary *)aDic {
+    if(_isSuccess != 1) {
+        NSLog( @"交易失败，_isSuccess != 1");
+        return;
+    }
+    
     NSLog( @"info--- %@", aDic);
     dispatch_async(dispatch_get_main_queue(), ^{
         self.descriptionLabel.text = @"刷卡完成";

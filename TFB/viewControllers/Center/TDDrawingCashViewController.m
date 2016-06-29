@@ -16,6 +16,10 @@ green:((hexColor >>  8) & 0xFF) / 255.0 \
 blue:((hexColor >>  0) & 0xFF) / 255.0 \
 alpha:((hexColor >> 24) & 0xFF) / 255.0]
 
+#define DRAW_COLOR_ACTIVE    0xffff4040 //
+#define DRAW_COLOR_INACTIVE  0x50ff4040 //0x50ff9080
+#define DRAW_COLOR_FEE       0xffff9000
+
 @interface TDDrawingCashViewController (){
 
  
@@ -55,10 +59,10 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
     [_scanCodeActBtn.layer setCornerRadius:3.0];
     [_fastPayActBtn.layer setCornerRadius:3.0];
 
-    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
-    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
-    [_fastPayActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
-    [_feeBtn setBackgroundColor:GetColorFromHex(0xffff9000)];
+    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_INACTIVE)];
+    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_INACTIVE)];
+    [_fastPayActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_INACTIVE)];
+    [_feeBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_FEE)];
    }
 
 -(void)requestBalance{
@@ -335,9 +339,9 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
 
 - (IBAction)clickSwipeCardActBtn:(UIButton *)sender {
     [_drawBtn setTitle:@"刷卡账户.提现" forState:UIControlStateNormal];
-    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(0xffff9080)];
-    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
-    [_fastPayActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
+    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_ACTIVE)];
+    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_INACTIVE)];
+    [_fastPayActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_INACTIVE)];
     _moneyText.text = self.swipeCardAct.text;
     _actType = 2;
     _moneyText.enabled = TRUE;
@@ -346,9 +350,9 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
 
 - (IBAction)clickScanCodeActBtn:(UIButton *)sender {
     [_drawBtn setTitle:@"扫码账户.提现" forState:UIControlStateNormal];
-    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
-    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(0xffff9080)];
-    [_fastPayActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
+    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_INACTIVE)];
+    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_ACTIVE)];
+    [_fastPayActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_INACTIVE)];
     _moneyText.text = self.scanCodeAct.text;
     _actType = 4;
     _moneyText.enabled = TRUE;
@@ -357,9 +361,9 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
 
 - (IBAction)clickFastPayActBtn:(UIButton *)sender {
     [_drawBtn setTitle:@"快捷账户.提现" forState:UIControlStateNormal];
-    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
-    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(0x50ff9080)];
-    [_fastPayActBtn setBackgroundColor:GetColorFromHex(0xffff9080)];
+    [_swipeCardActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_INACTIVE)];
+    [_scanCodeActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_INACTIVE)];
+    [_fastPayActBtn setBackgroundColor:GetColorFromHex(DRAW_COLOR_ACTIVE)];
     _moneyText.text = self.fastPayAct.text;
     _actType = 3;
     _moneyText.enabled = TRUE;

@@ -220,6 +220,8 @@
     NSError *errPinLd = nil;
     id<NLPinInput> pinLd = (id<NLPinInput>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonPinInput];
     NSString *pik = [TDPinKeyInfo pinKeyDefault].zpinkey;
+    NSString *pikcv = [TDPinKeyInfo pinKeyDefault].zpincv;
+#if 0 // 外部校验KCV
     NSData *cv = [pinLd loadWorkingKeyWithWorkingKeyType:NLWorkingKeyTypePinInput mainKeyIndex:NL_DEFAULT_MK_INDEX workingKeyIndex:NL_DEFAULT_PIN_WK_INDEX data:[NLISOUtils hexStr2Data:pik] error:&errPinLd];
     NSLog(@"装载PIK[%@]结果：%@", pik, (errPinLd ? [errPinLd description] : @"成功!"));
     if(errPinLd != nil) {
@@ -241,7 +243,15 @@
         [self.view makeToast:@"秘钥装载失败" duration:2.0f position:@"center"];
         return nil;
     }
-
+#else
+    [pinLd loadWorkingKeyWithWorkingKeyType:NLWorkingKeyTypePinInput mainKeyIndex:NL_DEFAULT_MK_INDEX workingKeyIndex:NL_DEFAULT_PIN_WK_INDEX data:[NLISOUtils hexStr2Data:pik] checkValue:[NLISOUtils hexStr2Data:pikcv] error:&errPinLd];
+    NSLog(@"装载PIK[%@]结果：%@", pik, (errPinLd ? [errPinLd description] : @"成功!"));
+    if(errPinLd != nil) {
+        [self.view makeToast:@"秘钥装载失败" duration:2.0f position:@"center"];
+        return nil;
+    }
+#endif
+    
     id<NLLCD> lcd = (id<NLLCD>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonLCD];
     id<NLPinInput> pin = (id<NLPinInput>)[[TDAppDelegate sharedAppDelegate].device standardModuleWithModuleType:NLModuleTypeCommonPinInput];
     NSError *err = nil;
