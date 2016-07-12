@@ -36,39 +36,39 @@
     __weak typeof(self)weakSelf = self;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSString *payAmt = [NSString stringWithFormat:@"%.2f", _scanCodeContext.txnAmt.floatValue * 100];
-    [TDHttpEngine requestForPrdOrderWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordType:@"01" bizType:@"03" prdordAmt:payAmt prdName:@"扫码" price:payAmt complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
+    [TDHttpEngine requestForPrdOrderWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordType:@"01" bizType:@"04" prdordAmt:payAmt prdName:@"扫码" price:payAmt complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
         
         if (succeed) {
             _scanCodeContext.prdordNo = [infoDic objectForKey:@"prdordNo"];
+            NSLog(@"prdordNo: %@", _scanCodeContext.prdordNo);
+            
+            // 订单成功后支付
+            [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_scanCodeContext.prdordNo payType:@"04" rate:@"" termNo:@"999999999" termType:@"" payAmt:payAmt track:@"" pinblk:@"" random:@"" mediaType:@"" period:@"" icdata:@"" crdnum:@"" mac:@"" ctype:@"00" scancardnum:@"" scanornot:@"" address:@"上海市" complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
+                
+                if (succeed) {
+                    [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+                    _scanCodeContext.payData = [infoDic objectForKey:@"payData"];
+                    if(_scanCodeContext.payData.length > 16) {
+                        TDScanCodeStep2ViewController *scanCodeController = [[TDScanCodeStep2ViewController alloc]init];
+                        scanCodeController.scanCodeContext = self.scanCodeContext;
+                        scanCodeController.hidesBottomBarWhenPushed = YES;
+                        [self.navigationController pushViewController:scanCodeController animated:YES];
+                    } else {
+                        [weakSelf.view makeToast:@"生成二维码失败，请稍候重试" duration:2.0f position:@"center"];
+                    }
+                } else {
+                    [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+                    [weakSelf.view makeToast:msg duration:2.0f position:@"center"];
+                    return;
+                }
+                
+            }];
         } else {
             [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
             [weakSelf.view makeToast:msg duration:2.0f position:@"center"];
             return;
         }
     }];
-
-    // 支付
-    [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_scanCodeContext.prdordNo payType:@"04" rate:@"" termNo:@"" termType:@"" payAmt:payAmt track:@"" pinblk:@"" random:@"" mediaType:@"" period:@"" icdata:@"" crdnum:@"" mac:@"" ctype:@"00" scancardnum:@"" scanornot:@"" address:@"" complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
-
-        if (succeed) {
-            _scanCodeContext.payData = [infoDic objectForKey:@"payData"];
-        } else {
-            [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
-            [weakSelf.view makeToast:msg duration:2.0f position:@"center"];
-            return;
-        }
-        
-    }];
-    
-    [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
-    if(_scanCodeContext.payData.length > 16) {
-        TDScanCodeStep2ViewController *scanCodeController = [[TDScanCodeStep2ViewController alloc]init];
-        scanCodeController.scanCodeContext = self.scanCodeContext;
-        scanCodeController.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:scanCodeController animated:YES];
-    } else {
-        [weakSelf.view makeToast:@"生成二维码失败，请稍候重试" duration:2.0f position:@"center"];
-    }
 }
 
 - (void)popToRoot {

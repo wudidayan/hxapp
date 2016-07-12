@@ -117,34 +117,34 @@
         
         if (succeed) {
             _scanCodeContext.payResult = [infoDic objectForKey:@"payResult"];
+            
+            if([_scanCodeContext.payResult isEqualToString:@"U"]) {
+                self.payStatus.text = @"-.-";
+                return;
+            }
+            
+            TDScanCodeResultViewController *resultController = [[TDScanCodeResultViewController alloc]init];
+            resultController.resultState = self.scanCodeContext.payResultMsg;
+            
+            if([self.scanCodeContext.payResult isEqualToString:@"S"]) {
+                resultController.isSuccess = TRUE;
+                if(resultController.resultState.length == 0) {
+                    resultController.resultState = [NSString stringWithFormat:@"成功收款 %@ 元", self.scanCodeContext.txnAmt];
+                }
+            } else {
+                resultController.isSuccess = FALSE;
+                if(resultController.resultState.length == 0) {
+                    resultController.resultState = @"交易失败";
+                }
+            }
+            
+            resultController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:resultController animated:YES];
         } else {
             self.payStatus.text = @"+.+";
         }
         
     }];
-    
-    if([_scanCodeContext.payResult isEqualToString:@"U"]) {
-        self.payStatus.text = @"-.-";
-        return;
-    }
-    
-    TDScanCodeResultViewController *resultController = [[TDScanCodeResultViewController alloc]init];
-    resultController.resultState = self.scanCodeContext.payResultMsg;
-
-    if([self.scanCodeContext.payResult isEqualToString:@"Y"]) {
-        resultController.isSuccess = TRUE;
-        if(resultController.resultState.length == 0) {
-            resultController.resultState = [NSString stringWithFormat:@"成功收款 %@ 元", self.scanCodeContext.txnAmt];
-        }
-    } else {
-        resultController.isSuccess = FALSE;
-        if(resultController.resultState.length == 0) {
-            resultController.resultState = @"交易失败";
-        }
-    }
-        
-    resultController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:resultController animated:YES];
 }
 
 @end

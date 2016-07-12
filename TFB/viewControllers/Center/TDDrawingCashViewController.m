@@ -199,7 +199,7 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
     }
     
     if(_actType == 3) {
-        if (_oldMoney.floatValue > [self.scanCodeAct.text floatValue] + FLOAT_PRECISION) {
+        if (_oldMoney.floatValue > [self.fastPayAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
@@ -209,7 +209,7 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
     }
     
     if(_actType == 4) {
-        if (_oldMoney.floatValue > [self.fastPayAct.text floatValue] + FLOAT_PRECISION) {
+        if (_oldMoney.floatValue > [self.scanCodeAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
@@ -238,7 +238,6 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
     }];
     
 }
-
 
 - (IBAction)clickButton:(UIButton *)sender {
     
@@ -274,7 +273,7 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
     }
     
     if(_actType == 3) {
-        if (([_moneyText.text floatValue]) > [self.scanCodeAct.text floatValue] + FLOAT_PRECISION) {
+        if (([_moneyText.text floatValue]) > [self.fastPayAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
@@ -284,7 +283,7 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
     }
     
     if(_actType == 4) {
-        if (([_moneyText.text floatValue]) > [self.fastPayAct.text floatValue] + FLOAT_PRECISION) {
+        if (([_moneyText.text floatValue]) > [self.scanCodeAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
             return;
         }
