@@ -75,9 +75,10 @@
     if (isWrite == YES) {
         
         NSUInteger phoneType = 0;
-        phoneType = [self.cardNum.text validateCaseInsensitive:@"^([0-9]{16}|[0-9]{19})$"];
+        //phoneType = [self.cardNum.text validateCaseInsensitive:@"^([0-9]{16}|[0-9]{19})$"];
+        phoneType = [self.cardNum.text validateCaseInsensitive:@"^([0-9]{16,19})$"];
         if (0 == phoneType) {
-            [self.view makeToast:@"卡号为16或19位数字" duration:2.f position:@"center"];
+            [self.view makeToast:@"卡号为16至19位数字" duration:2.f position:@"center"];
             return ;
         }
 

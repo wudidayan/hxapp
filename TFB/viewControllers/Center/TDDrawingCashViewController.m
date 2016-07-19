@@ -24,6 +24,7 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
 
  
     BOOL _isFee;
+    BOOL _isContinue;
     NSString * _oldMoney;
     int _actType;
     NSString * _actTypeStr;
@@ -234,11 +235,77 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
         }else{
             [self.view makeToast:msg duration:2.0f position:@"center"];
         }
-        
     }];
-    
 }
 
+- (void)calcFee {
+    
+    _oldMoney = _moneyText.text;
+    if (Empty_Str(_oldMoney)) {
+        [self.view makeToast:@"请输入金额" duration:2.0f position:@"center"];
+        return;
+    }
+    
+    if(_oldMoney.floatValue <= 0) {
+        [self.view makeToast:@"输入金额无效" duration:2.0f position:@"center"];
+        return;
+    }
+    
+    if(_actType == 2) {
+        if (_oldMoney.floatValue > [self.swipeCardAct.text floatValue] + FLOAT_PRECISION) {
+            [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
+            return;
+        }
+        
+        _actTypeStr = @"02";
+        _amtAcctType02 = [NSString stringWithFormat:@"%.2f",_oldMoney.floatValue * 100];
+    }
+    
+    if(_actType == 3) {
+        if (_oldMoney.floatValue > [self.fastPayAct.text floatValue] + FLOAT_PRECISION) {
+            [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
+            return;
+        }
+        
+        _actTypeStr = @"03";
+        _amtAcctType03 = [NSString stringWithFormat:@"%.2f",_oldMoney.floatValue * 100];
+    }
+    
+    if(_actType == 4) {
+        if (_oldMoney.floatValue > [self.scanCodeAct.text floatValue] + FLOAT_PRECISION) {
+            [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
+            return;
+        }
+        
+        _actTypeStr = @"04";
+        _amtAcctType04 = [NSString stringWithFormat:@"%.2f",_oldMoney.floatValue * 100];
+    }
+    
+    int iBalanceAvailable = (int)self.balanceAvailable;
+    if (_oldMoney.floatValue > iBalanceAvailable / 100.0 + FLOAT_PRECISION) {
+        [self.view makeToast:@"可提余额不足" duration:2.0f position:@"center"];
+        return;
+    }
+    
+    //计算手续费
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TDHttpEngine requestGetFeeWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin andTxamt:[NSString stringWithFormat:@"%.2f",_oldMoney.floatValue *100] andCasType:_casType andAcctType:_actTypeStr andAmtAcctType02:_amtAcctType02 andAmtAcctType03:_amtAcctType03 andAmtAcctType04:_amtAcctType04  complete:^(BOOL succeed, NSString *msg, NSString *cod, NSString *fee) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (succeed) {
+            _isFee = YES;
+            _RateLabel.text = fee;
+            
+            NSString *tips = [NSString stringWithFormat:@"\r\n您本次交易手续费 %@ 元\r\n", _RateLabel.text];
+            UIAlertView * al = [[UIAlertView alloc]initWithTitle:@"提示" message:tips delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"继续", nil];
+            al.tag = 100;
+            [al show];
+        }else{
+            [self.view makeToast:msg duration:2.0f position:@"center"];
+        }
+    }];
+}
+
+#if 0
 - (IBAction)clickButton:(UIButton *)sender {
     
     [self.view endEditing:YES];
@@ -251,7 +318,7 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
     }
     
     _isFee = NO;
-
+    
     if (_moneyText.text.length <= 0) {
         [self.view makeToast:@"请输入提现金额" duration:2.0f position:@"center"];
         return;
@@ -261,7 +328,7 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
         [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
         return;
     }
-
+    
     if(_actType == 2) {
         if (([_moneyText.text floatValue]) > [self.swipeCardAct.text floatValue] + FLOAT_PRECISION) {
             [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
@@ -312,15 +379,115 @@ alpha:((hexColor >> 24) & 0xFF) / 255.0]
             [self requestUpdataBalance];
             
         }else{
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+    }];
+    
+}
+#endif
+
+- (void)withDrawing {
+    
+    [self.view endEditing:YES];
+    if (![_oldMoney isEqualToString:_moneyText.text]) {
+        if (!_isFee) {
+            [self.view makeToast:@"请计算手续费" duration:2.0f position:@"center"];
+            return;
+        }
         
+    }
+    
+    _isFee = NO;
+    
+    if (_moneyText.text.length <= 0) {
+        [self.view makeToast:@"请输入提现金额" duration:2.0f position:@"center"];
+        return;
+    }
+    
+    if (([_moneyText.text floatValue]) > [self.TatolAmtLabel.text floatValue] + FLOAT_PRECISION) {
+        [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
+        return;
+    }
+    
+    if(_actType == 2) {
+        if (([_moneyText.text floatValue]) > [self.swipeCardAct.text floatValue] + FLOAT_PRECISION) {
+            [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
+            return;
+        }
+        
+        _actTypeStr = @"02";
+        _amtAcctType02 = [NSString stringWithFormat:@"%.2f", [_moneyText.text floatValue] * 100];
+    }
+    
+    if(_actType == 3) {
+        if (([_moneyText.text floatValue]) > [self.fastPayAct.text floatValue] + FLOAT_PRECISION) {
+            [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
+            return;
+        }
+        
+        _actTypeStr = @"03";
+        _amtAcctType03 = [NSString stringWithFormat:@"%.2f", [_moneyText.text floatValue] * 100];
+    }
+    
+    if(_actType == 4) {
+        if (([_moneyText.text floatValue]) > [self.scanCodeAct.text floatValue] + FLOAT_PRECISION) {
+            [self.view makeToast:@"余额不足" duration:2.0f position:@"center"];
+            return;
+        }
+        
+        _actTypeStr = @"04";
+        _amtAcctType04 = [NSString stringWithFormat:@"%.2f", [_moneyText.text floatValue] * 100];
+    }
+    
+    int iBalanceAvailable = (int)self.balanceAvailable;
+    if (([_moneyText.text floatValue]) > iBalanceAvailable / 100.0 + FLOAT_PRECISION) {
+        [self.view makeToast:@"可提余额不足" duration:2.0f position:@"center"];
+        return;
+    }
+    
+    if (NO == [NSString checkPasswordLength:_payPasswordText.text]) {
+        [self.view makeToast:@"密码长度为6-20位字母或有效数字组成" duration:2.0f position:@"center"];
+        return;
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSString * amt = [NSString stringWithFormat:@"%.2f",_moneyText.text.floatValue* 100];
+    [TDHttpEngine requestFortxTranWithCustId:[TDUser defaultUser].custId Mobile:[TDUser defaultUser].custLogin txamt:amt casType:_casType cardNo:_cardNo payPwd:_payPasswordText.text andAcctType:_actTypeStr andAmtAcctType02:_amtAcctType02 andAmtAcctType03:_amtAcctType03 andAmtAcctType04:_amtAcctType04 complete:^(BOOL succeed, NSString *msg, NSString *cod) {
+        [self.view makeToast:msg duration:2.0f position:@"center"];
+        if (succeed) {
+            
+            [self requestUpdataBalance];
+            
+        }else{
+            
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     }];
     
 }
 
+- (IBAction)clickButton:(UIButton *)sender {
+    
+    [self.view endEditing:YES];
+    [self calcFee];
+}
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
+    if (alertView.tag == 100) { // 手续费提示
+        
+        if (0 == buttonIndex) {
+            _isContinue = NO;
+            NSLog(@"本次操作取消");
+        } else if (1 == buttonIndex){
+            _isContinue = YES;
+            [self withDrawing];
+        }
+        
+        return;
+    }
+        
     if (0 == buttonIndex) {
         
         TDBindBankCardViewController * bankCard = [[TDBindBankCardViewController alloc]init];

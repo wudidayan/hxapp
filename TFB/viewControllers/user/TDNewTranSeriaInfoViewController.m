@@ -59,8 +59,9 @@
     [TDHttpEngine requestGetTranDetailWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin busType:_tranSerial.ordtype bizType:@"" ordno:_tranSerial.ordno complete:^(BOOL succeed, NSString *msg, NSString *cod, id serialInfo) {
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         if (succeed) {
-            TDTranDetailedSerial * deSer = (TDTranDetailedSerial *)serialInfo;
-            if (_tranSerial.payWay.length == 0 || _tranSerial.payWay.intValue == 02) {
+            TDTranDetailedSerial *deSer = (TDTranDetailedSerial *)serialInfo;
+            //if (_tranSerial.payWay.length == 0 || _tranSerial.payWay.intValue == 02) {
+            if (deSer.payType.length == 0 || deSer.payType.intValue == 02) {
                 NSString *imagePath = [NSString stringWithFormat:@"%@%@", HOST, deSer.fjpath];
                 self.proNum = deSer.prdordno;
                 NSURL *imageUrl = [NSURL URLWithString:imagePath];

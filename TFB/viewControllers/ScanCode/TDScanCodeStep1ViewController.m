@@ -1,8 +1,12 @@
 #import "ZSYPopoverListView.h"
 #import "TDScanCodeStep1ViewController.h"
 #import "TDScanCodeStep2ViewController.h"
+#import "TDTerm.h"
 
-@interface TDScanCodeStep1ViewController ()
+@interface TDScanCodeStep1ViewController () {
+    NSString *_termNum;
+    TDTerm *_tdTerm;
+}
 
 @end
 
@@ -15,6 +19,8 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"设置扫码收款金额";
     self.scanCodeContext = [[TDScanCode alloc]init];
+    _tdTerm = [[TDTerm alloc]init];
+    [self getTermInfo];
     [self.txnAmt becomeFirstResponder];
 }
 
@@ -43,7 +49,7 @@
             NSLog(@"prdordNo: %@", _scanCodeContext.prdordNo);
             
             // 订单成功后支付
-            [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_scanCodeContext.prdordNo payType:@"04" rate:@"" termNo:@"999999999" termType:@"" payAmt:payAmt track:@"" pinblk:@"" random:@"" mediaType:@"" period:@"" icdata:@"" crdnum:@"" mac:@"" ctype:@"00" scancardnum:@"" scanornot:@"" address:@"上海市" complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
+            [TDHttpEngine requestForPayWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin prdordNo:_scanCodeContext.prdordNo payType:@"04" rate:@"" termNo: _termNum termType:@"" payAmt:payAmt track:@"" pinblk:@"" random:@"" mediaType:@"" period:@"" icdata:@"" crdnum:@"" mac:@"" ctype:@"00" scancardnum:@"" scanornot:@"" address:@"上海市" complete:^(BOOL succeed, NSString *msg, NSString *cod, NSDictionary *infoDic) {
                 
                 if (succeed) {
                     [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
@@ -85,6 +91,36 @@
 
 - (IBAction)textFieldDoneEditing:(id)sender {
     [sender resignFirstResponder];
+}
+
+// 绑定获取终端列表
+- (void)getTermInfo {
+    
+    if([TDUser defaultUser].termNum == 0) {
+        _termNum = @"999999999";
+        return;
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    __weak typeof(self)weakSelf = self;
+    [TDHttpEngine requestForGetTermListWithCustId:[TDUser defaultUser].custId custMobile:[TDUser defaultUser].custLogin complete:^(BOOL succeed, NSString *msg, NSString *cod, NSArray *termArray) {
+        
+        if (succeed) {
+            [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+            if (!termArray.count) {
+                _termNum = @"999999999";
+                NSLog(@"扫码，刷卡头未绑定，设置终端号为[%@]", _termNum);
+            } else {
+                _tdTerm = [termArray firstObject];
+                _termNum = _tdTerm.termNo;
+                NSLog(@"扫码，刷卡头已绑定为[%@]", _termNum);
+            }
+        } else {
+            [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+            [weakSelf.view makeToast:msg duration:2.0f position:@"center"];
+            [self performSelector:@selector(clickbackButton) withObject:self afterDelay:2.f];
+        }
+    }];
 }
 
 @end
