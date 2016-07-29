@@ -11,7 +11,7 @@
 #define TFB_TDParameterHeader_h
 #define ZMK @"11111111111111110123456789ABCDEF"
 
-#define DEBUG_VER     1
+#define DEBUG_VER     0
 #define APPSTORE_VER  1
 
 #if APPSTORE_VER

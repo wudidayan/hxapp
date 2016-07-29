@@ -78,15 +78,15 @@
     }
 
     if(self.acT1AP_ACT03 == nil) {
-        llFreeze = 0;
+        llAcT1AP_ACT03 = 0;
     } else {
-        llFreeze = self.acT1AP_ACT03.longLongValue;
+        llAcT1AP_ACT03 = self.acT1AP_ACT03.longLongValue;
     }
     
     if(self.acT1AP_ACT04 == nil) {
-        llFreeze = 0;
+        llAcT1AP_ACT04 = 0;
     } else {
-        llFreeze = self.acT1AP_ACT04.longLongValue;
+        llAcT1AP_ACT04 = self.acT1AP_ACT04.longLongValue;
     }
     
     llBalanceDisp = llAcT1AP + llAcT1AP_ACT03 + llAcT1AP_ACT04;
